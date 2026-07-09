@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const dateFmt = new Intl.DateTimeFormat('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout>
+  <h1 class="page-title">你好，欢迎来到我的博客</h1>
+  <p class="lead">
+    这里记录我的思考、技术与生活。下面是最近更新的文章，完整列表请看<a href="/blog">文章页</a>。
+  </p>
+
+  {posts.length > 0 ? (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <p class="post-title"><a href={`/blog/${post.id}/`}>{post.data.title}</a></p>
+          <p class="post-date">{dateFmt.format(post.data.pubDate)}</p>
+          <p class="post-desc">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>还没有文章，去后台写一篇吧。</p>
+  )}
+</BaseLayout>
