@@ -1,0 +1,56 @@
+---
+/**
+ * 博客卡片组件 — 用于列表页和首页最新文章板块
+ * 三列网格中的单张卡片：封面图 + 标题 + 描述 + 标签 + 日期/作者
+ */
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  pubDate: Date;
+  image?: string;
+  tags?: string[];
+  author?: string;
+}
+
+const { title, description, href, pubDate, image, tags = [], author = '露梦' } = Astro.props;
+
+const dateFmt = new Intl.DateTimeFormat('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+/** 估算阅读时间（按中文约 400 字/分钟） */
+const readMin = '2 分钟';
+---
+
+<a class="blog-card" href={href} id={`card-${href.replace(/[^a-z0-9]/gi, '-')}`}>
+  {image && (
+    <div class="blog-card-cover">
+      <img src={image} alt={title} loading="lazy" />
+    </div>
+  )}
+  <div class="blog-card-body">
+    <h2 class="blog-card-title">{title}</h2>
+    <p class="blog-card-desc">{description}</p>
+    {tags.length > 0 && (
+      <div class="blog-card-tags">
+        {tags.slice(0, 3).map((tag) => (
+          <span class="blog-card-tag">{tag}</span>
+        ))}
+        {tags.length > 3 && <span class="blog-card-tag blog-card-tag-more">+{tags.length - 3}</span>}
+      </div>
+    )}
+    <div class="blog-card-footer">
+      <div class="blog-card-meta">
+        <span class="blog-card-date">📅 {dateFmt.format(pubDate)}</span>
+        <span class="blog-card-read">· {readMin}</span>
+      </div>
+      <div class="blog-card-author">
+        <span class="blog-card-avatar">👤</span>
+        <span>{author}</span>
+      </div>
+    </div>
+  </div>
+</a>

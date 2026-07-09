@@ -1,20 +1,27 @@
 ---
 import { getCollection } from 'astro:content';
 
-const recent = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+// 最近文章
+const recent = [...allPosts]
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
+
+// 标签云（统计所有标签）
+const tagMap = new Map<string, number>();
+allPosts.forEach((post) => {
+  (post.data.tags || []).forEach((tag: string) => {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  });
+});
+const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 
 const dateFmt = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric' });
 ---
 
-<aside class="content-aside">
-  <section class="widget">
-    <h3 class="widget-title">关于</h3>
-    <p class="widget-body">露梦的博客，记录 AI、技术与日常思考。</p>
-    <a class="widget-link" href="/about">了解更多 →</a>
-  </section>
-
+<aside class="article-aside">
+  <!-- 最近文章 -->
   <section class="widget">
     <h3 class="widget-title">最近文章</h3>
     <ul class="widget-list">
@@ -27,12 +34,29 @@ const dateFmt = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric'
     </ul>
   </section>
 
+  <!-- 标签云 -->
+  {tags.length > 0 && (
+    <section class="widget">
+      <h3 class="widget-title">热门标签</h3>
+      <div class="tag-cloud">
+        {tags.map(([tag]) => (
+          <span class="tag-cloud-item">{tag}</span>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- 联系客服 CTA -->
+  <section class="widget widget-cta">
+    <h3 class="widget-title">需要帮助？</h3>
+    <p class="widget-body">ChatGPT Plus / Claude Pro / SuperGrok 订阅代充，微信支付，原账号开通。</p>
+    <button class="pill" type="button" onclick="openQrModal()">联系客服</button>
+  </section>
+
+  <!-- 关于 -->
   <section class="widget">
-    <h3 class="widget-title">导航</h3>
-    <ul class="widget-list">
-      <li><a href="/">首页</a></li>
-      <li><a href="/blog">全部文章</a></li>
-      <li><a href="/about">关于</a></li>
-    </ul>
+    <h3 class="widget-title">关于</h3>
+    <p class="widget-body">露梦AI Store，专注 AI 订阅服务代充，为国内用户提供更便捷的 AI 工具访问方式。</p>
+    <a class="widget-link" href="/">了解更多 →</a>
   </section>
 </aside>

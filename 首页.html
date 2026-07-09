@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://www.jrjrz.com/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充</title>
+  <meta name="description" content="露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。ChatGPT Plus ¥128/月，Claude Pro ¥135/月，支持微信/支付宝，原账号开通，无需账号密码。">
+  <style>
+    :root {
+      --primary: #0066cc;
+      --primary-focus: #0071e3;
+      --primary-on-dark: #2997ff;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --muted-dark: #cccccc;
+      --canvas: #ffffff;
+      --parchment: #f5f5f7;
+      --pearl: #fafafc;
+      --hairline: #e0e0e0;
+      --tile: #272729;
+      --tile-2: #2a2a2c;
+      --tile-3: #252527;
+      --black: #000000;
+      --dream-a: #28c9ff;
+      --dream-b: #6f86f6;
+      --dream-c: #c875d8;
+      --dream-d: #ffd86b;
+      --shadow-product: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+      --radius-card: 18px;
+      --radius-sm: 8px;
+      --radius-pill: 9999px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--canvas);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.47;
+      letter-spacing: -0.374px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container,
+    .nav-inner {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 44px;
+      background: var(--black);
+      color: #fff;
+    }
+
+    .nav-inner {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 12px;
+      letter-spacing: -0.12px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 22px;
+      height: 22px;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .sub-nav {
+      position: sticky;
+      top: 44px;
+      z-index: 49;
+      height: 52px;
+      background: rgba(245, 245, 247, 0.86);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .sub-nav .nav-inner {
+      height: 52px;
+      color: var(--ink);
+    }
+
+    .sub-title {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.231px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(95deg, var(--primary), var(--dream-b) 48%, var(--dream-c));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .soft-gradient {
+      color: var(--primary);
+      background: linear-gradient(95deg, var(--primary), var(--dream-b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sub-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .pill {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-pill);
+      padding: 11px 22px;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      background: #004f9f;
+    }
+
+    .pill:active {
+      transform: scale(0.95);
+    }
+
+    .pill:focus-visible {
+      outline: 2px solid var(--primary-focus);
+      outline-offset: 2px;
+    }
+
+    .pill.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .pill.secondary:hover {
+      background: rgba(0, 102, 204, 0.06);
+    }
+
+    .pill.small {
+      min-height: 30px;
+      padding: 6px 14px;
+      font-size: 12px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      place-items: center;
+      padding: 78px 0;
+      background: var(--parchment);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 16px;
+      margin-bottom: 24px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.72);
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: var(--ink);
+    }
+
+    .hero-brands {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px auto;
+      color: #333;
+      font-size: 15px;
+    }
+
+    .brand-chip,
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--hairline);
+      background: var(--canvas);
+    }
+
+    .brand-tag {
+      color: var(--primary);
+      border-color: rgba(0, 102, 204, 0.22);
+      background: rgba(0, 102, 204, 0.06);
+      font-weight: 600;
+    }
+
+    .brand-sep {
+      color: var(--muted);
+    }
+
+    .hero-desc {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: #333;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.18;
+      letter-spacing: 0.05px;
+    }
+
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      padding: 18px 10px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .stat-num {
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-pad {
+      padding: 84px 0;
+    }
+
+    .section-soft {
+      background: var(--parchment);
+    }
+
+    .section-dark {
+      background: var(--tile);
+      color: #fff;
+    }
+
+    .section-label {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .section-dark .section-label,
+    .section-dark .section-sub {
+      color: var(--muted-dark);
+    }
+
+    .section-title {
+      margin-bottom: 12px;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .section-sub {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.35;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    .services-header {
+      margin-bottom: 34px;
+    }
+
+    .trust-strip {
+      margin: 0 0 26px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-card);
+      background: var(--canvas);
+      overflow: hidden;
+    }
+
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      min-height: 58px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+
+    .trust-strip-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ts-verified,
+    .ts-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .ts-verified {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .ts-check {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .ts-sep {
+      align-self: stretch;
+      width: 1px;
+      background: var(--hairline);
+      flex: 0 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 530px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.58)),
+        radial-gradient(circle at 20% 0%, rgba(40, 201, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 86% 12%, rgba(255, 139, 216, 0.12), transparent 30%);
+      backdrop-filter: saturate(160%) blur(22px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(40, 201, 255, 0.5), rgba(138, 124, 255, 0.16), rgba(255, 139, 216, 0.38));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 102, 204, 0.28);
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card-extra {
+      min-height: 500px;
+    }
+
+    .card-recommend {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 6px 12px;
+      border: 1px solid rgba(0, 102, 204, 0.18);
+      border-radius: var(--radius-pill);
+      background: rgba(0, 102, 204, 0.06);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .platform-logo {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .platform-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .platform-logo.openai {
+      padding: 6px;
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .platform-logo.openai img {
+      width: 44px;
+      height: 44px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .platform-logo.claude {
+      padding: 6px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .platform-logo.claude img {
+      width: 44px;
+      height: 44px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .platform-logo.grok {
+      padding: 6px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .platform-logo.grok img {
+      width: 44px;
+      height: 44px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .card-icon.gpt,
+    .card-icon.aio {
+      background: var(--primary);
+    }
+
+    .card-icon.grok {
+      background: var(--parchment);
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+    }
+
+    .card-title {
+      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .card-desc {
+      min-height: 74px;
+      margin-bottom: 18px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .card-features {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 0;
+      list-style: none;
+      color: #333;
+      font-size: 15px;
+    }
+
+    .card-features li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+    }
+
+    .card-features li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .card-warning {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--parchment);
+      color: #333;
+      font-size: 14px;
+    }
+
+    .card-warning-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .price-from,
+    .price-unit {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price-num {
+      color: var(--ink);
+      background: linear-gradient(95deg, var(--primary), var(--dream-b) 55%, var(--dream-c));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .card-btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      border: 0;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: #fff;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .how-grid .section-label,
+    .how-grid .section-title,
+    .how-grid .section-sub {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .steps {
+      display: grid;
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-card);
+      background: var(--tile-2);
+    }
+
+    .step-num {
+      color: var(--primary-on-dark);
+      font-weight: 600;
+    }
+
+    .step-title {
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.18;
+    }
+
+    .step-desc {
+      margin-bottom: 14px;
+      color: #d6d6d6;
+      font-size: 15px;
+    }
+
+    .step-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+      padding: 9px 13px;
+      border: 1px solid rgba(41, 151, 255, 0.28);
+      border-radius: var(--radius-sm);
+      background: rgba(41, 151, 255, 0.08);
+      color: var(--primary-on-dark);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .step-tips {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted-dark);
+      font-size: 13px;
+    }
+
+    .step-tip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-on-dark);
+      flex: 0 0 auto;
+    }
+
+    .how-visual {
+      position: sticky;
+      top: 126px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-card);
+      background: var(--tile-3);
+    }
+
+    .timeline-title {
+      margin-bottom: 24px;
+      color: var(--muted-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .how-timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .how-tl-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .tl-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--primary-on-dark);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .tl-label {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .tl-sub {
+      margin-top: 4px;
+      color: var(--muted-dark);
+      font-size: 14px;
+    }
+
+    .tl-badge {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(41, 151, 255, 0.1);
+      color: var(--primary-on-dark);
+      font-size: 12px;
+    }
+
+    .timeline-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .timeline-chips span {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .trust-item {
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-card);
+      background: var(--canvas);
+    }
+
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 680ms ease, transform 680ms ease;
+      transition-delay: var(--delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .service-card:hover {
+        transform: none;
+      }
+    }
+
+    .trust-title {
+      margin-bottom: 8px;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.18;
+    }
+
+    .trust-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .faq-q {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .faq-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--canvas);
+      color: var(--ink);
+      transition: transform 160ms ease;
+    }
+
+    .faq-a {
+      display: none;
+      max-width: 780px;
+      margin: -2px 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .faq-item.active .faq-a {
+      display: block;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .cta-banner {
+      padding: 90px 0;
+      background: var(--tile);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta-banner .section-label,
+    .cta-banner .section-sub {
+      color: var(--muted-dark);
+    }
+
+    .cta-points {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 30px;
+      color: var(--muted-dark);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 58px 0 42px;
+      background: var(--parchment);
+      color: #333;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 34px;
+      margin-bottom: 36px;
+    }
+
+    .footer-desc {
+      max-width: 480px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-col-title {
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid var(--hairline);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .fbadge {
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
+    }
+
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(8px);
+    }
+
+    .qr-modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      position: relative;
+      width: min(100%, 340px);
+      padding: 30px;
+      border-radius: var(--radius-card);
+      background: var(--canvas);
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--parchment);
+      cursor: pointer;
+    }
+
+    .qr-placeholder {
+      width: 190px;
+      height: 190px;
+      display: grid;
+      place-items: center;
+      margin: 20px auto;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-sm);
+      background:
+        linear-gradient(90deg, #fff 10px, transparent 1%) 0 0 / 20px 20px,
+        linear-gradient(#fff 10px, transparent 1%) 0 0 / 20px 20px,
+        #d2d2d7;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .qr-image {
+      width: 210px;
+      height: 210px;
+      display: block;
+      margin: 20px auto;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-sm);
+      object-fit: contain;
+      background: #fff;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .cards-grid,
+      .how-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-visual {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container,
+      .nav-inner,
+      .hero-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .nav-links,
+      .sub-actions a:not(.pill) {
+        display: none;
+      }
+
+      .sub-title {
+        font-size: 17px;
+      }
+
+      .sub-actions .pill {
+        min-height: 34px;
+        padding: 7px 13px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 58px 0 64px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-desc {
+        font-size: 20px;
+      }
+
+      .trust-strip {
+        border-radius: 18px;
+      }
+
+      .trust-strip-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        white-space: normal;
+        padding: 10px;
+        overflow: visible;
+      }
+
+      .ts-sep {
+        display: none;
+      }
+
+      .ts-verified,
+      .ts-item {
+        min-height: 34px;
+        padding: 6px 10px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-pad,
+      .cta-banner {
+        padding: 64px 0;
+      }
+
+      .service-card {
+        min-height: 0;
+        padding: 22px;
+      }
+
+      .card-desc {
+        min-height: 0;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid,
+      .footer-bottom {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a class="logo" href="https://www.jrjrz.com/#home"><img class="logo-mark" src="./首页_files/LOGO.jpg" alt="露梦AI Store LOGO"><span>露梦AI Store</span></a>
+      <div class="nav-links">
+        <a href="https://www.jrjrz.com/#services">服务</a>
+        <a href="https://www.jrjrz.com/#how">流程</a>
+        <a href="https://www.jrjrz.com/#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="sub-nav">
+    <div class="nav-inner">
+      <div class="sub-title">露梦AI Store</div>
+      <div class="sub-actions">
+        <a href="https://www.jrjrz.com/#services">套餐</a>
+        <a href="https://www.jrjrz.com/#how">怎么开通</a>
+        <a class="pill small" href="https://www.jrjrz.com/#contact">联系客服</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="badge">露梦AI Store · ChatGPT Plus代充 · Claude代充 · SuperGrok · 在线支持</div>
+        <h1>ChatGPT Plus / Claude<br><span class="gradient-text">AI 会员代充值服务</span></h1>
+        <div class="hero-brands">
+          <span class="brand-chip">ChatGPT代充</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-chip">Claude代充</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-chip">SuperGrok</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-tag">一站搞定</span>
+        </div>
+        <p class="hero-desc"><span class="soft-gradient">ChatGPT Plus、Claude Pro、SuperGrok</span> 订阅服务。无需信用卡，支持微信/支付宝，开通到您的原账号。</p>
+        <div class="hero-btns">
+          <a href="https://www.jrjrz.com/#services" class="pill">查看服务</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="services">
+      <div class="container">
+        <div class="services-header reveal in-view">
+          <div class="section-label">我们的服务</div>
+          <h2 class="section-title">覆盖<span class="gradient-text">主流 AI 平台</span></h2>
+          <p class="section-sub">原账号开通，账号安全有保障，拒绝共享账号风险。</p>
+        </div>
+
+        <div class="trust-strip reveal in-view" style="--delay: 80ms;">
+          <div class="trust-strip-inner">
+            <div class="ts-verified"><span>✓</span><span>正规代充服务</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>原账号开通</strong>，非共享账号</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>无需账号密码</strong>，流程透明</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>微信支付</strong>，人民币结算</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>充值失败全额退款</strong></span></div>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="service-card reveal in-view" style="--delay: 120ms;">
+            <div class="card-recommend">主推 · ChatGPT</div>
+            <div class="platform-logo openai" aria-label="OpenAI">
+              <img src="./首页_files/openai.svg" alt="OpenAI Logo">
+            </div>
+            <div class="card-title">ChatGPT Plus</div>
+            <p class="card-desc">解锁 GPT 最新模型、推理能力、联网搜索、图像生成与高级数据分析，适合日常 AI 工作流。</p>
+            <ul class="card-features">
+              <li>GPT 最新模型全系访问</li>
+              <li>Codex AI Coding</li>
+              <li>支持常用 AI 编程工作流</li>
+              <li>实时联网与文件上传</li>
+              <li>充到您的原账号</li>
+              <li>支持企业服务咨询</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">i</span><span>使用范围最广，新手首选，覆盖写作、搜索、代码和资料处理。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥128</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/chatgpt.html">选择方案</a>
+          </article>
+
+          <article class="service-card reveal in-view" style="--delay: 200ms;">
+            <div class="card-recommend">主推 · Claude</div>
+            <div class="platform-logo claude" aria-label="Claude">
+              <img src="./首页_files/claude-color.svg" alt="Claude Logo">
+            </div>
+            <div class="card-title">Claude Pro</div>
+            <p class="card-desc">Anthropic 高阶模型，适合长文档、代码生成、论文整理与深度写作，比普通问答更偏专业工作。</p>
+            <ul class="card-features">
+              <li>Claude 高阶模型能力</li>
+              <li>超长上下文窗口</li>
+              <li>Projects 项目管理功能</li>
+              <li>优先访问新功能</li>
+              <li>充到您的原账号</li>
+              <li>支持企业服务咨询</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">!</span><span>Claude 风控较严格，使用时建议保持稳定网络环境。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥135</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/claude.html">选择方案</a>
+          </article>
+
+          <article class="service-card service-card-extra reveal in-view" style="--delay: 280ms;">
+            <div class="platform-logo grok" aria-label="Grok">
+              <img src="./首页_files/grok.svg" alt="Grok Logo">
+            </div>
+            <div class="card-title">SuperGrok</div>
+            <p class="card-desc">适合关注实时信息、创意问答和日常研究的用户，直充您的自用账号，无需处理境外支付。</p>
+            <ul class="card-features">
+              <li>SuperGrok 会员权益</li>
+              <li>原账号直充，账号归属不变</li>
+              <li>支持微信或支付宝付款</li>
+              <li>无需提供账号密码</li>
+              <li>双月方案更加划算</li>
+              <li>人工客服协助处理</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">i</span><span>月付 ¥145，双月 ¥200；双月方案相比月付累计可节省 ¥90。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥145</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/grok.html">选择方案</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-dark" id="how">
+      <div class="container">
+        <div class="how-grid">
+          <div class="reveal in-view">
+            <div class="section-label">充值流程 | GPT 为例</div>
+            <h2 class="section-title">三步完成<span class="gradient-text">充值</span></h2>
+            <p class="section-sub">全程按步骤操作，无需提供账号密码，ChatGPT Plus 最快 30 秒到账。</p>
+            <div class="steps">
+              <article class="step reveal in-view" style="--delay: 80ms;">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                  <div class="step-title">下单 · 获取卡密</div>
+                  <p class="step-desc">选择所需套餐，微信扫码完成付款。付款后获取充值所需的卡密，请复制或截图保存。</p>
+                  <a class="step-code" href="https://www.jrjrz.com/#contact">前往下单 · 获取卡密</a>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>正规代充不会索要您的账号密码。</span></div></div>
+                </div>
+              </article>
+              <article class="step reveal in-view" style="--delay: 160ms;">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                  <div class="step-title">获取 Session · 复制页面内容</div>
+                  <p class="step-desc">登录 ChatGPT 后，在浏览器访问指定地址，复制页面返回的 JSON 文本。</p>
+                  <button class="step-code" type="button" onclick="copySessionUrl(this)">chatgpt.com/api/auth/session</button>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>如返回为空，请先登录 ChatGPT 后再访问。</span></div></div>
+                </div>
+              </article>
+              <article class="step reveal in-view" style="--delay: 240ms;">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                  <div class="step-title">粘贴充值 · 等待到账</div>
+                  <p class="step-desc">在自助充值页面提交卡密与 Session 内容，等待处理后刷新 ChatGPT，看到 Plus 标志即表示成功。</p>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>当前订阅未到期时通常无法叠加充值，请到期后再操作。</span></div></div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="how-visual reveal in-view" style="--delay: 220ms;">
+            <div class="timeline-title">充值进度示意</div>
+            <div class="how-timeline">
+              <div class="how-tl-item">
+                <div class="tl-icon">✓</div>
+                <div><div class="tl-label">下单完成</div><div class="tl-sub">付款完成，卡密已生成</div><span class="tl-badge">已获取卡密</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">✓</div>
+                <div><div class="tl-label">获取 Session</div><div class="tl-sub">访问指定地址，全选复制返回内容</div><span class="tl-badge">无需账号密码</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">·</div>
+                <div><div class="tl-label">提交处理中</div><div class="tl-sub">卡密与 Session 已提交，等待开通</div><span class="tl-badge">约 30 秒完成</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">!</div>
+                <div><div class="tl-label">注意事项</div><div class="tl-sub">订阅未到期无法叠加，刷新页面查看 Plus 标志</div><span class="tl-badge">到期后再操作</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">◎</div>
+                <div><div class="tl-label">充值完成</div><div class="tl-sub">原账号出现 Plus 标志，会员权益生效</div></div>
+              </div>
+            </div>
+            <div class="timeline-chips"><span>无需密码</span><span>最快 30 秒</span><span>全程自助</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-label reveal">为什么选择我们</div>
+        <h2 class="section-title reveal">安全 · <span class="gradient-text">快速</span> · 透明</h2>
+        <div class="trust-grid" style="margin-top:44px;">
+          <article class="trust-item reveal" style="--delay: 60ms;"><div class="trust-icon">01</div><div class="trust-title">账号安全有保障</div><p class="trust-desc">充值到您的原账号，无需共享密码，不影响账号归属。</p></article>
+          <article class="trust-item reveal" style="--delay: 120ms;"><div class="trust-icon">02</div><div class="trust-title">极速到账</div><p class="trust-desc">ChatGPT Plus 自助流程最快 30 秒完成，其他服务按账号状态跟进。</p></article>
+          <article class="trust-item reveal" style="--delay: 180ms;"><div class="trust-icon">03</div><div class="trust-title">便捷支付</div><p class="trust-desc">支持微信支付，无需境外信用卡，人民币结算更省心。</p></article>
+          <article class="trust-item reveal" style="--delay: 240ms;"><div class="trust-icon">04</div><div class="trust-title">原账号订阅</div><p class="trust-desc">不提供共享账号，减少隐私泄露和多人共用带来的风险。</p></article>
+          <article class="trust-item reveal" style="--delay: 300ms;"><div class="trust-icon">05</div><div class="trust-title">售后有保障</div><p class="trust-desc">提供必要的技术支持，充值失败按约定全额退款。</p></article>
+          <article class="trust-item reveal" style="--delay: 360ms;"><div class="trust-icon">06</div><div class="trust-title">企业服务咨询</div><p class="trust-desc">支持企业批量采购、对账资料和周期续费需求沟通。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="faq">
+      <div class="container">
+        <div class="section-label reveal">常见问题</div>
+        <h2 class="section-title reveal">您可能<span class="gradient-text">想知道</span></h2>
+        <div class="faq-list" style="margin-top:44px;">
+          <div class="faq-item active"><div class="faq-q">国内怎么订阅 ChatGPT Plus？没有信用卡怎么开通？<span class="faq-icon">+</span></div><div class="faq-a">国内用户可以通过代充服务完成 ChatGPT Plus 订阅。您只需完成微信付款，并按流程提交必要信息，无需境外信用卡，也无需提供账号密码。</div></div>
+          <div class="faq-item"><div class="faq-q">Claude Pro 国内怎么订阅？大陆可以充值吗？<span class="faq-icon">+</span></div><div class="faq-a">Claude Pro 会根据账号状态、地区和使用环境确认是否适合开通。付款前建议先联系客服核对，避免因平台风控导致无法交付。</div></div>
+          <div class="faq-item"><div class="faq-q">Claude 和 ChatGPT 哪个好？应该选哪个？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 更适合通用问答、搜索、图像生成和编程辅助；Claude Pro 更适合长文档、学术写作、代码审阅和复杂文本处理。</div></div>
+          <div class="faq-item"><div class="faq-q">ChatGPT Plus 和 Claude Pro 一个月多少钱？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 当前月付价格为 ¥128，Claude Pro 当前月付价格为 ¥135。您可以按主要使用场景选择更适合的方案。</div></div>
+          <div class="faq-item"><div class="faq-q">订阅失败怎么办？充值后多久到账？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 自助充值一般很快完成；Claude 与 SuperGrok 会根据账号状态确认交付时间。如因账号或平台限制无法完成，未成功部分按约定退款。</div></div>
+          <div class="faq-item"><div class="faq-q">SuperGrok 怎么买？双月是否更划算？<span class="faq-icon">+</span></div><div class="faq-a">SuperGrok 月付为 ¥145，双月为 ¥200；双月方案相比连续购买两个月月付可节省 ¥90，适合稳定使用的用户。</div></div>
+          <div class="faq-item"><div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div><div class="faq-a">目前支持微信支付。企业采购、批量账号和周期续费需求可以提前联系客服沟通。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" id="contact">
+      <div class="container">
+        <div class="section-label">立即开始</div>
+        <h2 class="section-title">解锁你的 <span class="gradient-text">AI 全能助手</span></h2>
+        <p class="section-sub">添加客服微信确认账号状态，也可以后续接入自助购买链接。</p>
+        <div class="hero-btns" style="margin-top:38px;margin-bottom:0;">
+          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
+          <a class="pill secondary" href="https://www.jrjrz.com/#services">查看套餐</a>
+        </div>
+        <div class="cta-points"><span>✓ 无需注册</span><span>✓ 微信付款</span><span>✓ 充值失败全额退款</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img class="logo-mark" src="./首页_files/LOGO.jpg" alt="露梦AI Store LOGO"><span>露梦AI Store</span></div>
+          <div class="footer-desc">专注 AI 订阅服务代充，为国内用户提供更便捷的 AI 工具访问方式。</div>
+        </div>
+        <div>
+          <div class="footer-col-title">服务</div>
+          <ul class="footer-links">
+            <li><a href="https://www.jrjrz.com/#services">ChatGPT Plus</a></li>
+            <li><a href="https://www.jrjrz.com/#services">Claude Pro</a></li>
+            <li><a href="https://www.jrjrz.com/grok.html">SuperGrok</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">支持</div>
+          <ul class="footer-links">
+            <li><a href="https://www.jrjrz.com/#how">充值流程</a></li>
+            <li><a href="https://www.jrjrz.com/#faq">常见问题</a></li>
+            <li><a href="https://www.jrjrz.com/#contact">联系客服</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 露梦AI Store。本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic / xAI 无官方关联。</div>
+        <div class="footer-badges"><div class="fbadge">微信支付</div><div class="fbadge">SSL 加密</div></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="qr-modal" id="qrModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
+      <div class="section-label" id="modalTitle">添加客服微信</div>
+      <img class="qr-image" src="./首页_files/二维码.png" alt="客服微信二维码">
+    </div>
+  </div>
+
+  <script>
+    var revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach(function (item) {
+        item.classList.add('in-view');
+      });
+    }
+
+    function openQrModal() {
+      var modal = document.getElementById('qrModal');
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeQrModal() {
+      var modal = document.getElementById('qrModal');
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    function copySessionUrl(target) {
+      var text = 'chatgpt.com/api/auth/session';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+        var old = target.textContent;
+        target.textContent = '已复制：' + text;
+        window.setTimeout(function () { target.textContent = old; }, 1400);
+      }
+    }
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      item.querySelector('.faq-q').addEventListener('click', function () {
+        item.classList.toggle('active');
+      });
+    });
+
+    document.getElementById('qrModal').addEventListener('click', function (event) {
+      if (event.target === event.currentTarget) closeQrModal();
+    });
+  </script>
+<script defer="" src="./首页_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;072f4d9db65b4c94a54de78619c337b1&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body></html>

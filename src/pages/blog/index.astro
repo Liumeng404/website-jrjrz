@@ -1,46 +1,56 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Sidebar from '../../components/Sidebar.astro';
+import BlogCard from '../../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-const dateFmt = new Intl.DateTimeFormat('zh-CN', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
 ---
 
-<BaseLayout title="文章" description="全部文章列表">
+<BaseLayout title="博客 | 露梦AI Store" description="AI 工具使用教程、行业资讯与技术分享。ChatGPT、Claude、AI 开发指南等内容。">
+  <!-- 博客专属 sub-nav（标题放大） -->
+  <nav class="blog-sub-nav">
+    <div class="nav-inner">
+      <div class="blog-sub-title">📝 博客文章</div>
+      <div class="sub-actions">
+        <a href="/">首页</a>
+        <a href="/#services">服务</a>
+        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 博客 Hero -->
+  <section class="blog-hero">
+    <div class="container">
+      <h1>AI <span class="gradient-text">教程与资讯</span></h1>
+      <p class="blog-hero-desc">ChatGPT、Claude、AI 工具使用指南，行业动态与技术分享。共 {posts.length} 篇文章。</p>
+    </div>
+  </section>
+
+  <!-- 文章卡片网格 -->
   <section class="section-pad">
     <div class="container">
-      <div class="page-head">
-        <h1>文章</h1>
-        <p>共 {posts.length} 篇</p>
-      </div>
-      <div class="layout">
-        <div class="content-main">
-          {posts.length > 0 ? (
-            <ul class="post-list">
-              {posts.map((post) => (
-                <li>
-                  <a class="post-card" href={`/blog/${post.id}/`}>
-                    <h2 class="post-card-title">{post.data.title}</h2>
-                    <div class="post-card-meta">{dateFmt.format(post.data.pubDate)}</div>
-                    <p class="post-card-desc">{post.data.description}</p>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>还没有文章。</p>
-          )}
+      {posts.length > 0 ? (
+        <div class="blog-grid">
+          {posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              href={`/blog/${post.id}/`}
+              pubDate={post.data.pubDate}
+              image={post.data.image}
+              tags={post.data.tags}
+              author={post.data.author}
+            />
+          ))}
         </div>
-        <Sidebar />
-      </div>
+      ) : (
+        <div style="text-align:center;padding:60px 0;">
+          <p style="color:var(--muted);font-size:18px;">还没有文章，敬请期待。</p>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>

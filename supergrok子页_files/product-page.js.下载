@@ -1,0 +1,56 @@
+var revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+  revealItems.forEach(function (item) {
+    revealObserver.observe(item);
+  });
+} else {
+  revealItems.forEach(function (item) {
+    item.classList.add('in-view');
+  });
+}
+
+function openQrModal() {
+  var modal = document.getElementById('qrModal');
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeQrModal() {
+  var modal = document.getElementById('qrModal');
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+function copyText(target, text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+    var old = target.textContent;
+    target.textContent = '已复制：' + text;
+    window.setTimeout(function () {
+      target.textContent = old;
+    }, 1400);
+  }
+}
+
+document.querySelectorAll('.faq-item').forEach(function (item) {
+  item.querySelector('.faq-q').addEventListener('click', function () {
+    item.classList.toggle('active');
+  });
+});
+
+var modal = document.getElementById('qrModal');
+if (modal) {
+  modal.addEventListener('click', function (event) {
+    if (event.target === event.currentTarget) closeQrModal();
+  });
+}

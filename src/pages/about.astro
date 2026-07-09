@@ -1,30 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
 ---
 
-<BaseLayout title="关于" description="关于露梦的博客">
+<BaseLayout title="关于 | 露梦AI Store" description="关于露梦AI Store，专注 AI 订阅服务代充。">
   <section class="section-pad">
-    <div class="container">
+    <div class="container" style="max-width:760px;">
       <div class="page-head">
-        <h1>关于</h1>
+        <h1>关于 <span class="gradient-text">露梦AI Store</span></h1>
+        <p>专注 AI 订阅服务代充，为国内用户提供更便捷的 AI 工具访问方式。</p>
       </div>
-      <div class="layout">
-        <div class="content-main">
-          <div class="prose">
-            <p>你好，我是露梦。</p>
-            <p>
-              这是我的个人博客，用 <a href="https://astro.build/" target="_blank" rel="noopener">Astro</a>
-              构建，后台使用 <a href="https://decapcms.org/" target="_blank" rel="noopener">Decap CMS</a>
-              可视化写作，部署在 Cloudflare Pages 上。
-            </p>
-            <h2>这里写什么</h2>
-            <p>主要记录 AI 工具、技术与日常思考。</p>
-            <h2>写作后台</h2>
-            <p>后台地址：<a href="/admin/">/admin/</a>（需要 GitHub 授权登录）。</p>
-          </div>
-        </div>
-        <Sidebar />
+      <div class="prose">
+        <h2>我们做什么</h2>
+        <p>露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 等 AI 平台的订阅代充服务。用户无需境外信用卡，通过微信/支付宝付款，即可在原账号上开通 AI 会员。</p>
+
+        <h2>为什么选择我们</h2>
+        <ul>
+          <li><strong>原账号开通</strong> — 充值到您的自有账号，非共享账号</li>
+          <li><strong>无需密码</strong> — 充值流程无需提供您的账号密码</li>
+          <li><strong>便捷支付</strong> — 支持微信支付，人民币结算</li>
+          <li><strong>售后保障</strong> — 充值失败按约定全额退款</li>
+        </ul>
+
+        <h2>内容博客</h2>
+        <p>我们还通过<a href="/blog/">博客栏目</a>分享 AI 工具使用教程、行业资讯和技术对比，帮助用户更好地选择和使用 AI 工具。</p>
+
+        <h2>联系方式</h2>
+        <p>如有任何问题，请添加客服微信咨询。</p>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
       </div>
     </div>
   </section>

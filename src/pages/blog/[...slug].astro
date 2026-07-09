@@ -16,11 +16,24 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={`${post.data.title} | 露梦AI Store`} description={post.data.description}>
+  <!-- 博客专属 sub-nav -->
+  <nav class="blog-sub-nav">
+    <div class="nav-inner">
+      <div class="blog-sub-title">📝 博客文章</div>
+      <div class="sub-actions">
+        <a href="/blog/">全部文章</a>
+        <a href="/">首页</a>
+        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 左右布局：文章 + 侧边栏 -->
   <section class="section-pad">
     <div class="container">
-      <div class="layout">
-        <div class="content-main">
+      <div class="article-layout">
+        <div class="article-main">
           <BlogPost frontmatter={post.data}>
             <Content />
           </BlogPost>

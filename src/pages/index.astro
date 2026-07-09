@@ -1,58 +1,283 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
+import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+// 获取最新 3 篇文章用于首页展示
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
-
-const dateFmt = new Intl.DateTimeFormat('zh-CN', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+  .slice(0, 3);
 ---
 
 <BaseLayout>
-  <section class="hero">
-    <div class="hero-inner">
-      <span class="badge">Astro · Decap CMS · Cloudflare</span>
-      <h1>记录 <span class="gradient-text">AI、技术与思考</span></h1>
-      <p class="hero-desc">这里是露梦的博客，分享我在 AI 工具、技术与日常中的观察与笔记。</p>
-      <div class="hero-btns">
-        <a class="pill" href="/blog">浏览文章</a>
-        <a class="pill secondary" href="/about">关于我</a>
+  <!-- sub-nav -->
+  <nav class="sub-nav">
+    <div class="nav-inner">
+      <div class="sub-title">露梦AI Store</div>
+      <div class="sub-actions">
+        <a href="#services">套餐</a>
+        <a href="#how">怎么开通</a>
+        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <section class="section-pad">
-    <div class="container">
-      <div class="page-head">
-        <h1>最近文章</h1>
-        <p>最新的几篇，完整列表见<a href="/blog" style="color: var(--primary);">文章页</a></p>
-      </div>
-      <div class="layout">
-        <div class="content-main">
-          {posts.length > 0 ? (
-            <ul class="post-list">
-              {posts.map((post) => (
-                <li>
-                  <a class="post-card" href={`/blog/${post.id}/`}>
-                    <h2 class="post-card-title">{post.data.title}</h2>
-                    <div class="post-card-meta">{dateFmt.format(post.data.pubDate)}</div>
-                    <p class="post-card-desc">{post.data.description}</p>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>还没有文章，去后台写一篇吧。</p>
-          )}
+  <main>
+    <!-- ========== Hero ========== -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="badge">露梦AI Store · ChatGPT Plus代充 · Claude代充 · SuperGrok · 在线支持</div>
+        <h1>ChatGPT Plus / Claude<br /><span class="gradient-text">AI 会员代充值服务</span></h1>
+        <div class="hero-brands">
+          <span class="brand-chip">ChatGPT代充</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-chip">Claude代充</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-chip">SuperGrok</span>
+          <span class="brand-sep">/</span>
+          <span class="brand-tag">一站搞定</span>
         </div>
-        <Sidebar />
+        <p class="hero-desc">
+          <span class="soft-gradient">ChatGPT Plus、Claude Pro、SuperGrok</span> 订阅服务。无需信用卡，支持微信/支付宝，开通到您的原账号。
+        </p>
+        <div class="hero-btns">
+          <a href="#services" class="pill">查看服务</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ========== 服务 ========== -->
+    <section class="section-pad" id="services">
+      <div class="container">
+        <div class="services-header reveal">
+          <div class="section-label">我们的服务</div>
+          <h2 class="section-title">覆盖<span class="gradient-text">主流 AI 平台</span></h2>
+          <p class="section-sub">原账号开通，账号安全有保障，拒绝共享账号风险。</p>
+        </div>
+
+        <div class="trust-strip reveal" style="--delay: 80ms;">
+          <div class="trust-strip-inner">
+            <div class="ts-verified"><span>✓</span><span>正规代充服务</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>原账号开通</strong>，非共享账号</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>无需账号密码</strong>，流程透明</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>微信支付</strong>，人民币结算</span></div>
+            <div class="ts-sep"></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>充值失败全额退款</strong></span></div>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <!-- ChatGPT Plus -->
+          <article class="service-card reveal" style="--delay: 120ms;">
+            <div class="card-recommend">主推 · ChatGPT</div>
+            <div class="platform-logo openai" aria-label="OpenAI">
+              <img src="/images/openai.svg" alt="OpenAI Logo" />
+            </div>
+            <div class="card-title">ChatGPT Plus</div>
+            <p class="card-desc">解锁 GPT 最新模型、推理能力、联网搜索、图像生成与高级数据分析，适合日常 AI 工作流。</p>
+            <ul class="card-features">
+              <li>GPT 最新模型全系访问</li>
+              <li>Codex AI Coding</li>
+              <li>支持常用 AI 编程工作流</li>
+              <li>实时联网与文件上传</li>
+              <li>充到您的原账号</li>
+              <li>支持企业服务咨询</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">i</span><span>使用范围最广，新手首选，覆盖写作、搜索、代码和资料处理。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥128</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/chatgpt.html">选择方案</a>
+          </article>
+
+          <!-- Claude Pro -->
+          <article class="service-card reveal" style="--delay: 200ms;">
+            <div class="card-recommend">主推 · Claude</div>
+            <div class="platform-logo claude" aria-label="Claude">
+              <img src="/images/claude-color.svg" alt="Claude Logo" />
+            </div>
+            <div class="card-title">Claude Pro</div>
+            <p class="card-desc">Anthropic 高阶模型，适合长文档、代码生成、论文整理与深度写作，比普通问答更偏专业工作。</p>
+            <ul class="card-features">
+              <li>Claude 高阶模型能力</li>
+              <li>超长上下文窗口</li>
+              <li>Projects 项目管理功能</li>
+              <li>优先访问新功能</li>
+              <li>充到您的原账号</li>
+              <li>支持企业服务咨询</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">!</span><span>Claude 风控较严格，使用时建议保持稳定网络环境。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥135</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/claude.html">选择方案</a>
+          </article>
+
+          <!-- SuperGrok -->
+          <article class="service-card service-card-extra reveal" style="--delay: 280ms;">
+            <div class="platform-logo grok" aria-label="Grok">
+              <img src="/images/grok.svg" alt="Grok Logo" />
+            </div>
+            <div class="card-title">SuperGrok</div>
+            <p class="card-desc">适合关注实时信息、创意问答和日常研究的用户，直充您的自用账号，无需处理境外支付。</p>
+            <ul class="card-features">
+              <li>SuperGrok 会员权益</li>
+              <li>原账号直充，账号归属不变</li>
+              <li>支持微信或支付宝付款</li>
+              <li>无需提供账号密码</li>
+              <li>双月方案更加划算</li>
+              <li>人工客服协助处理</li>
+            </ul>
+            <div class="card-warning"><span class="card-warning-icon">i</span><span>月付 ¥145，双月 ¥200；双月方案相比月付累计可节省 ¥90。</span></div>
+            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥145</span><span class="price-unit">/ 月</span></div>
+            <a class="card-btn" href="https://www.jrjrz.com/grok.html">选择方案</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 充值流程 ========== -->
+    <section class="section-pad section-dark" id="how">
+      <div class="container">
+        <div class="how-grid">
+          <div class="reveal">
+            <div class="section-label" style="text-align:left;">充值流程 | GPT 为例</div>
+            <h2 class="section-title" style="text-align:left;">三步完成<span class="gradient-text">充值</span></h2>
+            <p class="section-sub" style="text-align:left;margin:0;">全程按步骤操作，无需提供账号密码，ChatGPT Plus 最快 30 秒到账。</p>
+            <div class="steps">
+              <article class="step reveal" style="--delay: 80ms;">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                  <div class="step-title">下单 · 获取卡密</div>
+                  <p class="step-desc">选择所需套餐，微信扫码完成付款。付款后获取充值所需的卡密，请复制或截图保存。</p>
+                  <a class="step-code" href="#contact">前往下单 · 获取卡密</a>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>正规代充不会索要您的账号密码。</span></div></div>
+                </div>
+              </article>
+              <article class="step reveal" style="--delay: 160ms;">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                  <div class="step-title">获取 Session · 复制页面内容</div>
+                  <p class="step-desc">登录 ChatGPT 后，在浏览器访问指定地址，复制页面返回的 JSON 文本。</p>
+                  <button class="step-code" type="button" onclick="copySessionUrl(this)">chatgpt.com/api/auth/session</button>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>如返回为空，请先登录 ChatGPT 后再访问。</span></div></div>
+                </div>
+              </article>
+              <article class="step reveal" style="--delay: 240ms;">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                  <div class="step-title">粘贴充值 · 等待到账</div>
+                  <p class="step-desc">在自助充值页面提交卡密与 Session 内容，等待处理后刷新 ChatGPT，看到 Plus 标志即表示成功。</p>
+                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>当前订阅未到期时通常无法叠加充值，请到期后再操作。</span></div></div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="how-visual reveal" style="--delay: 220ms;">
+            <div class="timeline-title">充值进度示意</div>
+            <div class="how-timeline">
+              <div class="how-tl-item">
+                <div class="tl-icon">✓</div>
+                <div><div class="tl-label">下单完成</div><div class="tl-sub">付款完成，卡密已生成</div><span class="tl-badge">已获取卡密</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">✓</div>
+                <div><div class="tl-label">获取 Session</div><div class="tl-sub">访问指定地址，全选复制返回内容</div><span class="tl-badge">无需账号密码</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">·</div>
+                <div><div class="tl-label">提交处理中</div><div class="tl-sub">卡密与 Session 已提交，等待开通</div><span class="tl-badge">约 30 秒完成</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">!</div>
+                <div><div class="tl-label">注意事项</div><div class="tl-sub">订阅未到期无法叠加，刷新页面查看 Plus 标志</div><span class="tl-badge">到期后再操作</span></div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">◎</div>
+                <div><div class="tl-label">充值完成</div><div class="tl-sub">原账号出现 Plus 标志，会员权益生效</div></div>
+              </div>
+            </div>
+            <div class="timeline-chips"><span>无需密码</span><span>最快 30 秒</span><span>全程自助</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 为什么选择我们 ========== -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-label reveal">为什么选择我们</div>
+        <h2 class="section-title reveal">安全 · <span class="gradient-text">快速</span> · 透明</h2>
+        <div class="trust-grid" style="margin-top:44px;">
+          <article class="trust-item reveal" style="--delay: 60ms;"><div class="trust-icon">01</div><div class="trust-title">账号安全有保障</div><p class="trust-desc">充值到您的原账号，无需共享密码，不影响账号归属。</p></article>
+          <article class="trust-item reveal" style="--delay: 120ms;"><div class="trust-icon">02</div><div class="trust-title">极速到账</div><p class="trust-desc">ChatGPT Plus 自助流程最快 30 秒完成，其他服务按账号状态跟进。</p></article>
+          <article class="trust-item reveal" style="--delay: 180ms;"><div class="trust-icon">03</div><div class="trust-title">便捷支付</div><p class="trust-desc">支持微信支付，无需境外信用卡，人民币结算更省心。</p></article>
+          <article class="trust-item reveal" style="--delay: 240ms;"><div class="trust-icon">04</div><div class="trust-title">原账号订阅</div><p class="trust-desc">不提供共享账号，减少隐私泄露和多人共用带来的风险。</p></article>
+          <article class="trust-item reveal" style="--delay: 300ms;"><div class="trust-icon">05</div><div class="trust-title">售后有保障</div><p class="trust-desc">提供必要的技术支持，充值失败按约定全额退款。</p></article>
+          <article class="trust-item reveal" style="--delay: 360ms;"><div class="trust-icon">06</div><div class="trust-title">企业服务咨询</div><p class="trust-desc">支持企业批量采购、对账资料和周期续费需求沟通。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section-pad section-soft" id="faq">
+      <div class="container">
+        <div class="section-label reveal">常见问题</div>
+        <h2 class="section-title reveal">您可能<span class="gradient-text">想知道</span></h2>
+        <div class="faq-list" style="margin-top:44px;">
+          <div class="faq-item active"><div class="faq-q">国内怎么订阅 ChatGPT Plus？没有信用卡怎么开通？<span class="faq-icon">+</span></div><div class="faq-a">国内用户可以通过代充服务完成 ChatGPT Plus 订阅。您只需完成微信付款，并按流程提交必要信息，无需境外信用卡，也无需提供账号密码。</div></div>
+          <div class="faq-item"><div class="faq-q">Claude Pro 国内怎么订阅？大陆可以充值吗？<span class="faq-icon">+</span></div><div class="faq-a">Claude Pro 会根据账号状态、地区和使用环境确认是否适合开通。付款前建议先联系客服核对，避免因平台风控导致无法交付。</div></div>
+          <div class="faq-item"><div class="faq-q">Claude 和 ChatGPT 哪个好？应该选哪个？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 更适合通用问答、搜索、图像生成和编程辅助；Claude Pro 更适合长文档、学术写作、代码审阅和复杂文本处理。</div></div>
+          <div class="faq-item"><div class="faq-q">ChatGPT Plus 和 Claude Pro 一个月多少钱？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 当前月付价格为 ¥128，Claude Pro 当前月付价格为 ¥135。您可以按主要使用场景选择更适合的方案。</div></div>
+          <div class="faq-item"><div class="faq-q">订阅失败怎么办？充值后多久到账？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 自助充值一般很快完成；Claude 与 SuperGrok 会根据账号状态确认交付时间。如因账号或平台限制无法完成，未成功部分按约定退款。</div></div>
+          <div class="faq-item"><div class="faq-q">SuperGrok 怎么买？双月是否更划算？<span class="faq-icon">+</span></div><div class="faq-a">SuperGrok 月付为 ¥145，双月为 ¥200；双月方案相比连续购买两个月月付可节省 ¥90，适合稳定使用的用户。</div></div>
+          <div class="faq-item"><div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div><div class="faq-a">目前支持微信支付。企业采购、批量账号和周期续费需求可以提前联系客服沟通。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 最新文章（SEO 内容板块） ========== -->
+    {latestPosts.length > 0 && (
+      <section class="section-pad">
+        <div class="container">
+          <div class="latest-articles-header reveal">
+            <div class="section-label">博客 · 教程与资讯</div>
+            <h2 class="section-title">最新<span class="gradient-text">文章</span></h2>
+            <p class="section-sub">AI 工具使用教程、行业资讯与技术分享，帮你更好地使用 AI。</p>
+          </div>
+          <div class="blog-grid reveal" style="--delay: 100ms;">
+            {latestPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                href={`/blog/${post.id}/`}
+                pubDate={post.data.pubDate}
+                image={post.data.image}
+                tags={post.data.tags}
+                author={post.data.author}
+              />
+            ))}
+          </div>
+          <div class="latest-articles-more reveal" style="--delay: 200ms;">
+            <a class="pill secondary" href="/blog/">查看全部文章 →</a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-banner" id="contact">
+      <div class="container">
+        <div class="section-label">立即开始</div>
+        <h2 class="section-title">解锁你的 <span class="gradient-text">AI 全能助手</span></h2>
+        <p class="section-sub">添加客服微信确认账号状态，也可以后续接入自助购买链接。</p>
+        <div class="hero-btns" style="margin-top:38px;margin-bottom:0;">
+          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
+          <a class="pill secondary" href="#services">查看套餐</a>
+        </div>
+        <div class="cta-points"><span>✓ 无需注册</span><span>✓ 微信付款</span><span>✓ 充值失败全额退款</span></div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>

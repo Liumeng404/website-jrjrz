@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e8f4fd"/>
+      <stop offset="100%" stop-color="#d4e8f7"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0066cc"/>
+      <stop offset="100%" stop-color="#6f86f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="18"/>
+  <!-- Badge -->
+  <rect x="40" y="35" width="80" height="28" rx="6" fill="#0066cc" opacity="0.12"/>
+  <text x="80" y="54" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#0066cc" text-anchor="middle">AI开发</text>
+  <!-- Title -->
+  <text x="40" y="110" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#1d1d1f">OpenAI API Key获取指南</text>
+  <text x="40" y="148" font-family="system-ui,sans-serif" font-size="18" fill="#6e6e73">2025年最新完整教程</text>
+  <!-- CTA -->
+  <rect x="40" y="175" width="120" height="36" rx="18" fill="url(#accent)"/>
+  <text x="100" y="198" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">立即阅读 →</text>
+  <!-- Decorative: timeline dots -->
+  <circle cx="500" cy="100" r="12" fill="#0066cc" opacity="0.15"/>
+  <circle cx="500" cy="100" r="6" fill="#0066cc"/>
+  <line x1="500" y1="112" x2="500" y2="160" stroke="#0066cc" stroke-width="2" opacity="0.3"/>
+  <circle cx="500" cy="172" r="12" fill="#6f86f6" opacity="0.15"/>
+  <circle cx="500" cy="172" r="6" fill="#6f86f6"/>
+  <line x1="500" y1="184" x2="500" y2="232" stroke="#6f86f6" stroke-width="2" opacity="0.3"/>
+  <circle cx="500" cy="244" r="12" fill="#c875d8" opacity="0.15"/>
+  <circle cx="500" cy="244" r="6" fill="#c875d8"/>
+  <line x1="500" y1="256" x2="500" y2="304" stroke="#c875d8" stroke-width="2" opacity="0.3"/>
+  <circle cx="500" cy="316" r="12" fill="#28c9ff" opacity="0.15"/>
+  <circle cx="500" cy="316" r="6" fill="#28c9ff"/>
+  <!-- Step labels -->
+  <text x="524" y="105" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1d1d1f">注册账号</text>
+  <text x="524" y="177" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1d1d1f">手机验证</text>
+  <text x="524" y="249" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1d1d1f">创建 API Key</text>
+  <text x="524" y="321" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1d1d1f">设置限额</text>
+  <!-- Code snippet decoration -->
+  <rect x="580" y="370" width="180" height="50" rx="8" fill="#1d1d1f" opacity="0.08"/>
+  <text x="600" y="400" font-family="monospace" font-size="12" fill="#0066cc">sk-xxxxxxxx...</text>
+</svg>
