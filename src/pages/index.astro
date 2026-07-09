@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -14,22 +15,44 @@ const dateFmt = new Intl.DateTimeFormat('zh-CN', {
 ---
 
 <BaseLayout>
-  <h1 class="page-title">你好，欢迎来到我的博客</h1>
-  <p class="lead">
-    这里记录我的思考、技术与生活。下面是最近更新的文章，完整列表请看<a href="/blog">文章页</a>。
-  </p>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="badge">Astro · Decap CMS · Cloudflare</span>
+      <h1>记录 <span class="gradient-text">AI、技术与思考</span></h1>
+      <p class="hero-desc">这里是露梦的博客，分享我在 AI 工具、技术与日常中的观察与笔记。</p>
+      <div class="hero-btns">
+        <a class="pill" href="/blog">浏览文章</a>
+        <a class="pill secondary" href="/about">关于我</a>
+      </div>
+    </div>
+  </section>
 
-  {posts.length > 0 ? (
-    <ul class="post-list">
-      {posts.map((post) => (
-        <li>
-          <p class="post-title"><a href={`/blog/${post.id}/`}>{post.data.title}</a></p>
-          <p class="post-date">{dateFmt.format(post.data.pubDate)}</p>
-          <p class="post-desc">{post.data.description}</p>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p>还没有文章，去后台写一篇吧。</p>
-  )}
+  <section class="section-pad">
+    <div class="container">
+      <div class="page-head">
+        <h1>最近文章</h1>
+        <p>最新的几篇，完整列表见<a href="/blog" style="color: var(--primary);">文章页</a></p>
+      </div>
+      <div class="layout">
+        <div class="content-main">
+          {posts.length > 0 ? (
+            <ul class="post-list">
+              {posts.map((post) => (
+                <li>
+                  <a class="post-card" href={`/blog/${post.id}/`}>
+                    <h2 class="post-card-title">{post.data.title}</h2>
+                    <div class="post-card-meta">{dateFmt.format(post.data.pubDate)}</div>
+                    <p class="post-card-desc">{post.data.description}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>还没有文章，去后台写一篇吧。</p>
+          )}
+        </div>
+        <Sidebar />
+      </div>
+    </div>
+  </section>
 </BaseLayout>

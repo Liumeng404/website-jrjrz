@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+
+const recent = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const dateFmt = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric' });
+---
+
+<aside class="content-aside">
+  <section class="widget">
+    <h3 class="widget-title">关于</h3>
+    <p class="widget-body">露梦的博客，记录 AI、技术与日常思考。</p>
+    <a class="widget-link" href="/about">了解更多 →</a>
+  </section>
+
+  <section class="widget">
+    <h3 class="widget-title">最近文章</h3>
+    <ul class="widget-list">
+      {recent.map((p) => (
+        <li>
+          <a href={`/blog/${p.id}/`}>{p.data.title}</a>
+          <span class="widget-date">{dateFmt.format(p.data.pubDate)}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="widget">
+    <h3 class="widget-title">导航</h3>
+    <ul class="widget-list">
+      <li><a href="/">首页</a></li>
+      <li><a href="/blog">全部文章</a></li>
+      <li><a href="/about">关于</a></li>
+    </ul>
+  </section>
+</aside>
