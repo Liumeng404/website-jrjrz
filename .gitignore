@@ -17,6 +17,12 @@ pnpm-debug.log*
 .env
 .env.production
 
+# secrets (never commit)
+github-clint.txt
+GTM-code.txt
+*.secret
+*secret*.txt
+
 # macOS-specific files
 .DS_Store
 
