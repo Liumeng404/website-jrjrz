@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# CMS admin and API
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://www.jrjrz.com/sitemap.xml
