@@ -1,12 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
 
-// 最近文章
-const recent = [...allPosts]
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+interface Props {
+  headings?: Heading[];
+}
+
+const { headings = [] } = Astro.props;
+
+// 目录：只展示 h2 / h3
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 
 // 标签云（统计所有标签）
 const tagMap = new Map<string, number>();
@@ -16,23 +26,24 @@ allPosts.forEach((post) => {
   });
 });
 const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
-
-const dateFmt = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric' });
 ---
 
 <aside class="article-aside">
-  <!-- 最近文章 -->
-  <section class="widget">
-    <h3 class="widget-title">最近文章</h3>
-    <ul class="widget-list">
-      {recent.map((p) => (
-        <li>
-          <a href={`/blog/${p.id}/`}>{p.data.title}</a>
-          <span class="widget-date">{dateFmt.format(p.data.pubDate)}</span>
-        </li>
-      ))}
-    </ul>
-  </section>
+  <!-- 文章目录 -->
+  {toc.length > 0 && (
+    <section class="widget widget-toc">
+      <h3 class="widget-title">目录</h3>
+      <nav class="toc" aria-label="文章目录">
+        <ul class="toc-list">
+          {toc.map((h) => (
+            <li class={`toc-item toc-depth-${h.depth}`}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </section>
+  )}
 
   <!-- 标签云 -->
   {tags.length > 0 && (
@@ -60,3 +71,66 @@ const dateFmt = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric'
     <a class="widget-link" href="/">了解更多 →</a>
   </section>
 </aside>
+
+<script>
+  // 滚动时高亮当前目录项
+  function initTocHighlight() {
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc-list a'));
+    if (!links.length) return;
+
+    const idToLink = new Map<string, HTMLAnchorElement>();
+    const headings: HTMLElement[] = [];
+
+    links.forEach((link) => {
+      const id = decodeURIComponent(link.getAttribute('href')?.slice(1) || '');
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      idToLink.set(id, link);
+      headings.push(el);
+    });
+
+    if (!headings.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((l) => l.classList.remove('is-active'));
+      idToLink.get(id)?.classList.add('is-active');
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // 取当前视口中最靠上的可见标题
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]?.target?.id) {
+          setActive(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-100px 0px -55% 0px',
+        threshold: [0, 1],
+      }
+    );
+
+    headings.forEach((h) => observer.observe(h));
+
+    // 初始：若顶部已过首个标题，按滚动位置激活
+    const activateByScroll = () => {
+      const y = window.scrollY + 130;
+      let current = headings[0]?.id;
+      for (const h of headings) {
+        if (h.offsetTop <= y) current = h.id;
+      }
+      if (current) setActive(current);
+    };
+    activateByScroll();
+    window.addEventListener('scroll', activateByScroll, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTocHighlight);
+  } else {
+    initTocHighlight();
+  }
+</script>

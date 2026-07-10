@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import BlogSubNav from '../../components/BlogSubNav.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
@@ -9,17 +10,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 ---
 
 <BaseLayout title="博客 | 露梦AI Store" description="AI 工具使用教程、行业资讯与技术分享。ChatGPT、Claude、AI 开发指南等内容。">
-  <!-- 博客专属 sub-nav（标题放大） -->
-  <nav class="blog-sub-nav">
-    <div class="nav-inner">
-      <div class="blog-sub-title">📝 博客文章</div>
-      <div class="sub-actions">
-        <a href="/">首页</a>
-        <a href="/#services">服务</a>
-        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
-      </div>
-    </div>
-  </nav>
+  <BlogSubNav />
 
   <!-- 博客 Hero -->
   <section class="blog-hero">

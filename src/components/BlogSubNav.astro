@@ -1,0 +1,38 @@
+---
+/**
+ * 博客区二级导航
+ * 左：品牌 | 中：三大充值入口 | 右：文章/首页 + 客服
+ */
+interface Props {
+  showAllPosts?: boolean;
+}
+
+const { showAllPosts = false } = Astro.props;
+
+const products = [
+  { href: 'https://www.jrjrz.com/chatgpt.html', label: 'ChatGPT 充值' },
+  { href: 'https://www.jrjrz.com/claude.html', label: 'Claude 充值' },
+  { href: 'https://www.jrjrz.com/grok.html', label: 'Super Grok 充值' },
+];
+---
+
+<nav class="blog-sub-nav">
+  <div class="nav-inner blog-sub-nav-inner">
+    <a class="blog-sub-title" href="/">露梦AI Store</a>
+
+    <div class="sub-center" aria-label="产品充值">
+      {products.map((p) => (
+        <a href={p.href}>{p.label}</a>
+      ))}
+    </div>
+
+    <div class="sub-actions">
+      {showAllPosts ? (
+        <a href="/blog/">全部文章</a>
+      ) : (
+        <a href="/">首页</a>
+      )}
+      <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+    </div>
+  </div>
+</nav>

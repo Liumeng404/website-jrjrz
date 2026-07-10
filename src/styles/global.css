@@ -860,18 +860,52 @@ footer {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   backdrop-filter: saturate(180%) blur(20px);
 }
-.blog-sub-nav .nav-inner {
+.blog-sub-nav .nav-inner,
+.blog-sub-nav-inner {
   height: 60px;
   color: var(--ink);
 }
+/* 三栏：左品牌 · 中充值 · 右操作 */
+.blog-sub-nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
 .blog-sub-title {
+  justify-self: start;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 160ms;
 }
-.blog-sub-nav .sub-actions {
-  gap: 22px;
+a.blog-sub-title:hover { color: var(--primary); }
+.sub-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
   font-size: 15px;
+  white-space: nowrap;
+}
+.sub-center a {
+  color: #333;
+  transition: color 160ms;
+}
+.sub-center a:hover { color: var(--primary); }
+.blog-sub-nav .sub-actions {
+  justify-self: end;
+  gap: 18px;
+  font-size: 15px;
+}
+.blog-sub-nav .sub-actions a:not(.pill) {
+  color: #333;
+  transition: color 160ms;
+}
+.blog-sub-nav .sub-actions a:not(.pill):hover {
+  color: var(--primary);
 }
 
 /* ----- 博客列表页 hero ----- */
@@ -1020,14 +1054,57 @@ footer {
   margin-top: 40px;
 }
 
-/* ----- 文章详情页：左右布局 ----- */
+/* ----- 面包屑导航 ----- */
+.breadcrumb-bar {
+  padding: 12px 0;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--hairline);
+}
+.breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.breadcrumb a {
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 160ms;
+}
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb-sep {
+  color: #c7c7cc;
+  flex: 0 0 auto;
+}
+.breadcrumb-current {
+  min-width: 0;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ----- 文章详情页：左右布局（正文约 880px） ----- */
+.article-section {
+  /* 面包屑下方略收紧顶部留白 */
+  padding-top: 40px;
+}
+.article-container {
+  width: min(100%, 1280px);
+}
 .article-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 48px;
+  /* 主栏上限约 880px（55rem），右侧目录/侧栏 */
+  grid-template-columns: minmax(0, 55rem) minmax(220px, 280px);
+  gap: clamp(28px, 3.5vw, 48px);
+  justify-content: space-between;
   align-items: start;
 }
-.article-main { min-width: 0; }
+.article-main { min-width: 0; max-width: 55rem; }
 .article-aside {
   position: sticky;
   top: 120px;
@@ -1086,11 +1163,13 @@ footer {
   font-size: 1.5em;
   font-weight: 600;
   letter-spacing: -0.01em;
+  scroll-margin-top: 120px;
 }
 .prose h3 {
   margin: 1.6em 0 0.5em;
   font-size: 1.2em;
   font-weight: 600;
+  scroll-margin-top: 120px;
 }
 .prose p { margin: 0 0 1.1em; }
 .prose a {
@@ -1214,6 +1293,45 @@ footer {
   color: var(--primary);
 }
 
+/* 文章目录 TOC */
+.widget-toc {
+  padding-bottom: 18px;
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+  max-height: min(52vh, 420px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.toc-item a {
+  display: block;
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 0 6px 6px 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  transition: color 160ms, background 160ms, border-color 160ms;
+}
+.toc-item a:hover {
+  color: var(--ink);
+  background: var(--parchment);
+}
+.toc-item a.is-active {
+  color: var(--primary);
+  border-left-color: var(--primary);
+  background: rgba(0, 102, 204, 0.06);
+  font-weight: 600;
+}
+.toc-depth-3 a {
+  padding-left: 22px;
+  font-size: 12px;
+}
+
 /* ===== 页面通用 page-head ===== */
 .page-head {
   margin-bottom: 28px;
@@ -1235,8 +1353,14 @@ footer {
   .trust-grid { grid-template-columns: 1fr; }
   .how-visual { position: static; }
   .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .article-layout { grid-template-columns: 1fr; gap: 32px; }
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    justify-content: stretch;
+  }
+  .article-main { max-width: none; }
   .article-aside { position: static; }
+  .toc-list { max-height: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
 }
 
@@ -1268,8 +1392,27 @@ footer {
   .card-desc { min-height: 0; }
   .step { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
-  .blog-sub-title { font-size: 18px; }
+  .blog-sub-title { font-size: 15px; }
+  .blog-sub-nav-inner {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+  /* 窄屏：中间产品下沉为第二行居中，右侧只留客服 */
   .blog-sub-nav .sub-actions a:not(.pill) { display: none; }
+  .sub-center {
+    grid-column: 1 / -1;
+    order: 3;
+    gap: 14px;
+    font-size: 13px;
+    justify-content: center;
+  }
+  .blog-sub-nav .nav-inner,
+  .blog-sub-nav-inner {
+    height: auto;
+    min-height: 52px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom {
     display: grid;

@@ -1,10 +1,8 @@
 backend:
   name: github
-  # TODO(上线前替换): 把下面的 用户名/仓库名 改成你的实际 GitHub 仓库
-  repo: <你的用户名>/<你的仓库名>
+  repo: Liumeng404/website-jrjrz
   branch: main
-  # TODO(上线前替换): 把 base_url 改成你的站点域名（与 Cloudflare Pages 自定义域一致）
-  base_url: https://<你的域名>
+  base_url: https://www.jrjrz.com
   auth_endpoint: /api/auth
 
 media_folder: "public/uploads"
@@ -24,4 +22,7 @@ collections:
       - { name: "pubDate", label: "发布日期", widget: "datetime" }
       - { name: "updatedDate", label: "更新日期", widget: "datetime", required: false }
       - { name: "draft", label: "草稿", widget: "boolean", default: false }
+      - { name: "image", label: "封面图", widget: "image", required: false }
+      - { name: "tags", label: "标签", widget: "list", required: false }
+      - { name: "author", label: "作者", widget: "string", required: false, default: "露梦" }
       - { name: "body", label: "正文", widget: "markdown" }
