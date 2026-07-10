@@ -29,7 +29,8 @@ GTM-code.txt
 # jetbrains setting folder
 .idea/
 
-# local token dumps
+# local token dumps / notes
 CF token.txt
 *token*.txt
+站长平台验证文件.txt
 

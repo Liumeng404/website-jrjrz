@@ -23,13 +23,23 @@ export const GET: APIRoute = async ({ site }) => {
   );
 
   type Entry = { loc: string; lastmod: string };
+  const today = toDateStr(new Date());
+
+  // 营销着陆页（独立 HTML，不在 Astro 路由里，需手动列入）
+  const productLanding: Entry[] = [
+    { loc: `${origin}/chatgpt.html`, lastmod: today },
+    { loc: `${origin}/claude.html`, lastmod: today },
+    { loc: `${origin}/grok.html`, lastmod: today },
+  ];
+
   const entries: Entry[] = [
-    { loc: `${origin}/`, lastmod: toDateStr(new Date()) },
+    { loc: `${origin}/`, lastmod: today },
+    ...productLanding,
     {
       loc: `${origin}/blog/`,
-      lastmod: posts[0] ? toDateStr(posts[0].data.pubDate) : toDateStr(new Date()),
+      lastmod: posts[0] ? toDateStr(posts[0].data.pubDate) : today,
     },
-    { loc: `${origin}/about/`, lastmod: toDateStr(new Date()) },
+    { loc: `${origin}/about/`, lastmod: today },
     ...posts.map((post) => ({
       loc: `${origin}/blog/${post.id}/`,
       lastmod: toDateStr(post.data.pubDate), // 发布日期
