@@ -1,21 +1,14 @@
-# 推送到 main 后自动构建并部署到 Cloudflare Pages（Direct Upload 项目）
-# 需要在 GitHub 仓库 Settings → Secrets 配置：
-#   CLOUDFLARE_API_TOKEN   Cloudflare API Token（权限含 Cloudflare Pages Edit）
-#   CLOUDFLARE_ACCOUNT_ID  e2fe8486c1706821b70b839568e149ec
-
 name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,12 +19,12 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Install & build
+      - name: Install and build
         run: |
           npm ci
           npm run build
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
