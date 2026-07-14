@@ -9,6 +9,34 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
+  # 手机/电脑均可在后台改价 → 提交后自动部署
+  - name: "settings"
+    label: "站点配置"
+    files:
+      - name: "prices"
+        label: "套餐价格"
+        file: "public/prices.json"
+        fields:
+          - label: "ChatGPT"
+            name: "chatgpt"
+            widget: "object"
+            fields:
+              - { name: "plus", label: "Plus 月付（元）", widget: "number", value_type: "int", min: 1 }
+              - { name: "pro5x", label: "Pro 5x 月付（元）", widget: "number", value_type: "int", min: 1 }
+              - { name: "pro20x", label: "Pro 20x 月付（元）", widget: "number", value_type: "int", min: 1 }
+          - label: "Claude"
+            name: "claude"
+            widget: "object"
+            fields:
+              - { name: "pro", label: "Pro 月付（元）", widget: "number", value_type: "int", min: 1 }
+          - label: "SuperGrok"
+            name: "grok"
+            widget: "object"
+            fields:
+              - { name: "monthly", label: "月付（元）", widget: "number", value_type: "int", min: 1 }
+              - { name: "bimonthly", label: "双月（元）", widget: "number", value_type: "int", min: 1 }
+              - { name: "bimonthly_save", label: "双月相对两月付节省（元）", widget: "number", value_type: "int", min: 0 }
+
   - name: "blog"
     label: "博客文章"
     folder: "src/content/blog"
