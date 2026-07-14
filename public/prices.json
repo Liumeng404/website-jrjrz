@@ -1,14 +1,14 @@
 {
   "chatgpt": {
-    "plus": 128,
-    "pro5x": 850,
-    "pro20x": 1500
+    "plus": 145,
+    "pro5x": 720,
+    "pro20x": 1260
   },
   "claude": {
-    "pro": 135
+    "pro": 155
   },
   "grok": {
-    "monthly": 145,
+    "monthly": 110,
     "bimonthly": 200,
     "bimonthly_save": 90
   }
