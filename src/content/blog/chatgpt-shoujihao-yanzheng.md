@@ -1,44 +1,12 @@
 ---
-title: "ChatGPT 手机号验证不过？+86 无效怎么办（giffgaff/Saily/接码对照）"
-description: "ChatGPT/Codex 要求手机号时国内 +86 常不可用。对照 giffgaff、Saily、HeroSMS 三种方案优缺点，以及长效接码与代充协助怎么选。"
+title: "ChatGPT遇到手机号验证怎么办？2026最新教程解析（giffgaff/Saily/接码）"
+description: "ChatGPT 注册或登录要求手机号时，国内 +86 经常提示号码无效。讲清卡点，对照 giffgaff、Saily、HeroSMS 三种方案的优缺点，以及什么时候适合找接码/注册协助。"
 pubDate: 2026-07-15
 draft: false
 tags: ["ChatGPT", "手机号", "验证码", "Codex", "代充"]
 author: "露梦"
 image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujihao-yanzheng/img-1.png"
 ---
-# S3 初稿 · 待配图审阅
-
-编号：S3
-主词：手机号/验证码 · Codex/ChatGPT 手机号验证 · +86 无效
-本地源：`serp_framework/out/drafts/S3_ChatGPT收不到验证码.md`
-说明：请在下方「【配图】」处插入图片；定稿后可走发布流
-
-## 建议 TDK
-
-| 项 | 建议 |
-| --- | --- |
-| **Title** | ChatGPT遇到手机号验证怎么办？2026最新教程解析（giffgaff/Saily/接码） |
-| **Description** | ChatGPT 注册或登录要求手机号时，国内 +86 经常提示号码无效。讲清卡点，对照 giffgaff、Saily、HeroSMS 三种方案的优缺点，以及什么时候适合找接码/注册协助。 |
-| **URL 建议** | `/blog/chatgpt-shoujihao-yanzheng/` 或按站点规范 |
-
-**Title 备选：** ChatGPT 绑定不了国内手机号？三种解决思路怎么选
-
-## 配图清单（请在正文对应位置插入）
-
-- 选 +86 后「号码无效」示意
-- 三种方案对照：giffgaff / Saily / HeroSMS
-- 选型简图：长期用 vs 只过一次
-- 文末服务入口示意（可选）
-
-## 内链清单
-
-| 目标 | 用途 |
-| --- | --- |
-| [ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/) | 邮箱注册全流程 |
-| [jrjrz.com](https://www.jrjrz.com) | 接码协助 / 成品号 / Plus 代充 |
-
-# 正文
 
 如果你也卡在 ChatGPT 的手机号这一步，直接说结论：
 
@@ -46,7 +14,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujih
 
 页面让你填电话时，是必须用国外手机号绑定才能使用Codex（ChatGPT网页版不用）。
 
-![图片1](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujihao-yanzheng/img-1.png)
+![ChatGPT 手机号验证示意](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujihao-yanzheng/img-1.png)
 
 邮箱注册、登录、资料怎么填，另一篇写过完整流程：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)。这篇只解决**Codex要绑手机号，怎么办的问题。**
 
@@ -88,7 +56,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujih
 
 ## 方案一：giffgaff（英国号，适合长期）
 
-[giffgaff](https://www.giffgaff.com/)** **是英国的预付费手机卡路线，实体卡和 eSIM 都有人用。号是 **+44** 英国号。可以把它当成「愿意准备一下、换一个能长期拿着的真实海外号」的选项。
+[giffgaff](https://www.giffgaff.com/) 是英国的预付费手机卡路线，实体卡和 eSIM 都有人用。号是 **+44** 英国号。可以把它当成「愿意准备一下、换一个能长期拿着的真实海外号」的选项。
 
 **优点：**
 
@@ -103,15 +71,15 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujih
 - 号要你自己维护，要持续交费保号，就为了防止Codex的再次验证。
 - 对「今天就得注册完并且使用」的人来说，准备周期偏长。
 
-**适合谁：**
+**适合谁：**  
 Codex重度用户，日常工作离不开它，没了它就干不了活儿，这种最好买个国外卡。
 
-**不太适合：**
+**不太适合：**  
 只想花几分钟过一次验证、之后号可扔的人。
 
 ## 方案二：Saily（美国号，适合长期、偏 App）
 
-[Saily](https://saily.com/zh/)** **本身是旅行 eSIM 方向的产品，后来提供了**美国手机号（+1）**这类能力，可以在 App 里申请、订阅保号，用来收验证短信。我把它和 giffgaff 放在同一梯队：都是**你自己持有一个号**，不是网页上租一分钟的公共号。
+[Saily](https://saily.com/zh/) 本身是旅行 eSIM 方向的产品，后来提供了**美国手机号（+1）**这类能力，可以在 App 里申请、订阅保号，用来收验证短信。我把它和 giffgaff 放在同一梯队：都是**你自己持有一个号**，不是网页上租一分钟的公共号。
 
 **优点：**
 
@@ -127,14 +95,14 @@ Codex重度用户，日常工作离不开它，没了它就干不了活儿，这
 - 价格、套餐、是否包含短信，以 App 实时页面为准。
 - 推广信息很多，买之前多做下攻略，以防被割韭菜。
 
-**适合谁：**
+**适合谁：**  
 Codex重度用户
 
 **不太适合：** 设备搞不了 eSIM、或者只想一次性临时收码的人。
 
 ## 方案三：HeroSMS（在线接码，适合临时）
 
-[HeroSMS](https://hero-sms.com/cn)** **是网页接码：充值后选服务、租一个境外号，在网站上收临时的短信验证码。
+[HeroSMS](https://hero-sms.com/cn) 是网页接码：充值后选服务、租一个境外号，在网站上收临时的短信验证码。
 
 **优点：**
 
@@ -150,7 +118,7 @@ Codex重度用户
 - 不适合当主力号的绑定方式。
 - 平台规则、库存、支付方式都会变，以官网当前为准。
 
-**适合谁：**
+**适合谁：**  
 非主力号可以试试，但是要考虑二验问题。
 
 **不太适合：** 准备长期付费、当生产力工具的主账号。
@@ -177,14 +145,14 @@ Codex重度用户
 
 ## 不建议做的几件事
 
-- **死磕国内手机号**
-已经明确 +86 无效，就不要再换移动联通电信来回试了，浪费时间。
-- **用一次性接码号绑定准备长期付费的主号**
-省下的几块钱，可能在二次验证时加倍还回来。
-- **迷信「免费美国号 / App 虚拟号」**
-很多网络电话号会被直接识别掉，看起来像 +1，实际过不了。我宁可在 giffgaff、Saily、HeroSMS 里选，也不拿来路不明的白嫖号赌主号。
-- **同时改十个变量**
-换号、换浏览器、换网络一起上，出了问题你自己都复盘不了。一次只改一条路径。
+- **死磕国内手机号**  
+  已经明确 +86 无效，就不要再换移动联通电信来回试了，浪费时间。
+- **用一次性接码号绑定准备长期付费的主号**  
+  省下的几块钱，可能在二次验证时加倍还回来。
+- **迷信「免费美国号 / App 虚拟号」**  
+  很多网络电话号会被直接识别掉，看起来像 +1，实际过不了。我宁可在 giffgaff、Saily、HeroSMS 里选，也不拿来路不明的白嫖号赌主号。
+- **同时改十个变量**  
+  换号、换浏览器、换网络一起上，出了问题你自己都复盘不了。一次只改一条路径。
 
 ## 不想自己搞号时，可以怎么做
 
@@ -207,27 +175,27 @@ Codex重度用户
 - 看自己要不要 Plus；
 - 支付过不去的话，再处理绑卡或代充——不必从注册重来。
 
-注册全流程继续看：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)
+注册全流程继续看：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)  
 会员和支付：联系客服即可。
 
 ## FAQ
 
-**Q1：国内手机号是不是一定不能验证 ChatGPT？**
+**Q1：国内手机号是不是一定不能验证 ChatGPT？**  
 是的，+86 直接不可用。页面策略可能变，但你不要按「再等等国内号就能好」来规划。
 
-**Q2：giffgaff 和 Saily 我该二选一还是都要？**
+**Q2：giffgaff 和 Saily 我该二选一还是都要？**  
 普通个人有一个长期可用的海外号通常就够。你会 eSIM、想要美号，偏 Saily；更能接受英国卡/eSIM 路线，偏 giffgaff。没必要一上来办两套，除非你有隔离多账号的需求。
 
-**Q3：HeroSMS 能用来开 Plus 的主号吗？**
+**Q3：HeroSMS 能用来开 Plus 的主号吗？**  
 不建议。临时注册可以，主号长期绑接码号，二次验证风险太大。
 
-**Q4：接码失败了怎么办？**
+**Q4：接码失败了怎么办？**  
 有限次换号重试；老失败就停，改长期号或找协助，别无脑充值砸钱。
 
-**Q5：你们说的接码协助，和我自己用 HeroSMS 有什么不同？**
+**Q5：你们说的接码协助，和我自己用 HeroSMS 有什么不同？**  
 HeroSMS 是你自己去租号收码。协助是你把需求告诉我们，由我们按约定帮你过验证环节，并能接到注册、代充，细节以沟通为准。
 
-**Q6：手机号过了是不是就等于有 Plus？**
+**Q6：手机号过了是不是就等于有 Plus？**  
 不是。手机号只解决身份验证；Plus 还要单独订阅和支付。
 
 ## 小结
