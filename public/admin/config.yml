@@ -9,7 +9,7 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  # 手机/电脑均可在后台改价 → 提交后自动部署
+  # 手机/电脑均可改配置 → 提交后自动部署
   - name: "settings"
     label: "站点配置"
     files:
@@ -36,6 +36,80 @@ collections:
               - { name: "monthly", label: "月付（元）", widget: "number", value_type: "int", min: 1 }
               - { name: "bimonthly", label: "双月（元）", widget: "number", value_type: "int", min: 1 }
               - { name: "bimonthly_save", label: "双月相对两月付节省（元）", widget: "number", value_type: "int", min: 0 }
+
+      - name: "site_config"
+        label: "TDK 与页脚"
+        file: "public/site-config.json"
+        fields:
+          - label: "页面 TDK（博客除外）"
+            name: "tdk"
+            widget: "object"
+            fields:
+              - label: "首页"
+                name: "home"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title 标题", widget: "string" }
+                  - { name: "description", label: "Description 描述", widget: "text" }
+                  - { name: "keywords", label: "Keywords 关键词（逗号分隔）", widget: "string", required: false }
+              - label: "ChatGPT 子页"
+                name: "chatgpt"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title 标题", widget: "string" }
+                  - { name: "description", label: "Description 描述", widget: "text" }
+                  - { name: "keywords", label: "Keywords 关键词", widget: "string", required: false }
+              - label: "Claude 子页"
+                name: "claude"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title 标题", widget: "string" }
+                  - { name: "description", label: "Description 描述", widget: "text" }
+                  - { name: "keywords", label: "Keywords 关键词", widget: "string", required: false }
+              - label: "SuperGrok 子页"
+                name: "grok"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title 标题", widget: "string" }
+                  - { name: "description", label: "Description 描述", widget: "text" }
+                  - { name: "keywords", label: "Keywords 关键词", widget: "string", required: false }
+
+          - label: "页脚（胖页脚）"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { name: "brandDesc", label: "品牌简介（左侧）", widget: "text" }
+              - label: "链接列"
+                name: "columns"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: "title", label: "列标题", widget: "string" }
+                  - label: "链接"
+                    name: "links"
+                    widget: "list"
+                    summary: "{{fields.text}}"
+                    fields:
+                      - { name: "text", label: "显示文字", widget: "string" }
+                      - { name: "href", label: "链接 URL", widget: "string", hint: "如 /chatgpt.html 或 /blog/" }
+                      - label: "特殊动作"
+                        name: "action"
+                        widget: "select"
+                        required: false
+                        default: ""
+                        options:
+                          - { label: "普通链接", value: "" }
+                          - { label: "打开客服二维码", value: "qr" }
+              - { name: "seoTitle", label: "关键词区标题", widget: "string", default: "热门关键词", required: false }
+              - label: "关键词 / 内链（多行标签）"
+                name: "seoLinks"
+                widget: "list"
+                summary: "{{fields.text}}"
+                hint: "用于胖页脚 SEO 关键词，可加很多条"
+                fields:
+                  - { name: "text", label: "关键词文字", widget: "string" }
+                  - { name: "href", label: "链接", widget: "string" }
+              - { name: "copyright", label: "版权说明（© 后面那段）", widget: "text", required: false }
 
   - name: "blog"
     label: "博客文章"

@@ -1,15 +1,27 @@
 ---
 import '../styles/global.css';
+import { loadSiteConfig } from '../lib/site-config';
 
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  robots?: string;
 }
+
+const site = loadSiteConfig();
+const homeTdk = site.tdk.home;
+
 const {
-  title = '露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充',
-  description = '露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信/支付宝，原账号开通，无需账号密码。'
+  title = homeTdk.title,
+  description = homeTdk.description,
+  keywords = homeTdk.keywords || '',
+  robots = 'index, follow',
 } = Astro.props;
+
 const year = new Date().getFullYear();
+const footer = site.footer;
+
 ---
 
 <!DOCTYPE html>
@@ -32,6 +44,8 @@ const year = new Date().getFullYear();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content={robots} />
     <title>{title}</title>
   </head>
   <body>
@@ -46,7 +60,6 @@ const year = new Date().getFullYear();
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- 顶部导航（与首页 HTML 一致） -->
     <nav class="top-nav">
       <div class="nav-inner">
         <a class="logo" href="/">
@@ -64,43 +77,48 @@ const year = new Date().getFullYear();
 
     <slot />
 
-    <!-- 页脚（与首页 HTML 一致） -->
-    <footer>
+    <!-- 胖页脚：列链接 + 关键词区（后台 site-config 可改） -->
+    <footer id="site-footer">
       <div class="container">
-        <div class="footer-grid">
+        <div class="footer-grid footer-fat">
           <div class="footer-brand">
             <a class="logo" href="/">
               <img class="logo-mark" src="/images/logo.jpg" alt="露梦AI Store LOGO" />
               <span style="color: var(--ink);">露梦AI Store</span>
             </a>
-            <div class="footer-desc">专注 AI 订阅服务代充，为国内用户提供更便捷的 AI 工具访问方式。</div>
+            <div class="footer-desc">{footer.brandDesc}</div>
           </div>
-          <div>
-            <div class="footer-col-title">服务</div>
-            <ul class="footer-links">
-              <li><a href="https://www.jrjrz.com/chatgpt.html">ChatGPT Plus</a></li>
-              <li><a href="https://www.jrjrz.com/claude.html">Claude Pro</a></li>
-              <li><a href="https://www.jrjrz.com/grok.html">SuperGrok</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="footer-col-title">内容</div>
-            <ul class="footer-links">
-              <li><a href="/blog/">博客文章</a></li>
-              <li><a href="/#how">充值流程</a></li>
-              <li><a href="/#faq">常见问题</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="footer-col-title">支持</div>
-            <ul class="footer-links">
-              <li><a href="javascript:void(0)" onclick="openQrModal()">联系客服</a></li>
-              <li><a href="/#services">查看套餐</a></li>
-            </ul>
-          </div>
+          {footer.columns.map((col) => (
+            <div>
+              <div class="footer-col-title">{col.title}</div>
+              <ul class="footer-links">
+                {col.links.map((link) => (
+                  <li>
+                    {link.action === 'qr' ? (
+                      <a href="javascript:void(0)" onclick="openQrModal()">{link.text}</a>
+                    ) : (
+                      <a href={link.href}>{link.text}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+
+        {footer.seoLinks && footer.seoLinks.length > 0 && (
+          <div class="footer-seo">
+            <div class="footer-seo-title">{footer.seoTitle || '热门关键词'}</div>
+            <div class="footer-seo-links">
+              {footer.seoLinks.map((l) => (
+                <a href={l.href}>{l.text}</a>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div class="footer-bottom">
-          <div>&copy; {year} 露梦AI Store。本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic / xAI 无官方关联。</div>
+          <div>&copy; {year} 露梦AI Store。{footer.copyright}</div>
           <div class="footer-badges">
             <div class="fbadge">微信支付</div>
             <div class="fbadge">SSL 加密</div>
@@ -109,7 +127,6 @@ const year = new Date().getFullYear();
       </div>
     </footer>
 
-    <!-- 微信二维码弹窗 -->
     <div class="qr-modal" id="qrModal" aria-hidden="true">
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
@@ -119,7 +136,6 @@ const year = new Date().getFullYear();
     </div>
 
     <script is:inline>
-      // 滚动入场动画
       var revealItems = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
         var revealObserver = new IntersectionObserver(function (entries) {
@@ -135,7 +151,6 @@ const year = new Date().getFullYear();
         revealItems.forEach(function (item) { item.classList.add('in-view'); });
       }
 
-      // 二维码弹窗
       function openQrModal() {
         var modal = document.getElementById('qrModal');
         modal.classList.add('active');
@@ -150,14 +165,12 @@ const year = new Date().getFullYear();
         if (event.target === event.currentTarget) closeQrModal();
       });
 
-      // FAQ 折叠
       document.querySelectorAll('.faq-item').forEach(function (item) {
         item.querySelector('.faq-q')?.addEventListener('click', function () {
           item.classList.toggle('active');
         });
       });
 
-      // 复制 Session URL
       function copySessionUrl(target) {
         var text = 'chatgpt.com/api/auth/session';
         if (navigator.clipboard) {

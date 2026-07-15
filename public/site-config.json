@@ -1,0 +1,62 @@
+{
+  "tdk": {
+    "home": {
+      "title": "露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充",
+      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信/支付宝，原账号开通，无需账号密码。",
+      "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,SuperGrok,AI订阅代充,露梦AI Store"
+    },
+    "chatgpt": {
+      "title": "ChatGPT Plus代充值 | 露梦AI Store",
+      "description": "露梦AI Store 提供 ChatGPT Plus、ChatGPT Pro 5x、ChatGPT Pro 20x 订阅代充服务。支持微信/支付宝，开通到您的原账号。",
+      "keywords": "ChatGPT Plus代充,ChatGPT充值,ChatGPT Plus开通,ChatGPT代付"
+    },
+    "claude": {
+      "title": "Claude Pro代充值 | 露梦AI Store",
+      "description": "露梦AI Store 提供 Claude Pro 订阅代充服务。支持微信/支付宝，开通到您的原账号，适合长文档、代码生成和深度写作。",
+      "keywords": "Claude Pro代充,Claude充值,Claude开通,Anthropic"
+    },
+    "grok": {
+      "title": "SuperGrok代充值 | 露梦AI Store",
+      "description": "露梦AI Store 提供 SuperGrok 会员代充服务。支持月付与双月方案，微信/支付宝，直充您的自用账号。",
+      "keywords": "SuperGrok代充,Grok充值,Grok会员,xAI"
+    }
+  },
+  "footer": {
+    "brandDesc": "专注 AI 订阅服务代充，为国内用户提供更便捷的 AI 工具访问方式。",
+    "columns": [
+      {
+        "title": "服务",
+        "links": [
+          { "text": "ChatGPT Plus", "href": "/chatgpt.html" },
+          { "text": "Claude Pro", "href": "/claude.html" },
+          { "text": "SuperGrok", "href": "/grok.html" }
+        ]
+      },
+      {
+        "title": "内容",
+        "links": [
+          { "text": "博客文章", "href": "/blog/" },
+          { "text": "充值流程", "href": "/#how" },
+          { "text": "常见问题", "href": "/#faq" }
+        ]
+      },
+      {
+        "title": "支持",
+        "links": [
+          { "text": "联系客服", "href": "javascript:void(0)", "action": "qr" },
+          { "text": "查看套餐", "href": "/#services" }
+        ]
+      }
+    ],
+    "seoTitle": "热门关键词",
+    "seoLinks": [
+      { "text": "ChatGPT 代充", "href": "/chatgpt.html" },
+      { "text": "ChatGPT Plus 开通", "href": "/chatgpt.html" },
+      { "text": "Claude Pro 代充", "href": "/claude.html" },
+      { "text": "SuperGrok 充值", "href": "/grok.html" },
+      { "text": "AI 订阅代充", "href": "/" },
+      { "text": "博客教程", "href": "/blog/" }
+    ],
+    "copyright": "本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic / xAI 无官方关联。"
+  }
+}
