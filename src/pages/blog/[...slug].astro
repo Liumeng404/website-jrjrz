@@ -15,12 +15,64 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+
+const siteUrl = 'https://www.jrjrz.com';
+const pageUrl = `${siteUrl}/blog/${post.id}/`;
+
+/** 转为 ISO8601（头条时间因子） */
+function toIso(d: Date): string {
+  return d.toISOString();
+}
+
+const publishedTime = toIso(post.data.pubDate);
+const updatedTime = toIso(post.data.updatedDate ?? post.data.pubDate);
+
+const cover = post.data.image
+  ? post.data.image.startsWith('http')
+    ? post.data.image
+    : `${siteUrl}${post.data.image.startsWith('/') ? '' : '/'}${post.data.image}`
+  : `${siteUrl}/images/logo-favicon.png`;
+
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  image: [cover],
+  datePublished: publishedTime,
+  dateModified: updatedTime,
+  author: {
+    '@type': 'Person',
+    name: post.data.author || '露梦',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: '露梦AI Store',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/logo-favicon.png`,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+  },
+  url: pageUrl,
+  inLanguage: 'zh-CN',
+  keywords: (post.data.tags || []).join(', '),
+};
 ---
 
-<BaseLayout title={`${post.data.title} | 露梦AI Store`} description={post.data.description}>
+<BaseLayout
+  title={`${post.data.title} | 露梦AI Store`}
+  description={post.data.description}
+  keywords={(post.data.tags || []).join(',')}
+  publishedTime={publishedTime}
+  updatedTime={updatedTime}
+  jsonLd={blogJsonLd}
+>
   <BlogSubNav showAllPosts />
 
-  <!-- 面包屑导航 -->
   <div class="breadcrumb-bar">
     <div class="container">
       <nav class="breadcrumb" aria-label="面包屑导航">
@@ -33,7 +85,6 @@ const { Content, headings } = await render(post);
     </div>
   </div>
 
-  <!-- 左右布局：文章 + 侧边栏 -->
   <section class="section-pad article-section">
     <div class="container article-container">
       <div class="article-layout">

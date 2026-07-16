@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -30,3 +32,11 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=lumengwebsite
+
+      # 发布后：把本次新增/修改的博客 URL 推给百度（日上限 10 条）
+      - name: Baidu URL push
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+          BAIDU_PUSH_BEFORE: ${{ github.event.before }}
+          BAIDU_PUSH_AFTER: ${{ github.sha }}
+        run: node scripts/baidu-push.mjs

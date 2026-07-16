@@ -7,21 +7,63 @@ interface Props {
   description?: string;
   keywords?: string;
   robots?: string;
+  /** ISO8601，头条时间因子 published */
+  publishedTime?: string;
+  /** ISO8601，头条时间因子 updated / lrDate */
+  updatedTime?: string;
+  /** 额外 JSON-LD 对象（会与站点级 Organization/WebSite 一并输出） */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const site = loadSiteConfig();
 const homeTdk = site.tdk.home;
+const siteUrl = 'https://www.jrjrz.com';
 
 const {
   title = homeTdk.title,
   description = homeTdk.description,
   keywords = homeTdk.keywords || '',
   robots = 'index, follow',
+  publishedTime,
+  updatedTime,
+  jsonLd,
 } = Astro.props;
 
 const year = new Date().getFullYear();
 const footer = site.footer;
 
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '露梦AI Store',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo-favicon.png`,
+  description: homeTdk.description,
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: '露梦AI Store',
+  url: siteUrl,
+  description: homeTdk.description,
+  inLanguage: 'zh-CN',
+  publisher: {
+    '@type': 'Organization',
+    name: '露梦AI Store',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/logo-favicon.png`,
+    },
+  },
+};
+
+const extraLd = jsonLd
+  ? Array.isArray(jsonLd)
+    ? jsonLd
+    : [jsonLd]
+  : [];
+const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
 ---
 
 <!DOCTYPE html>
@@ -40,13 +82,38 @@ const footer = site.footer;
       })(window,document,'script','dataLayer','GTM-N5W444TK');
     </script>
     <!-- End Google Tag Manager -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- 今日头条自动收录 -->
+    <script is:inline>
+      (function(){
+        var el = document.createElement("script");
+        el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?e49742c7c59be4a29e8856059cd4dd3f83ff71c46064c4456171dc9f519b599a3d72cd14f8a76432df3935ab77ec54f830517b3cb210f7fd334f50ccb772134a";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+      })(window)
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="robots" content={robots} />
+    {publishedTime && (
+      <meta property="bytedance:published_time" content={publishedTime} />
+    )}
+    {updatedTime && (
+      <>
+        <meta property="bytedance:updated_time" content={updatedTime} />
+        <meta property="bytedance:lrDate_time" content={updatedTime} />
+      </>
+    )}
     <title>{title}</title>
+    {allJsonLd.map((obj) => (
+      <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+    ))}
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -77,7 +144,6 @@ const footer = site.footer;
 
     <slot />
 
-    <!-- 胖页脚：列链接 + 关键词区（后台 site-config 可改） -->
     <footer id="site-footer">
       <div class="container">
         <div class="footer-grid footer-fat">

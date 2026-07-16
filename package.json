@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name=lumengwebsite"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=lumengwebsite",
+    "baidu:push": "node scripts/baidu-push.mjs"
   },
 
   "dependencies": {
