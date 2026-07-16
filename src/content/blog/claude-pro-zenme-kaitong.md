@@ -2,7 +2,7 @@
 title: Claude Pro 怎么开通/充值？国内用户付不了时怎么选
 description: Claude 侧 Fable 5 讨论升温后，更多人想开 Pro 却卡在支付。对照官网绑卡、外区内购、虚拟卡与代充四条路径，帮你少踩坑。
 pubDate: 2026-07-16
-draft: false
+draft: true
 image: https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-zenme-kaitong/img-1.png
 tags:
   - Claude

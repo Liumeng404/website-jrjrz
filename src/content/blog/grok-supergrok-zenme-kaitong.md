@@ -2,7 +2,7 @@
 title: SuperGrok / Grok 会员怎么开通？Grok 4.5 来了国内怎么付
 description: xAI 推出 Grok 4.5 后，编程与代理场景讨论升温。国内开通 SuperGrok 时官网支付常卡住，对照网页、商店、虚拟卡与代充四条路径。
 pubDate: 2026-07-16
-draft: false
+draft: true
 image: https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-zenme-kaitong/img-1.png
 tags:
   - Grok
