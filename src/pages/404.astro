@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="页面未找到 | 露梦AI Store"
+  description="您访问的页面不存在或已被移除。"
+  robots="noindex, follow"
+>
+  <main class="not-found">
+    <div class="container not-found-inner">
+      <p class="not-found-code" aria-hidden="true">404</p>
+      <h1>页面未找到</h1>
+      <p>您访问的页面不存在、已被移除，或网址有误。</p>
+      <div class="not-found-actions">
+        <a class="pill" href="/">返回首页</a>
+        <a class="pill secondary" href="/blog/">浏览博客</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: 62vh;
+    place-items: center;
+    padding: 80px 0;
+    background: var(--parchment);
+    text-align: center;
+  }
+
+  .not-found-inner { max-width: 720px; }
+
+  .not-found-code {
+    margin: 0 0 10px;
+    color: var(--primary);
+    font-size: clamp(72px, 15vw, 144px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+
+  .not-found h1 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 5vw, 48px);
+  }
+
+  .not-found p:not(.not-found-code) {
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  .not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+</style>
