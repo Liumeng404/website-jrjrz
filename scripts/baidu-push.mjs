@@ -78,12 +78,12 @@ async function pushUrls(urls) {
     );
   }
 
-  const api = `${API_BASE}?site=${encodeURIComponent(SITE)}&token=${encodeURIComponent(TOKEN)}`;
+  // 注意：site / token 不要 encodeURIComponent，否则百度返回 site init fail
+  const api = `${API_BASE}?site=${SITE}&token=${TOKEN}`;
   const res = await fetch(api, {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain',
-      // 部分环境缺 UA 时接口异常，显式带上
       'User-Agent': 'jrjrz-baidu-push/1.0',
     },
     body: limited.join('\n'),
