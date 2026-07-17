@@ -10,6 +10,20 @@
  */
 import { execSync } from 'node:child_process';
 
+// 本地 HTTP(S)_PROXY 走代理时，百度常返回 site init fail；推送时绕过代理
+for (const k of [
+  'HTTP_PROXY',
+  'HTTPS_PROXY',
+  'http_proxy',
+  'https_proxy',
+  'ALL_PROXY',
+  'all_proxy',
+]) {
+  delete process.env[k];
+}
+process.env.NO_PROXY = '*';
+process.env.no_proxy = '*';
+
 const SITE = 'https://www.jrjrz.com';
 const API_BASE = 'http://data.zz.baidu.com/urls';
 const DAILY_LIMIT = 10;
@@ -67,7 +81,11 @@ async function pushUrls(urls) {
   const api = `${API_BASE}?site=${encodeURIComponent(SITE)}&token=${encodeURIComponent(TOKEN)}`;
   const res = await fetch(api, {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain' },
+    headers: {
+      'Content-Type': 'text/plain',
+      // 部分环境缺 UA 时接口异常，显式带上
+      'User-Agent': 'jrjrz-baidu-push/1.0',
+    },
     body: limited.join('\n'),
   });
   const text = await res.text();
