@@ -29,8 +29,6 @@ author: 露梦
 还没有账号的，先把注册走通：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)。  
 只想少花时间、用人民币侧更顺手的方式对接开通的，也可以先看：[ChatGPT 快捷充值](https://www.jrjrz.com/chatgpt.html)。
 
-![支付失败 / Card declined 示意](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-zenme-kaitong/img-1.png)
-
 ## 一、为什么国内开 Plus 容易卡半天
 
 网上教程一多，你会看见互相打架的说法：有人让你换 Visa，有人让你上外区 Apple ID，有人让你办虚拟卡，有人让你直接代充，还有人甩合租链接。

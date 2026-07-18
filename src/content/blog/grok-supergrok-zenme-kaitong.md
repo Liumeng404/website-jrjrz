@@ -14,15 +14,12 @@ author: 露梦
 ---
 国内用户开通 SuperGrok，通常有**官方网页订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付时，先确认你要买的是 **SuperGrok** 还是 **X Premium+**（两者入口与取消位置不同），再选支付路径。官方结账失败后，不要连续重复刷同一张卡。选择代充前，确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。本站 SuperGrok 服务为代充，以 [SuperGrok 服务页](https://www.jrjrz.com/grok.html) 实时显示为准。
 
-![grok宣传图](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/grok-supergrok-zenme-kaitong/img-1.png)
-
 服务入口：→ [SuperGrok 充值](https://www.jrjrz.com/grok.html)
 系列对照：→ [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [Claude Pro 开通](https://www.jrjrz.com/blog/claude-pro-zenme-kaitong/)
 
 ## 一、先分清：SuperGrok、X Premium+ 和 Grok.com
 
 买错产品是 Grok 场景最常见的坑之一。下单前先对表：
-
 
 | 产品                     | 主要入口                                | 权益大致归属            | 取消 / 管理位置         |
 | ------------------------ | --------------------------------------- | ----------------------- | ----------------------- |

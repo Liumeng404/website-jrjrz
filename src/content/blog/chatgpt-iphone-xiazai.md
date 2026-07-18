@@ -13,8 +13,6 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-iphone-
 
 > **打开 App Store，搜索由 OpenAI 发布的官方 ChatGPT → 安装 → 用自己的账号登录 → 开始对话。**
 
-![iPhone 安装 ChatGPT 封面图](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-iphone-xiazai/img-1.png)
-
 官方统一入口：[chatgpt.com/download](https://chatgpt.com/download/)（进入 iOS 入口后会跳转 App Store）。OpenAI 的安装说明见：[Where can I download the OpenAI ChatGPT iOS app](https://help.openai.com/en/articles/7908378-where-can-i-download-the-openai-chatgpt-ios-app-on-the-apple-app-store)。
 
 先区分三件事：App Store 是否能看到应用、账号能否登录、服务能否正常使用，并不是同一个问题。官方 App 本身可免费下载；Plus / Pro 是另算的订阅，不是“下载费”。如果你还需要 Windows、安卓或网页版总览，可看：[ChatGPT 怎么下载安装](https://www.jrjrz.com/blog/chatgpt-xiazai-anzhuang/)。

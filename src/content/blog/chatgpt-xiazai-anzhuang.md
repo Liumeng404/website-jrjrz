@@ -9,8 +9,6 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-xiazai-
 ---
 ChatGPT 不一定需要下载安装，网页版可以直接使用。手机优先从 App Store 或 Google Play 安装由 OpenAI 发布的 ChatGPT；Windows 和 Mac 优先使用 OpenAI 官方下载页提供的桌面版。
 
-![ChatGPT 下载安装封面图：网页、手机和电脑三个入口示意](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-xiazai-anzhuang/img-1.png)
-
 **官方入口请记这两个：**
 
 - 统一下载页：[https://chatgpt.com/download/](https://chatgpt.com/download/)（提供 macOS、Windows、iOS、Android 入口）
@@ -22,7 +20,6 @@ ChatGPT 不一定需要下载安装，网页版可以直接使用。手机优先
 需要Plus/Pro订阅权益的，装好后再看：[ChatGPT Plus 怎么开通/充值](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)。
 
 ## ChatGPT 官方下载入口：网页、iPhone、安卓、Windows 和 Mac
-
 
 | 入口                       | 适合谁                 | 注意                                                                         |
 | :------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
@@ -127,7 +124,6 @@ Windows 和 macOS 均可优先从 OpenAI **[官方下载页](https://chatgpt.com
 只从 OpenAI 公示入口获取安装包；没有官方包时，**网页就是最稳选择**，不必强行第三方客户端。
 
 ## 装好却用不了：排查清单
-
 
 | 现象                                   | 优先排查                                                                                                                           |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |

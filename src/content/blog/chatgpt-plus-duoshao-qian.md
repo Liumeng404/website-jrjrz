@@ -15,8 +15,6 @@ Slug：chatgpt-plus-duoshao-qian
 Tags：ChatGPT Plus, 价格, 多少钱, 代充, 开通
 -->
 
-![ChatGPT Plus多少钱：官方20美元、人民币换算与国内开通成本](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-duoshao-qian/img-1.jpg)
-
 ChatGPT Plus 官方价格为 20 美元/月，按月订阅；API 费用需要另外支付。按常见汇率粗算，20 美元约为一百四十元人民币，实际扣款还可能受到汇率、税费和购买渠道影响。露梦AI Store 当前 ChatGPT Plus 开通价为 **145 元/月**，其中包含支付路径、操作交付和售后服务成本，具体以服务页实时显示为准。
 
 官方说明可参考 [What is ChatGPT Plus](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus) 和 [ChatGPT Pricing](https://chatgpt.com/pricing)。

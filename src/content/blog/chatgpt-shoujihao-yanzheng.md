@@ -19,8 +19,6 @@ author: 露梦
 
 页面让你填电话时，是必须用国外手机号绑定才能使用Codex（ChatGPT网页版不用）。
 
-![ChatGPT 手机号验证示意](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-shoujihao-yanzheng/img-1.png)
-
 邮箱注册、登录、资料怎么填，另一篇写过完整流程：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)。这篇只解决**Codex要绑手机号，怎么办的问题。**
 
 下面只展开三种我实际会拿来对比的产品：

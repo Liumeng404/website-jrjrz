@@ -14,8 +14,6 @@ author: 露梦
 ---
 国内用户开通 Claude Pro，通常有**官网订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付方式时，应先确认账号状态、地区和网络环境，再选路径。官方结账失败后，不要连续刷同一张卡；可改走商店、虚拟卡或代充。选择代充前，请确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。具体价格与流程以 [Claude 服务页](https://www.jrjrz.com/claude.html) 实时显示为准。
 
-![](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/claude-pro-zenme-kaitong/img-1.png)
-
 Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力（官方说明见 [Anthropic · Claude Fable](https://www.anthropic.com/claude/fable)）。模型讨论一热，更多人会从「试试看」变成「想稳定开 Pro或者Max」，那么问题来了：**Claude Pro 怎么开通、国内怎么充值、支付失败怎么办。**
 
 想先看服务对接：→ [Claude Pro 充值](https://www.jrjrz.com/claude.html)
@@ -113,7 +111,6 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 ![](https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/claude-pro-zenme-kaitong/img-2.png)
 
 图片来源：[Claude官网](https://support.claude.com/zh-CN/articles/11049762-%E9%80%89%E6%8B%A9-claude-%E8%AE%A1%E5%88%92)
-
 
 | 方案        | 官方列出的价格方向        | 说明           |
 | ----------- | ------------------------- | -------------- |
