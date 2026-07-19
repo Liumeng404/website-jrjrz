@@ -5,6 +5,7 @@ pubDate: 2026-07-19
 draft: false
 tags: ["ChatGPT", "买账号", "成品号", "代充", "避坑"]
 author: "露梦"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-zhanghao-zenme-mai/cover.png"
 ---
 买 ChatGPT 账号实际上有三种完全不同的交付形态：
 

@@ -5,6 +5,7 @@ pubDate: 2026-07-19
 draft: false
 tags: ["ChatGPT", "接码", "虚拟号", "注册", "手机验证", "Codex"]
 author: "露梦"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-xunihao-jiema/cover.png"
 ---
 用虚拟号或在线接码注册 Codex，在多数情况下**能通过首次手机验证**，但**不等于长期稳定**——一次性公共号池在换设备、异常登录、二次验证时的废号风险，明显高于自己长期持有的海外号或正规协助注册路径。
 

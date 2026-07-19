@@ -5,6 +5,7 @@ pubDate: 2026-07-19
 draft: false
 tags: ["ChatGPT", "礼品卡", "Apple ID", "Plus", "充值"]
 author: "露梦"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-lipinka-chongzhi/cover.png"
 ---
 ChatGPT 没有官方通用礼品卡。国内可行的"礼品卡路线"是：注册外区 Apple ID → 购买同区 App Store 礼品卡 → 兑换成账户余额 → 在 ChatGPT iOS App 内购订阅 Plus。这条路只适合有苹果设备的用户，且内购价通常高于官网。
 

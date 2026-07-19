@@ -5,6 +5,7 @@ pubDate: 2026-07-19
 draft: false
 tags: ["ChatGPT", "合租", "共享账号", "拼车", "风险", "封号"]
 author: "露梦"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-hezhu-fengxian/cover.png"
 ---
 ChatGPT 合租（多人共享同一账号登录）的主要风险有六类：连坐封号、对话与文件隐私暴露、账号控制权在车主手中、并发顶号与误删、跨境支付与注册地风控，以及私下交易无售后保障。合租能降低表面月费，但你通常拿不到完整的账号所有权——隐私、稳定性、续费主动权，大多握在车主或同车陌生人手里。
 

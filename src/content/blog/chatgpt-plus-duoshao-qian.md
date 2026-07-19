@@ -5,7 +5,7 @@ pubDate: 2026-07-18
 draft: false
 tags: ["ChatGPT Plus", "价格", "多少钱", "代充", "开通"]
 author: "露梦"
-image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-duoshao-qian/img-1.jpg"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-plus-duoshao-qian/cover.png"
 ---
 <!--
 发布用 TDK

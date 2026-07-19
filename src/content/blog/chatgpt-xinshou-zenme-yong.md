@@ -3,7 +3,7 @@ title: ChatGPT 新手怎么用？注册、提问到 Plus 开通完整指南
 description: ChatGPT 新手怎么用？从网页/App 入口、账号注册、免费版提问，到 Codex 手机验证码、Plus 选择和支付失败，一条路径讲清。
 pubDate: 2026-07-18
 draft: false
-image: https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-xinshou-zenme-yong/img-1.png
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-xinshou-zenme-yong/cover.png"
 tags:
   - ChatGPT
   - 新手

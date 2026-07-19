@@ -5,6 +5,7 @@ pubDate: 2026-07-19
 draft: false
 tags: ["ChatGPT Pro", "Plus", "Pro $100", "Pro $200", "值得买", "订阅", "额度"]
 author: "露梦"
+image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-pro-zhide-mai-ma/cover.png"
 ---
 纠结 ChatGPT Pro 的人，通常已经过了「要不要用 AI」阶段，卡在另一道题：
 
