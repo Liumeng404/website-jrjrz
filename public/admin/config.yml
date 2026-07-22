@@ -114,7 +114,7 @@ collections:
                     summary: "{{fields.text}}"
                     fields:
                       - { name: "text", label: "显示文字", widget: "string" }
-                      - { name: "href", label: "链接 URL", widget: "string", hint: "如 /chatgpt 或 /blog/" }
+                      - { name: "href", label: "链接 URL", widget: "string", hint: "如 /chatgpt/ 或 /blog/" }
                       - label: "特殊动作"
                         name: "action"
                         widget: "select"

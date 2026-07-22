@@ -102,7 +102,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             </ul>
             <div class="card-warning"><span class="card-warning-icon">i</span><span>使用范围最广，新手首选，覆盖写作、搜索、代码和资料处理。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.chatgpt.plus}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="/chatgpt">选择方案</a>
+            <a class="card-btn" href="/chatgpt/">选择方案</a>
           </article>
 
           <!-- Claude Pro -->
@@ -123,7 +123,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             </ul>
             <div class="card-warning"><span class="card-warning-icon">!</span><span>Claude 风控较严格，使用时建议保持稳定网络环境。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.claude.pro}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="/claude">选择方案</a>
+            <a class="card-btn" href="/claude/">选择方案</a>
           </article>
 
           <!-- SuperGrok -->
@@ -143,7 +143,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             </ul>
             <div class="card-warning"><span class="card-warning-icon">i</span><span>月付 ¥{prices.grok.monthly}，双月 ¥{prices.grok.bimonthly}；双月方案相比月付累计可节省 ¥{prices.grok.bimonthly_save}。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.grok.monthly}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="/grok">选择方案</a>
+            <a class="card-btn" href="/grok/">选择方案</a>
           </article>
         </div>
       </div>

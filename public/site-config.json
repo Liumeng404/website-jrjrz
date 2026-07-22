@@ -27,9 +27,9 @@
       {
         "title": "服务",
         "links": [
-          { "text": "ChatGPT Plus", "href": "/chatgpt" },
-          { "text": "Claude Pro", "href": "/claude" },
-          { "text": "SuperGrok", "href": "/grok" }
+          { "text": "ChatGPT Plus", "href": "/chatgpt/" },
+          { "text": "Claude Pro", "href": "/claude/" },
+          { "text": "SuperGrok", "href": "/grok/" }
         ]
       },
       {
@@ -59,10 +59,10 @@
     ],
     "seoTitle": "热门关键词",
     "seoLinks": [
-      { "text": "ChatGPT 代充", "href": "/chatgpt" },
-      { "text": "ChatGPT Plus 开通", "href": "/chatgpt" },
-      { "text": "Claude Pro 代充", "href": "/claude" },
-      { "text": "SuperGrok 充值", "href": "/grok" },
+      { "text": "ChatGPT 代充", "href": "/chatgpt/" },
+      { "text": "ChatGPT Plus 开通", "href": "/chatgpt/" },
+      { "text": "Claude Pro 代充", "href": "/claude/" },
+      { "text": "SuperGrok 充值", "href": "/grok/" },
       { "text": "AI 订阅代充", "href": "/" },
       { "text": "博客教程", "href": "/blog/" }
     ],
