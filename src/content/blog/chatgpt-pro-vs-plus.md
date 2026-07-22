@@ -30,7 +30,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-pro-vs-
 | 高峰期体验       | 可能限额或排队                      | 优先级与稳定性通常更高                     |
 | 适合人群         | 学习、办公、写作、轻度开发          | 研究、专业开发、批量处理、重度工作流       |
 
-具体权益会随地区、版本和官方调整变化，不要只信旧文或零散回答。价格可参考：[Plus 多少钱](https://www.jrjrz.com/blog/chatgpt-plus-duoshao-qian/)。若已决定买哪一档，可先 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans) 与 Pro 标价，再 [查看套餐和售后规则](/chatgpt/)。
+具体权益会随地区、版本和官方调整变化，不要只信旧文或零散回答。价格可参考：[Plus 多少钱](https://www.jrjrz.com/blog/chatgpt-plus-duoshao-qian/)。若已决定买哪一档，可进入 [ChatGPT Plus / Pro 套餐页](/chatgpt/) 核对当前价格、交付方式与售后规则。
 
 ## Pro 会不会比 Plus 更聪明？
 

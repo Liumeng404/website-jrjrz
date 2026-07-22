@@ -125,9 +125,9 @@ Plus 通常是个人用户优先评估的档位：买的是更连续的工作节
 | 有可用的境外支付方式               | 优先走 ChatGPT 官网或官方 App 内的订阅入口                                          |
 | 页面反复提示 Card declined         | 先看[ChatGPT支付失败怎么办](https://www.jrjrz.com/blog/chatgpt-zhifu-shibai/)       |
 | 已经决定开通，但付款流程卡住       | 查看[ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) |
-| 希望尽快恢复工作，缺少合适支付方式 | 先 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans)，再 [进入 ChatGPT Plus / Pro 购买页面](/chatgpt/) |
+| 希望尽快恢复工作，缺少合适支付方式 | 进入 [ChatGPT Plus / Pro 套餐页](/chatgpt/) 核对价格、交付方式与售后规则 |
 
-升级前建议同步 [查看套餐和售后规则](/chatgpt/)。本站提供 ChatGPT 订阅、开通与充值协助（第三方，非 OpenAI 官方）。
+本站提供 ChatGPT 订阅、开通与充值协助（第三方，非 OpenAI 官方）。
 
 ## FAQ：ChatGPT 次数用完常见问题
 
