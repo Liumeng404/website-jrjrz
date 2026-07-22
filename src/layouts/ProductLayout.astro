@@ -8,9 +8,11 @@ import { loadPrices } from '../lib/prices';
 
 interface Props {
   page: 'chatgpt' | 'claude' | 'grok';
+  /** 额外 JSON-LD（如 Product/Service offers），价格须由调用方从 loadPrices() 注入 */
+  extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { page } = Astro.props;
+const { page, extraJsonLd } = Astro.props;
 const site = loadSiteConfig();
 const prices = loadPrices();
 const tdk = site.tdk[page];
@@ -31,6 +33,11 @@ const pageJsonLd = {
     url: siteUrl,
   },
 };
+
+const allJsonLd = [
+  pageJsonLd,
+  ...(extraJsonLd ? (Array.isArray(extraJsonLd) ? extraJsonLd : [extraJsonLd]) : []),
+];
 ---
 
 <!DOCTYPE html>
@@ -41,6 +48,7 @@ const pageJsonLd = {
     <title>{tdk.title}</title>
     <meta name="description" content={tdk.description} />
     {tdk.keywords && <meta name="keywords" content={tdk.keywords} />}
+    <link rel="canonical" href={pageUrl} />
     <link rel="stylesheet" href="/css/product-page.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -62,7 +70,9 @@ const pageJsonLd = {
       src="https://analytics.ahrefs.com/analytics.js"
       data-key="N0p/Xbdctxa3i3raDGf9/A"
       async></script>
-    <script type="application/ld+json" set:html={JSON.stringify(pageJsonLd)} />
+    {allJsonLd.map((obj) => (
+      <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+    ))}
   </head>
   <body>
     <nav class="top-nav">
@@ -143,9 +153,11 @@ const pageJsonLd = {
         <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
         <div class="section-label" id="modalTitle">添加客服微信</div>
         <img class="qr-image" src="/images/qrcode.png" alt="客服微信二维码" />
+        <p class="qr-hint">购买前请备注目标套餐，先确认账号状态。</p>
       </div>
     </div>
 
     <script is:inline src="/js/product-page.js"></script>
+    <slot name="scripts" />
   </body>
 </html>
