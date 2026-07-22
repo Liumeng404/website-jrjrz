@@ -18,7 +18,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-zhangha
 
 还没有账号、准备重来的，可以先看：[ChatGPT 怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)。
 已经确认是支付被拒而不是停用的，更该看：[支付失败怎么办](https://www.jrjrz.com/blog/chatgpt-zhifu-shibai/)。
-只想少踩坑、要可用账号或开通协助的，也可以先看：[ChatGPT 快捷充值](https://www.jrjrz.com/chatgpt.html)。
+只想少踩坑、要可用账号或开通协助的，也可以先看：[ChatGPT 快捷充值](https://www.jrjrz.com/chatgpt)。
 
 ## 一、三种「被封」：处理方式完全不同
 
@@ -150,7 +150,7 @@ Thank you.
 若你已经确认号不可用、只想尽快恢复可用生产力：
 
 - 需要重新注册或验证：从 [注册教程](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/) 或站内协助入手
-- 需要重新开通 Plus：看 [开通充值](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) 或 [充值页](https://www.jrjrz.com/chatgpt.html)
+- 需要重新开通 Plus：看 [开通充值](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) 或 [充值页](https://www.jrjrz.com/chatgpt)
 
 ## 七、FAQ
 

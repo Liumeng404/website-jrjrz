@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { loadPrices } from '../lib/prices';
 
 interface Heading {
   depth: number;
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const { headings = [] } = Astro.props;
+const prices = loadPrices();
+const pay = prices.payment;
 
 // 目录：只展示 h2 / h3
 const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
@@ -57,10 +60,17 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
     </section>
   )}
 
-  <!-- 联系客服 CTA -->
+  <!-- 联系客服 CTA：价格与付款方式来自 public/prices.json -->
   <section class="widget widget-cta">
     <h3 class="widget-title">需要帮助？</h3>
-    <p class="widget-body">ChatGPT Plus / Claude Pro / SuperGrok 订阅代充，微信支付，原账号开通。</p>
+    <p class="widget-body">
+      ChatGPT Plus ¥{prices.chatgpt.plus} · Claude Pro ¥{prices.claude.pro} · SuperGrok ¥{prices.grok.monthly} 起，{pay.label}，原账号开通。
+    </p>
+    <div class="widget-cta-links" style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px;">
+      <a class="pill small" href="/chatgpt">ChatGPT</a>
+      <a class="pill small secondary" href="/claude">Claude</a>
+      <a class="pill small secondary" href="/grok">Grok</a>
+    </div>
     <button class="pill" type="button" onclick="openQrModal()">联系客服</button>
   </section>
 

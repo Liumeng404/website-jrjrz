@@ -10,6 +10,20 @@
   "grok": {
     "monthly": 140,
     "bimonthly": 204,
-    "bimonthly_save": 90
+    "bimonthly_save": 76
+  },
+  "payment": {
+    "methods": ["wechat"],
+    "label": "微信支付",
+    "labelWithRmb": "微信支付，人民币结算",
+    "eyebrow": "微信支付",
+    "ctaPoint": "微信付款",
+    "faq": "目前支持微信支付。企业采购、批量账号和周期续费需求可以提前联系客服沟通。",
+    "flow": "微信扫码完成付款"
+  },
+  "policy": {
+    "refund": "充值失败全额退款",
+    "noPassword": "无需账号密码",
+    "ownAccount": "原账号开通"
   }
 }

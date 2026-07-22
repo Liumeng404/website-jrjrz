@@ -15,7 +15,7 @@ Slug：chatgpt-plus-duoshao-qian
 Tags：ChatGPT Plus, 价格, 多少钱, 代充, 开通
 -->
 
-ChatGPT Plus 官方价格为 20 美元/月，按月订阅；API 费用需要另外支付。按常见汇率粗算，20 美元约为一百四十元人民币，实际扣款还可能受到汇率、税费和购买渠道影响。露梦AI Store 当前 ChatGPT Plus 开通价为 **145 元/月**，其中包含支付路径、操作交付和售后服务成本，具体以服务页实时显示为准。
+ChatGPT Plus 官方价格为 20 美元/月，按月订阅；API 费用需要另外支付。按常见汇率粗算，20 美元约为一百四十元人民币，实际扣款还可能受到汇率、税费和购买渠道影响。露梦AI Store 当前 ChatGPT Plus 开通价为 **¥<span data-price="chatgpt.plus">155</span> 元/月**，其中包含支付路径、操作交付和售后服务成本，具体以 [服务页](/chatgpt) 实时显示为准。
 
 官方说明可参考 [What is ChatGPT Plus](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus) 和 [ChatGPT Pricing](https://chatgpt.com/pricing)。
 
@@ -98,7 +98,7 @@ ChatGPT Plus 购买的是 ChatGPT 网页和 App 内的订阅权益，不是 Open
 
 ## 露梦AI Store的代充服务包含什么？
 
-露梦AI Store 当前 ChatGPT Plus 开通价为 **145 元/月**。这部分价格主要对应：
+露梦AI Store 当前 ChatGPT Plus 开通价为 **¥<span data-price="chatgpt.plus">155</span> 元/月**。这部分价格主要对应：
 
 - 处理境外支付和汇率波动；
 - 按流程完成订阅开通与结果核验；
@@ -120,7 +120,7 @@ ChatGPT Plus 购买的是 ChatGPT 网页和 App 内的订阅权益，不是 Open
 | 只是偶尔聊天 | 先用 Free，不必急着开 Plus |
 | Plus 仍经常触顶，且工作回报明确 | 再评估 Pro，而不是直接冲最高档 |
 
-已经决定升级的，可以继续看[ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)；没有境外支付方式、希望用人民币完成开通的，可以查看[ChatGPT 充值服务](https://www.jrjrz.com/chatgpt.html)。
+已经决定升级的，可以继续看[ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)；没有境外支付方式、希望用人民币完成开通的，可以查看[ChatGPT 充值服务](https://www.jrjrz.com/chatgpt)。
 
 ## ChatGPT Plus价格常见问题
 
@@ -134,7 +134,7 @@ OpenAI 没有一个适用于所有用户的固定人民币价格。网页和 App
 
 ### 露梦AI Store代充多少钱？
 
-当前 ChatGPT Plus 开通价为 145 元/月，包含支付、操作交付和售后服务成本。该价格属于第三方服务价格，不是 OpenAI 官方人民币定价，调整时以服务页实时显示为准。
+当前 ChatGPT Plus 开通价为 ¥<span data-price="chatgpt.plus">155</span> 元/月，包含支付、操作交付和售后服务成本。该价格属于第三方服务价格，不是 OpenAI 官方人民币定价，调整时以 [服务页](/chatgpt) 实时显示为准。
 
 ### ChatGPT Plus有年付优惠吗？
 
@@ -164,7 +164,7 @@ OpenAI 没有一个适用于所有用户的固定人民币价格。网页和 App
 
 已有稳定外卡：优先官方订阅。
 
-没有外卡或不想维护支付工具：可以用合理服务费换取开通与售后协助，露梦AI Store 当前价格为 **145 元/月**。
+没有外卡或不想维护支付工具：可以用合理服务费换取开通与售后协助，露梦AI Store 当前价格为 **¥<span data-price="chatgpt.plus">155</span> 元/月**。
 
 本文用于说明 ChatGPT 套餐价格和开通成本，不构成 OpenAI 官方报价。jrjrz 提供的是第三方充值与开通协助服务，并非 OpenAI 官方。价格、功能和套餐规则可能调整，请以 OpenAI 账号内升级页及本站服务页的实时信息为准。
 

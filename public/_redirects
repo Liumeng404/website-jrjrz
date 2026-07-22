@@ -1,1 +1,4 @@
 /admin/*   /admin/index.html   200
+/chatgpt.html  /chatgpt  301
+/claude.html   /claude   301
+/grok.html     /grok     301

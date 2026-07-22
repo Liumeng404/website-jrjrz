@@ -12,11 +12,11 @@ tags:
   - 代充
 author: 露梦
 ---
-国内用户开通 Claude Pro，通常有**官网订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付方式时，应先确认账号状态、地区和网络环境，再选路径。官方结账失败后，不要连续刷同一张卡；可改走商店、虚拟卡或代充。选择代充前，请确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。具体价格与流程以 [Claude 服务页](https://www.jrjrz.com/claude.html) 实时显示为准。
+国内用户开通 Claude Pro，通常有**官网订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付方式时，应先确认账号状态、地区和网络环境，再选路径。官方结账失败后，不要连续刷同一张卡；可改走商店、虚拟卡或代充。选择代充前，请确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。具体价格与流程以 [Claude 服务页](https://www.jrjrz.com/claude) 实时显示为准。
 
 Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力（官方说明见 [Anthropic · Claude Fable](https://www.anthropic.com/claude/fable)）。模型讨论一热，更多人会从「试试看」变成「想稳定开 Pro或者Max」，那么问题来了：**Claude Pro 怎么开通、国内怎么充值、支付失败怎么办。**
 
-想先看服务对接：→ [Claude Pro 充值](https://www.jrjrz.com/claude.html)
+想先看服务对接：→ [Claude Pro 充值](https://www.jrjrz.com/claude)
 系列对照：→ [ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)
 
 ## 一、Claude Pro 怎么开通：国内四条路径总览
@@ -47,7 +47,7 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">境外信用卡等<br><span style="font-size:12px;color:#94a3b8;">以结账页为准</span></td>
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">外区礼品卡 / 商店余额</td>
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">虚拟卡 + 外币充值</td>
-        <td style="text-align:center;padding:13px 10px;color:#3730a3;font-weight:600;background:#f5f3ff;border-bottom:1px solid #eef2f7;">微信 / 支付宝等<br></td>
+        <td style="text-align:center;padding:13px 10px;color:#3730a3;font-weight:600;background:#f5f3ff;border-bottom:1px solid #eef2f7;">微信支付<br></td>
       </tr>
       <tr>
         <th style="text-align:left;padding:13px 12px 13px 18px;font-weight:600;color:#334155;background:#f8fafc;border-bottom:1px solid #eef2f7;">主要准备成本</th>
@@ -122,7 +122,7 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 
 **实际结账金额、税费、地区是否可购，一律以 Claude 账号内订阅页为准。** Fable 5 等模型的可用范围与额度，也以账号页面和 [Fable 官方页](https://www.anthropic.com/claude/fable) 为准——开通 Pro **不等于**所有模型都有无限额度。
 
-本站代充价格入口：→ [Claude 套餐页](https://www.jrjrz.com/claude.html)。
+本站代充价格入口：→ [Claude 套餐页](https://www.jrjrz.com/claude)。
 
 多数个人用户先解决 **Pro**；Max 逻辑类似，价格更高。
 
@@ -163,7 +163,7 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 2. **按说明提供开通所需信息**，例如登录后在账号设置中复制的 **Organization ID** 等。
 3. **开通后刷新 Claude**，确认 Pro 标识或对应权益生效。
 
-具体所需信息与时效，以客服流程和 [Claude 服务页](https://www.jrjrz.com/claude.html) 为准。
+具体所需信息与时效，以客服流程和 [Claude 服务页](https://www.jrjrz.com/claude) 为准。
 
 ## 七、支付失败时怎么排查
 
@@ -198,7 +198,7 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 
 ### 支付失败了怎么办？
 
-先停手，不要连刷。查银行验证与结账提示，再在官网 / 商店 / 虚拟卡 / 代充中换路径。代充见 [Claude 服务页](https://www.jrjrz.com/claude.html)。
+先停手，不要连刷。查银行验证与结账提示，再在官网 / 商店 / 虚拟卡 / 代充中换路径。代充见 [Claude 服务页](https://www.jrjrz.com/claude)。
 
 ### 代充要不要登录密码？权益到谁账号？
 
@@ -214,5 +214,5 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 
 ---
 
-**服务入口：** [Claude Pro 充值](https://www.jrjrz.com/claude.html)
+**服务入口：** [Claude Pro 充值](https://www.jrjrz.com/claude)
 **系列：** [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [SuperGrok 开通](https://www.jrjrz.com/blog/grok-supergrok-zenme-kaitong/)*

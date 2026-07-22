@@ -117,16 +117,33 @@
       ' 露梦AI Store。' +
       escapeHtml(footer.copyright || '') +
       '</div>' +
-      '<div class="footer-badges"><div class="fbadge">微信支付</div><div class="fbadge">SSL 加密</div></div>' +
+      '<div class="footer-badges"><div class="fbadge">' +
+      escapeHtml(payLabel) +
+      '</div><div class="fbadge">SSL 加密</div></div>' +
       '</div></div>';
   }
 
-  fetch('/site-config.json', { cache: 'no-store' })
-    .then(function (r) {
+  var payLabel = '微信支付';
+
+  Promise.all([
+    fetch('/site-config.json', { cache: 'no-store' }).then(function (r) {
       if (!r.ok) throw new Error('site-config ' + r.status);
       return r.json();
-    })
-    .then(function (cfg) {
+    }),
+    fetch('/prices.json', { cache: 'no-store' })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .catch(function () {
+        return null;
+      }),
+  ])
+    .then(function (pair) {
+      var cfg = pair[0];
+      var prices = pair[1];
+      if (prices && prices.payment && prices.payment.label) {
+        payLabel = prices.payment.label;
+      }
       if (page && cfg.tdk && cfg.tdk[page]) applyTdk(cfg.tdk[page]);
       renderFooter(cfg.footer);
     })

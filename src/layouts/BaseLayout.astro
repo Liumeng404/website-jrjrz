@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { loadSiteConfig } from '../lib/site-config';
+import { loadPrices } from '../lib/prices';
 
 interface Props {
   title?: string;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const site = loadSiteConfig();
+const prices = loadPrices();
 const homeTdk = site.tdk.home;
 const siteUrl = 'https://www.jrjrz.com';
 
@@ -82,6 +84,8 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
       })(window,document,'script','dataLayer','GTM-N5W444TK');
     </script>
     <!-- End Google Tag Manager -->
+    <!-- Ahrefs Analytics -->
+    <script is:inline src="https://analytics.ahrefs.com/analytics.js" data-key="N0p/Xbdctxa3i3raDGf9/A" async></script>
     <!-- 今日头条自动收录 -->
     <script is:inline>
       (function(){
@@ -186,7 +190,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
         <div class="footer-bottom">
           <div>&copy; {year} 露梦AI Store。{footer.copyright}</div>
           <div class="footer-badges">
-            <div class="fbadge">微信支付</div>
+            <div class="fbadge">{prices.payment.label}</div>
             <div class="fbadge">SSL 加密</div>
           </div>
         </div>
@@ -201,6 +205,8 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
       </div>
     </div>
 
+    <!-- 博客等页面可在正文使用 data-price / data-price-text，与服务页同一 prices.json -->
+    <script is:inline src="/js/apply-prices.js"></script>
     <script is:inline>
       var revealItems = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {

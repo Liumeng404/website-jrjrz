@@ -25,11 +25,11 @@ export const GET: APIRoute = async ({ site }) => {
   type Entry = { loc: string; lastmod: string };
   const today = toDateStr(new Date());
 
-  // 营销着陆页（独立 HTML，不在 Astro 路由里，需手动列入）
+  // 产品服务页（与 public/prices.json 同源，构建时写入价格）
   const productLanding: Entry[] = [
-    { loc: `${origin}/chatgpt.html`, lastmod: today },
-    { loc: `${origin}/claude.html`, lastmod: today },
-    { loc: `${origin}/grok.html`, lastmod: today },
+    { loc: `${origin}/chatgpt/`, lastmod: today },
+    { loc: `${origin}/claude/`, lastmod: today },
+    { loc: `${origin}/grok/`, lastmod: today },
   ];
 
   const entries: Entry[] = [

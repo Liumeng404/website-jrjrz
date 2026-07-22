@@ -1,0 +1,144 @@
+---
+/**
+ * 产品服务页布局（ChatGPT / Claude / SuperGrok）
+ * 价格、付款方式、售后规则统一来自 public/prices.json + site-config.json
+ */
+import { loadSiteConfig } from '../lib/site-config';
+import { loadPrices } from '../lib/prices';
+
+interface Props {
+  page: 'chatgpt' | 'claude' | 'grok';
+}
+
+const { page } = Astro.props;
+const site = loadSiteConfig();
+const prices = loadPrices();
+const tdk = site.tdk[page];
+const footer = site.footer;
+const year = new Date().getFullYear();
+const siteUrl = 'https://www.jrjrz.com';
+const pageUrl = `${siteUrl}/${page}`;
+
+const pageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: tdk.title,
+  description: tdk.description,
+  url: pageUrl,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: '露梦AI Store',
+    url: siteUrl,
+  },
+};
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-page={page}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tdk.title}</title>
+    <meta name="description" content={tdk.description} />
+    {tdk.keywords && <meta name="keywords" content={tdk.keywords} />}
+    <link rel="stylesheet" href="/css/product-page.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- 今日头条自动收录 -->
+    <script is:inline>
+      (function () {
+        var el = document.createElement('script');
+        el.src =
+          'https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?e49742c7c59be4a29e8856059cd4dd3f83ff71c46064c4456171dc9f519b599a3d72cd14f8a76432df3935ab77ec54f830517b3cb210f7fd334f50ccb772134a';
+        el.id = 'ttzz';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(el, s);
+      })(window);
+    </script>
+    <!-- Ahrefs Analytics -->
+    <script
+      is:inline
+      src="https://analytics.ahrefs.com/analytics.js"
+      data-key="N0p/Xbdctxa3i3raDGf9/A"
+      async></script>
+    <script type="application/ld+json" set:html={JSON.stringify(pageJsonLd)} />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="nav-inner">
+        <a class="logo" href="/">
+          <img class="logo-mark" src="/images/logo.jpg" alt="露梦AI Store LOGO" />
+          <span>露梦AI Store</span>
+        </a>
+        <div class="nav-links">
+          <a href="/#services">服务</a>
+          <a href="/#how">流程</a>
+          <a href="/blog/">博客</a>
+          <a href="/#faq">FAQ</a>
+        </div>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer id="site-footer">
+      <div class="container">
+        <div class="footer-grid footer-fat">
+          <div class="footer-brand">
+            <a class="logo" href="/">
+              <img class="logo-mark" src="/images/logo.jpg" alt="露梦AI Store LOGO" />
+              <span style="color:var(--ink)">露梦AI Store</span>
+            </a>
+            <div class="footer-desc">{footer.brandDesc}</div>
+          </div>
+          {footer.columns.map((col) => (
+            <div>
+              <div class="footer-col-title">{col.title}</div>
+              <ul class="footer-links">
+                {col.links.map((link) => (
+                  <li>
+                    {link.action === 'qr' ? (
+                      <a href="javascript:void(0)" onclick="openQrModal()">{link.text}</a>
+                    ) : (
+                      <a href={link.href}>{link.text}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {footer.seoLinks && footer.seoLinks.length > 0 && (
+          <div class="footer-seo">
+            <div class="footer-seo-title">{footer.seoTitle || '热门关键词'}</div>
+            <div class="footer-seo-links">
+              {footer.seoLinks.map((l) => (
+                <a href={l.href}>{l.text}</a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="footer-bottom">
+          <div>&copy; {year} 露梦AI Store。{footer.copyright}</div>
+          <div class="footer-badges">
+            <div class="fbadge">{prices.payment.label}</div>
+            <div class="fbadge">SSL 加密</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="qr-modal" id="qrModal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
+        <div class="section-label" id="modalTitle">添加客服微信</div>
+        <img class="qr-image" src="/images/qrcode.png" alt="客服微信二维码" />
+      </div>
+    </div>
+
+    <script is:inline src="/js/product-page.js"></script>
+  </body>
+</html>

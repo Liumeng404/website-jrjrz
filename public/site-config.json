@@ -2,22 +2,22 @@
   "tdk": {
     "home": {
       "title": "露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充",
-      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信/支付宝，原账号开通，无需账号密码。",
+      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信支付，原账号开通，无需账号密码。",
       "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,SuperGrok,AI订阅代充,露梦AI Store"
     },
     "chatgpt": {
       "title": "ChatGPT Plus代充值 | 露梦AI Store",
-      "description": "露梦AI Store 提供 ChatGPT Plus、ChatGPT Pro 5x、ChatGPT Pro 20x 订阅代充服务。支持微信/支付宝，开通到您的原账号。",
+      "description": "露梦AI Store 提供 ChatGPT Plus、ChatGPT Pro 5x、ChatGPT Pro 20x 订阅代充服务。支持微信支付，开通到您的原账号。",
       "keywords": "ChatGPT Plus代充,ChatGPT充值,ChatGPT Plus开通,ChatGPT代付"
     },
     "claude": {
       "title": "Claude Pro代充值 | 露梦AI Store",
-      "description": "露梦AI Store 提供 Claude Pro 订阅代充服务。支持微信/支付宝，开通到您的原账号，适合长文档、代码生成和深度写作。",
+      "description": "露梦AI Store 提供 Claude Pro 订阅代充服务。支持微信支付，开通到您的原账号，适合长文档、代码生成和深度写作。",
       "keywords": "Claude Pro代充,Claude充值,Claude开通,Anthropic"
     },
     "grok": {
       "title": "SuperGrok代充值 | 露梦AI Store",
-      "description": "露梦AI Store 提供 SuperGrok 会员代充服务。支持月付与双月方案，微信/支付宝，直充您的自用账号。",
+      "description": "露梦AI Store 提供 SuperGrok 会员代充服务。支持月付与双月方案，微信支付，直充您的自用账号。",
       "keywords": "SuperGrok代充,Grok充值,Grok会员,xAI"
     }
   },
@@ -27,9 +27,9 @@
       {
         "title": "服务",
         "links": [
-          { "text": "ChatGPT Plus", "href": "/chatgpt.html" },
-          { "text": "Claude Pro", "href": "/claude.html" },
-          { "text": "SuperGrok", "href": "/grok.html" }
+          { "text": "ChatGPT Plus", "href": "/chatgpt" },
+          { "text": "Claude Pro", "href": "/claude" },
+          { "text": "SuperGrok", "href": "/grok" }
         ]
       },
       {
@@ -50,10 +50,10 @@
     ],
     "seoTitle": "热门关键词",
     "seoLinks": [
-      { "text": "ChatGPT 代充", "href": "/chatgpt.html" },
-      { "text": "ChatGPT Plus 开通", "href": "/chatgpt.html" },
-      { "text": "Claude Pro 代充", "href": "/claude.html" },
-      { "text": "SuperGrok 充值", "href": "/grok.html" },
+      { "text": "ChatGPT 代充", "href": "/chatgpt" },
+      { "text": "ChatGPT Plus 开通", "href": "/chatgpt" },
+      { "text": "Claude Pro 代充", "href": "/claude" },
+      { "text": "SuperGrok 充值", "href": "/grok" },
       { "text": "AI 订阅代充", "href": "/" },
       { "text": "博客教程", "href": "/blog/" }
     ],

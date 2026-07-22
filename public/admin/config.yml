@@ -14,7 +14,7 @@ collections:
     label: "站点配置"
     files:
       - name: "prices"
-        label: "套餐价格"
+        label: "套餐价格与规则"
         file: "public/prices.json"
         fields:
           - label: "ChatGPT"
@@ -35,7 +35,30 @@ collections:
             fields:
               - { name: "monthly", label: "月付（元）", widget: "number", value_type: "int", min: 1 }
               - { name: "bimonthly", label: "双月（元）", widget: "number", value_type: "int", min: 1 }
-              - { name: "bimonthly_save", label: "双月相对两月付节省（元）", widget: "number", value_type: "int", min: 0 }
+              - { name: "bimonthly_save", label: "双月节省（元，可手填；站点会按 月付×2−双月 自动重算）", widget: "number", value_type: "int", min: 0, required: false }
+          - label: "付款方式（全站统一）"
+            name: "payment"
+            widget: "object"
+            fields:
+              - label: "支持方式标识"
+                name: "methods"
+                widget: "list"
+                default: ["wechat"]
+                field: { name: "method", label: "方式", widget: "string" }
+                hint: "如 wechat；仅作标识，页面文案看下面几项"
+              - { name: "label", label: "短标签", widget: "string", default: "微信支付", hint: "如：微信支付" }
+              - { name: "labelWithRmb", label: "信任条文案", widget: "string", default: "微信支付，人民币结算" }
+              - { name: "eyebrow", label: "眉标文案", widget: "string", default: "微信支付" }
+              - { name: "ctaPoint", label: "CTA 点文案", widget: "string", default: "微信付款" }
+              - { name: "faq", label: "付款 FAQ 完整答", widget: "text", default: "目前支持微信支付。企业采购、批量账号和周期续费需求可以提前联系客服沟通。" }
+              - { name: "flow", label: "流程描述", widget: "string", default: "微信扫码完成付款" }
+          - label: "售后与规则（全站统一）"
+            name: "policy"
+            widget: "object"
+            fields:
+              - { name: "refund", label: "退款规则短文案", widget: "string", default: "充值失败全额退款" }
+              - { name: "noPassword", label: "密码规则短文案", widget: "string", default: "无需账号密码" }
+              - { name: "ownAccount", label: "账号规则短文案", widget: "string", default: "原账号开通" }
 
       - name: "site_config"
         label: "TDK 与页脚"
@@ -91,7 +114,7 @@ collections:
                     summary: "{{fields.text}}"
                     fields:
                       - { name: "text", label: "显示文字", widget: "string" }
-                      - { name: "href", label: "链接 URL", widget: "string", hint: "如 /chatgpt.html 或 /blog/" }
+                      - { name: "href", label: "链接 URL", widget: "string", hint: "如 /chatgpt 或 /blog/" }
                       - label: "特殊动作"
                         name: "action"
                         widget: "select"

@@ -213,4 +213,4 @@ HeroSMS 是你自己去租号收码。协助是你把需求告诉我们，由我
 
 - - -
 
-相关服务：[ChatGPT 充值 / 注册协助](/chatgpt.html)
+相关服务：[ChatGPT 充值 / 注册协助](/chatgpt)

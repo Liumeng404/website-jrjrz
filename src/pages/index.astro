@@ -1,19 +1,14 @@
 ---
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 import { loadSiteConfig } from '../lib/site-config';
+import { loadPrices } from '../lib/prices';
 
-// 统一价格：public/prices.json（Decap「站点配置 → 套餐价格」可改）
-const prices = JSON.parse(
-  readFileSync(join(process.cwd(), 'public/prices.json'), 'utf-8')
-) as {
-  chatgpt: { plus: number; pro5x: number; pro20x: number };
-  claude: { pro: number };
-  grok: { monthly: number; bimonthly: number; bimonthly_save: number };
-};
+// 统一产品数据：public/prices.json（Decap「站点配置 → 套餐价格」可改）
+const prices = loadPrices();
+const pay = prices.payment;
+const policy = prices.policy;
 
 const homeTdk = loadSiteConfig().tdk.home;
 
@@ -56,7 +51,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
           <span class="brand-tag">一站搞定</span>
         </div>
         <p class="hero-desc">
-          <span class="soft-gradient">ChatGPT Plus、Claude Pro、SuperGrok</span> 订阅服务。无需信用卡，支持微信/支付宝，开通到您的原账号。
+          <span class="soft-gradient">ChatGPT Plus、Claude Pro、SuperGrok</span> 订阅服务。无需信用卡，支持{pay.label}，开通到您的原账号。
         </p>
         <div class="hero-btns">
           <a href="#services" class="pill">查看服务</a>
@@ -82,9 +77,9 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             <div class="ts-sep"></div>
             <div class="ts-item"><span class="ts-check">✓</span><span><strong>无需账号密码</strong>，流程透明</span></div>
             <div class="ts-sep"></div>
-            <div class="ts-item"><span class="ts-check">✓</span><span><strong>微信支付</strong>，人民币结算</span></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>{pay.label}</strong>，人民币结算</span></div>
             <div class="ts-sep"></div>
-            <div class="ts-item"><span class="ts-check">✓</span><span><strong>充值失败全额退款</strong></span></div>
+            <div class="ts-item"><span class="ts-check">✓</span><span><strong>{policy.refund}</strong></span></div>
           </div>
         </div>
 
@@ -107,7 +102,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             </ul>
             <div class="card-warning"><span class="card-warning-icon">i</span><span>使用范围最广，新手首选，覆盖写作、搜索、代码和资料处理。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.chatgpt.plus}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="https://www.jrjrz.com/chatgpt.html">选择方案</a>
+            <a class="card-btn" href="/chatgpt">选择方案</a>
           </article>
 
           <!-- Claude Pro -->
@@ -128,7 +123,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             </ul>
             <div class="card-warning"><span class="card-warning-icon">!</span><span>Claude 风控较严格，使用时建议保持稳定网络环境。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.claude.pro}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="https://www.jrjrz.com/claude.html">选择方案</a>
+            <a class="card-btn" href="/claude">选择方案</a>
           </article>
 
           <!-- SuperGrok -->
@@ -141,14 +136,14 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             <ul class="card-features">
               <li>SuperGrok 会员权益</li>
               <li>原账号直充，账号归属不变</li>
-              <li>支持微信或支付宝付款</li>
+              <li>支持{pay.label}</li>
               <li>无需提供账号密码</li>
               <li>双月方案更加划算</li>
               <li>人工客服协助处理</li>
             </ul>
             <div class="card-warning"><span class="card-warning-icon">i</span><span>月付 ¥{prices.grok.monthly}，双月 ¥{prices.grok.bimonthly}；双月方案相比月付累计可节省 ¥{prices.grok.bimonthly_save}。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.grok.monthly}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="https://www.jrjrz.com/grok.html">选择方案</a>
+            <a class="card-btn" href="/grok">选择方案</a>
           </article>
         </div>
       </div>
@@ -167,7 +162,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
                 <div class="step-num">01</div>
                 <div class="step-content">
                   <div class="step-title">下单 · 获取卡密</div>
-                  <p class="step-desc">选择所需套餐，微信扫码完成付款。付款后获取充值所需的卡密，请复制或截图保存。</p>
+                  <p class="step-desc">选择所需套餐，{pay.flow}。付款后获取充值所需的卡密，请复制或截图保存。</p>
                   <a class="step-code" href="#contact">前往下单 · 获取卡密</a>
                   <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>正规代充不会索要您的账号密码。</span></div></div>
                 </div>
@@ -230,7 +225,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         <div class="trust-grid" style="margin-top:44px;">
           <article class="trust-item reveal" style="--delay: 60ms;"><div class="trust-icon">01</div><div class="trust-title">账号安全有保障</div><p class="trust-desc">充值到您的原账号，无需共享密码，不影响账号归属。</p></article>
           <article class="trust-item reveal" style="--delay: 120ms;"><div class="trust-icon">02</div><div class="trust-title">极速到账</div><p class="trust-desc">ChatGPT Plus 自助流程最快 30 秒完成，其他服务按账号状态跟进。</p></article>
-          <article class="trust-item reveal" style="--delay: 180ms;"><div class="trust-icon">03</div><div class="trust-title">便捷支付</div><p class="trust-desc">支持微信支付，无需境外信用卡，人民币结算更省心。</p></article>
+          <article class="trust-item reveal" style="--delay: 180ms;"><div class="trust-icon">03</div><div class="trust-title">便捷支付</div><p class="trust-desc">支持{pay.label}，无需境外信用卡，人民币结算更省心。</p></article>
           <article class="trust-item reveal" style="--delay: 240ms;"><div class="trust-icon">04</div><div class="trust-title">原账号订阅</div><p class="trust-desc">不提供共享账号，减少隐私泄露和多人共用带来的风险。</p></article>
           <article class="trust-item reveal" style="--delay: 300ms;"><div class="trust-icon">05</div><div class="trust-title">售后有保障</div><p class="trust-desc">提供必要的技术支持，充值失败按约定全额退款。</p></article>
           <article class="trust-item reveal" style="--delay: 360ms;"><div class="trust-icon">06</div><div class="trust-title">企业服务咨询</div><p class="trust-desc">支持企业批量采购、对账资料和周期续费需求沟通。</p></article>
@@ -244,13 +239,13 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         <div class="section-label reveal">常见问题</div>
         <h2 class="section-title reveal">您可能<span class="gradient-text">想知道</span></h2>
         <div class="faq-list" style="margin-top:44px;">
-          <div class="faq-item active"><div class="faq-q">国内怎么订阅 ChatGPT Plus？没有信用卡怎么开通？<span class="faq-icon">+</span></div><div class="faq-a">国内用户可以通过代充服务完成 ChatGPT Plus 订阅。您只需完成微信付款，并按流程提交必要信息，无需境外信用卡，也无需提供账号密码。</div></div>
+          <div class="faq-item active"><div class="faq-q">国内怎么订阅 ChatGPT Plus？没有信用卡怎么开通？<span class="faq-icon">+</span></div><div class="faq-a">国内用户可以通过代充服务完成 ChatGPT Plus 订阅。您只需完成{pay.label}付款，并按流程提交必要信息，无需境外信用卡，也无需提供账号密码。</div></div>
           <div class="faq-item"><div class="faq-q">Claude Pro 国内怎么订阅？大陆可以充值吗？<span class="faq-icon">+</span></div><div class="faq-a">Claude Pro 会根据账号状态、地区和使用环境确认是否适合开通。付款前建议先联系客服核对，避免因平台风控导致无法交付。</div></div>
           <div class="faq-item"><div class="faq-q">Claude 和 ChatGPT 哪个好？应该选哪个？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 更适合通用问答、搜索、图像生成和编程辅助；Claude Pro 更适合长文档、学术写作、代码审阅和复杂文本处理。</div></div>
           <div class="faq-item"><div class="faq-q">ChatGPT Plus 和 Claude Pro 一个月多少钱？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 当前月付价格为 ¥{prices.chatgpt.plus}，Claude Pro 当前月付价格为 ¥{prices.claude.pro}。您可以按主要使用场景选择更适合的方案。</div></div>
           <div class="faq-item"><div class="faq-q">订阅失败怎么办？充值后多久到账？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 自助充值一般很快完成；Claude 与 SuperGrok 会根据账号状态确认交付时间。如因账号或平台限制无法完成，未成功部分按约定退款。</div></div>
           <div class="faq-item"><div class="faq-q">SuperGrok 怎么买？双月是否更划算？<span class="faq-icon">+</span></div><div class="faq-a">SuperGrok 月付为 ¥{prices.grok.monthly}，双月为 ¥{prices.grok.bimonthly}；双月方案相比连续购买两个月月付可节省 ¥{prices.grok.bimonthly_save}，适合稳定使用的用户。</div></div>
-          <div class="faq-item"><div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div><div class="faq-a">目前支持微信支付。企业采购、批量账号和周期续费需求可以提前联系客服沟通。</div></div>
+          <div class="faq-item"><div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div><div class="faq-a">{pay.faq}</div></div>
         </div>
       </div>
     </section>
@@ -294,7 +289,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
           <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
           <a class="pill secondary" href="#services">查看套餐</a>
         </div>
-        <div class="cta-points"><span>✓ 无需注册</span><span>✓ 微信付款</span><span>✓ 充值失败全额退款</span></div>
+        <div class="cta-points"><span>✓ 无需注册</span><span>✓ {pay.ctaPoint}</span><span>✓ {policy.refund}</span></div>
       </div>
     </section>
   </main>

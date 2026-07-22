@@ -12,9 +12,9 @@ tags:
   - 代充
 author: 露梦
 ---
-国内用户开通 SuperGrok，通常有**官方网页订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付时，先确认你要买的是 **SuperGrok** 还是 **X Premium+**（两者入口与取消位置不同），再选支付路径。官方结账失败后，不要连续重复刷同一张卡。选择代充前，确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。本站 SuperGrok 服务为代充，以 [SuperGrok 服务页](https://www.jrjrz.com/grok.html) 实时显示为准。
+国内用户开通 SuperGrok，通常有**官方网页订阅、应用商店内购、虚拟卡、第三方原账号代充**四条路径。没有可用境外支付时，先确认你要买的是 **SuperGrok** 还是 **X Premium+**（两者入口与取消位置不同），再选支付路径。官方结账失败后，不要连续重复刷同一张卡。选择代充前，确认权益是否到**自己的账号**、是否索要登录密码、失败如何处理。本站 SuperGrok 服务为代充，以 [SuperGrok 服务页](https://www.jrjrz.com/grok) 实时显示为准。
 
-服务入口：→ [SuperGrok 充值](https://www.jrjrz.com/grok.html)
+服务入口：→ [SuperGrok 充值](https://www.jrjrz.com/grok)
 系列对照：→ [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [Claude Pro 开通](https://www.jrjrz.com/blog/claude-pro-zenme-kaitong/)
 
 ## 一、先分清：SuperGrok、X Premium+ 和 Grok.com
@@ -60,7 +60,7 @@ author: 露梦
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">境外信用卡等<br><span style="font-size:12px;color:#94a3b8;">以结账页为准</span></td>
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">外区礼品卡 / 商店余额</td>
         <td style="text-align:center;padding:13px 10px;color:#475569;background:#fff;border-bottom:1px solid #eef2f7;">虚拟卡 + 外币充值</td>
-        <td style="text-align:center;padding:13px 10px;color:#3730a3;font-weight:600;background:#f5f3ff;border-bottom:1px solid #eef2f7;">微信 / 支付宝等<br><span style="font-size:12px;font-weight:500;color:#64748b;">以服务页为准</span></td>
+        <td style="text-align:center;padding:13px 10px;color:#3730a3;font-weight:600;background:#f5f3ff;border-bottom:1px solid #eef2f7;">微信支付<br><span style="font-size:12px;font-weight:500;color:#64748b;">以服务页为准</span></td>
       </tr>
       <tr>
         <th style="text-align:left;padding:13px 12px 13px 18px;font-weight:600;color:#334155;background:#f8fafc;border-bottom:1px solid #eef2f7;">主要准备成本</th>
@@ -128,15 +128,15 @@ author: 露梦
 
 - **原账号直充**，账号归属不变
 - **无需登录密码**
-- 支持 **微信 / 支付宝** 付款
+- 支持 **微信支付**
 - 异常由**人工客服**跟进
 
-**以上为服务页当前展示，价格与可操作状态以 [SuperGrok 服务页](https://www.jrjrz.com/grok.html) 实时显示为准。**
+**以上为服务页当前展示，价格与可操作状态以 [SuperGrok 服务页](https://www.jrjrz.com/grok) 实时显示为准。**
 
 ### 流程
 
 1. 联系客服说明需求，**确认可操作后再付款**。
-2. 微信/支付宝付款，按提示提供开通所需信息（**不需要密码**）。
+2. 微信支付付款，按提示提供开通所需信息（**不需要密码**）。
 3. 处理后登录 Grok 核验会员权益；异常联系人工客服。
 
 服务身份：第三方协助，**不是** xAI / X 官方。不提供共享账号。
@@ -166,7 +166,7 @@ author: 露梦
 
 ### SuperGrok 官方怎么订？国内怎么付？
 
-官方路径是在 Grok / 相应客户端按结账页支付。国内发行卡能否通过因卡而异。无可用境外支付时，可评估商店、虚拟卡或 [代充](https://www.jrjrz.com/grok.html)。
+官方路径是在 Grok / 相应客户端按结账页支付。国内发行卡能否通过因卡而异。无可用境外支付时，可评估商店、虚拟卡或 [代充](https://www.jrjrz.com/grok)。
 
 ### 支付失败了怎么办？
 
@@ -194,5 +194,5 @@ author: 露梦
 
 ---
 
-**服务入口：** [SuperGrok 充值](https://www.jrjrz.com/grok.html)
+**服务入口：** [SuperGrok 充值](https://www.jrjrz.com/grok)
 **系列：** [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [Claude Pro 开通](https://www.jrjrz.com/blog/claude-pro-zenme-kaitong/)
