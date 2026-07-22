@@ -94,7 +94,7 @@ ChatGPT Plus 购买的是 ChatGPT 网页和 App 内的订阅权益，不是 Open
 
 代充是把境外支付、操作交付和售后处理整合成一项服务。因此，**代充价格高于官方汇率换算是正常的**，差价对应的是服务成本、交付风险和合理利润。
 
-真正需要比较的是：这部分服务费，是否值得你少维护一套支付工具、少经历失败重试，并在开通异常时获得明确的处理渠道。
+真正需要比较的是：这部分服务费，是否值得你少维护一套支付工具、少经历失败重试，并在开通异常时获得明确的处理渠道。也可直接 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans)，并对照 [查看套餐和售后规则](/chatgpt/)。
 
 ## 露梦AI Store的代充服务包含什么？
 
@@ -120,7 +120,7 @@ ChatGPT Plus 购买的是 ChatGPT 网页和 App 内的订阅权益，不是 Open
 | 只是偶尔聊天 | 先用 Free，不必急着开 Plus |
 | Plus 仍经常触顶，且工作回报明确 | 再评估 Pro，而不是直接冲最高档 |
 
-已经决定升级的，可以继续看[ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)；没有境外支付方式、希望用人民币完成开通的，可以查看[ChatGPT 充值服务](https://www.jrjrz.com/chatgpt)。
+已经决定升级的，可以继续看[ChatGPT Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)；没有境外支付方式、希望用人民币完成开通的，可以直接 [进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)。
 
 ## ChatGPT Plus价格常见问题
 

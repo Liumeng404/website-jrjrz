@@ -30,7 +30,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-pro-vs-
 | 高峰期体验       | 可能限额或排队                      | 优先级与稳定性通常更高                     |
 | 适合人群         | 学习、办公、写作、轻度开发          | 研究、专业开发、批量处理、重度工作流       |
 
-具体权益会随地区、版本和官方调整变化，不要只信旧文或零散回答。价格可参考：[Plus 多少钱](https://www.jrjrz.com/blog/chatgpt-plus-duoshao-qian/)。
+具体权益会随地区、版本和官方调整变化，不要只信旧文或零散回答。价格可参考：[Plus 多少钱](https://www.jrjrz.com/blog/chatgpt-plus-duoshao-qian/)。若已决定买哪一档，可先 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans) 与 Pro 标价，再 [查看套餐和售后规则](/chatgpt/)。
 
 ## Pro 会不会比 Plus 更聪明？
 
@@ -109,7 +109,7 @@ image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/chatgpt-pro-vs-
 
 - 能走官方或应用内购买：优先官方。
 - 卡在绑卡/支付：看 [支付失败](https://www.jrjrz.com/blog/chatgpt-zhifu-shibai/) 与 [开通充值教程](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)。
-- 需在 **本人账号** 上协助开通：了解本站 [ChatGPT 服务页](https://www.jrjrz.com/chatgpt)（**非官方**；规则与质保以页面为准）。
+- 需在 **本人账号** 上协助开通：可 [进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)（**非官方**；规则与质保以页面为准）。
 
 **多数人先选 Plus 就够了；只有被额度反复打断、且打断真的影响工作时，才认真考虑 Pro。**
 

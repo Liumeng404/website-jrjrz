@@ -51,7 +51,7 @@ OpenAI 帮助中心的账号共享政策写明：OpenAI 账号应由创建者本
 - **已显示成功后的掉订阅** 是否在售后范围，以及补开 / 退款边界；
 - 售后可联系的时间窗口。
 
-服务页若只写「未成功退款」、对「成功后掉订」沉默，应在付款前追问清楚。
+服务页若只写「未成功退款」、对「成功后掉订」沉默，应在付款前追问清楚。需要对照公开规则时，可先 [查看套餐和售后规则](/chatgpt/)。
 
 ### 3. 价格与支付来源是否合理、可解释
 
@@ -60,6 +60,8 @@ ChatGPT订阅价格为 **$20/月**（按月计费）。App Store 等渠道可能
 第三方标价与 $20 按汇率折算后的人民币金额可以不同。**低价本身不能直接证明有问题。** 真正需要警惕的是：
 
 > 价格明显异常，同时又不说明交付方式、没有订单凭证、没有售后规则，或承诺「绝对稳定 / 永不封号」。
+
+想核对本站当前档位，可先 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans)。
 
 更直观的成本算法：
 
@@ -121,5 +123,4 @@ ChatGPT订阅价格为 **$20/月**（按月计费）。App Store 等渠道可能
    https://help.openai.com/en/articles/20001257-managing-active-sessions-in-chatgpt/
 4. OpenAI Help Center：OpenAI Account Sharing Policy
    https://help.openai.com/en/articles/10471989-openai-account-sharing-policy/
-5. 本站 ChatGPT 服务页（价格、流程、保障以页面实时为准）
-   https://www.jrjrz.com/chatgpt
+5. 本站 ChatGPT 服务页（价格、流程、保障以页面实时为准）：[进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)

@@ -103,7 +103,7 @@ Pro 分为 5x Pro 和 20x Pro，5x Pro 100美元每月，20x Pro 200美元每月
 
 ### 没有海外信用卡，国内用户怎么办？
 
-主路是 **外区 App 内购**，或 **本人账号协助开通**。优先保证账号归属自己、支付与售后可追溯 → [ChatGPT 服务页](https://www.jrjrz.com/chatgpt)。
+主路是 **外区 App 内购**，或 **本人账号协助开通**。优先保证账号归属自己、支付与售后可追溯。可先 [查看当前 ChatGPT Plus 价格](/chatgpt/#plans) 和 Pro 档位，再 [查看套餐和售后规则](/chatgpt/)，确认后再 [进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)。
 
 ### App Store 内购一定比官网稳定吗？
 
@@ -123,6 +123,6 @@ Pro 分为 5x Pro 和 20x Pro，5x Pro 100美元每月，20x Pro 200美元每月
 
 已决定开 Pro：按三条路径选型，付款后做「到账四项」验收。  
 还在 Plus 与 Pro 之间犹豫：读 [Pro 值得买吗](https://www.jrjrz.com/blog/chatgpt-pro-zhide-mai-ma/)。  
-付不通又不想继续折腾：了解 **本人账号协助开通**——[ChatGPT 服务页](https://www.jrjrz.com/chatgpt)（非 OpenAI 官方）。
+付不通又不想继续折腾：了解 **本人账号协助开通**——[进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)（非 OpenAI 官方）。
 
 **相关阅读：** [Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [付款失败](https://www.jrjrz.com/blog/chatgpt-plus-fukuan-shibai/) · [代充靠谱吗](https://www.jrjrz.com/blog/chatgpt-daichong-kaopu-ma/) · [合租风险](https://www.jrjrz.com/blog/chatgpt-hezhu-fengxian/) · [怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)

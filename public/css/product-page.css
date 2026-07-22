@@ -1099,6 +1099,16 @@ footer {
   margin-top: 42px;
 }
 
+.related-grid-priority {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.related-grid-priority .related-card {
+  min-height: 220px;
+  border-color: rgba(0, 102, 204, .18);
+  background: linear-gradient(180deg, rgba(40,201,255,.04), #fff 42%);
+}
+
 .related-card {
   display: flex;
   min-height: 205px;
@@ -1155,6 +1165,10 @@ footer {
   .policy-grid {
     grid-template-columns: 1fr;
   }
+
+  .related-grid-priority {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -1164,7 +1178,8 @@ footer {
 
   .hero-proof,
   .decision-grid,
-  .route-grid {
+  .route-grid,
+  .related-grid-priority {
     grid-template-columns: 1fr;
   }
 
