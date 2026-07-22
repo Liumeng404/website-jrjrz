@@ -1,0 +1,67 @@
+---
+/**
+ * 政策/合规页面侧栏导航
+ */
+const items = [
+  { href: '/terms/', label: '服务条款' },
+  { href: '/privacy/', label: '隐私与敏感信息' },
+  { href: '/refund/', label: '退款与售后' },
+  { href: '/contact/', label: '联系客服' },
+  { href: '/disclaimer/', label: '第三方服务声明' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') + '/';
+---
+
+<nav class="legal-nav" aria-label="政策与合规导航">
+  <div class="legal-nav-title">政策与合规</div>
+  <ul class="legal-nav-list">
+    {items.map((item) => (
+      <li>
+        <a href={item.href} class:list={[{ active: path === item.href }]}>
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .legal-nav {
+    margin: 0 0 28px;
+    padding: 16px 18px;
+    background: var(--parchment);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-card);
+  }
+  .legal-nav-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .legal-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+  .legal-nav-list a {
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .legal-nav-list a:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+  .legal-nav-list a.active {
+    color: var(--primary);
+    font-weight: 600;
+    border-bottom-color: var(--primary);
+  }
+</style>

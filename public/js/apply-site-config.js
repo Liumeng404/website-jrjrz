@@ -111,6 +111,13 @@
       cols +
       '</div>' +
       seo +
+      '<div class="footer-legal">' +
+      '<a href="/terms/">服务条款</a>' +
+      '<a href="/privacy/">隐私政策</a>' +
+      '<a href="/refund/">退款与售后</a>' +
+      '<a href="/contact/">联系客服</a>' +
+      '<a href="/disclaimer/">第三方声明</a>' +
+      '</div>' +
       '<div class="footer-bottom">' +
       '<div>&copy; ' +
       year +

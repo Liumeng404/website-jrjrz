@@ -43,8 +43,17 @@
       {
         "title": "支持",
         "links": [
-          { "text": "联系客服", "href": "javascript:void(0)", "action": "qr" },
+          { "text": "联系客服", "href": "/contact/" },
+          { "text": "退款与售后", "href": "/refund/" },
           { "text": "查看套餐", "href": "/#services" }
+        ]
+      },
+      {
+        "title": "合规",
+        "links": [
+          { "text": "服务条款", "href": "/terms/" },
+          { "text": "隐私政策", "href": "/privacy/" },
+          { "text": "第三方声明", "href": "/disclaimer/" }
         ]
       }
     ],

@@ -32,6 +32,14 @@ export const GET: APIRoute = async ({ site }) => {
     { loc: `${origin}/grok/`, lastmod: today },
   ];
 
+  const legalPages: Entry[] = [
+    { loc: `${origin}/terms/`, lastmod: today },
+    { loc: `${origin}/privacy/`, lastmod: today },
+    { loc: `${origin}/refund/`, lastmod: today },
+    { loc: `${origin}/contact/`, lastmod: today },
+    { loc: `${origin}/disclaimer/`, lastmod: today },
+  ];
+
   const entries: Entry[] = [
     { loc: `${origin}/`, lastmod: today },
     ...productLanding,
@@ -40,6 +48,7 @@ export const GET: APIRoute = async ({ site }) => {
       lastmod: posts[0] ? toDateStr(posts[0].data.pubDate) : today,
     },
     { loc: `${origin}/about/`, lastmod: today },
+    ...legalPages,
     ...posts.map((post) => ({
       loc: `${origin}/blog/${post.id}/`,
       lastmod: toDateStr(post.data.pubDate), // 发布日期

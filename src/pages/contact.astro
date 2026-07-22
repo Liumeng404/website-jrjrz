@@ -1,0 +1,69 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+---
+
+<LegalLayout
+  title="联系客服 | 露梦AI Store"
+  description="露梦AI Store 官方可验证客服渠道：网站域名、微信二维码入口、联系方式核验方法与防冒充提示。"
+  heading="联系<span class='gradient-text'>客服</span>"
+>
+  <p>
+    为减少仿冒客服与私下骗款，请<strong>只通过本站公示渠道</strong>联系我们。任何主动私信、自称「官方」、要求转账到个人陌生账户的行为，请提高警惕。
+  </p>
+
+  <h2>1. 官方站点（可验证）</h2>
+  <ul>
+    <li>网站域名：<strong>www.jrjrz.com</strong>（请核对浏览器地址栏）</li>
+    <li>品牌名称：<strong>露梦AI Store</strong></li>
+    <li>服务入口：
+      <a href="/chatgpt/">ChatGPT</a> ·
+      <a href="/claude/">Claude</a> ·
+      <a href="/grok/">SuperGrok</a> ·
+      <a href="/blog/">博客</a>
+    </li>
+  </ul>
+  <p>
+    核验建议：从搜索引擎或您保存的书签进入本站，再点击站内「联系客服 / 添加微信」；不要轻易相信聊天软件里陌生人发来的「官网链接」。
+  </p>
+
+  <h2>2. 客服微信（主渠道）</h2>
+  <ol>
+    <li>在本站任意页面点击 <strong>「联系客服」或「添加微信」</strong>，打开本站托管的二维码弹窗；</li>
+    <li>二维码图片地址固定为站点资源：<code>/images/qrcode.png</code>（仅作为本站静态资源路径说明，请以页面弹窗展示为准）；</li>
+    <li>添加后请说明：需要的套餐、账号当前状态、是否已付款及订单线索。</li>
+  </ol>
+  <p>
+    <button class="pill" type="button" onclick="openQrModal()">打开客服微信二维码</button>
+  </p>
+  <p>
+    <strong>注意：</strong>我们不会在站外随意更换「唯一客服」而不在网站更新。若对方要求您忽略官网、只走私下交易，请停止并回到本页核实。
+  </p>
+
+  <h2>3. 其他可能的联系方式</h2>
+  <ul>
+    <li>站内留言/订单备注：以下单时客服指引为准；</li>
+    <li>邮件或其他 IM：若未来开通，会在本页<strong>书面公布</strong>；未在本页写明的渠道，默认不作为官方售后入口。</li>
+  </ul>
+
+  <h2>4. 工作时段与响应</h2>
+  <ul>
+    <li>北京时间 <strong>10:00–22:00</strong>（含周末，节假日可能调整）</li>
+    <li>工作时段内通常 <strong>2 小时内</strong>首次回复；售后时效详见 <a href="/refund/">退款与售后政策</a></li>
+  </ul>
+
+  <h2>5. 防冒充清单</h2>
+  <ul>
+    <li>不轻信「内部价」「补差价到私人账户」；</li>
+    <li>不向陌生人提供密码、短信验证码、完整银行卡信息；</li>
+    <li>付款前确认对方是通过<strong>本站二维码/已核验微信</strong>建立的会话；</li>
+    <li>保留付款截图与聊天记录，便于对账与投诉举证。</li>
+  </ul>
+
+  <h2>6. 相关政策</h2>
+  <ul>
+    <li><a href="/terms/">服务条款</a></li>
+    <li><a href="/privacy/">隐私与敏感信息处理</a></li>
+    <li><a href="/refund/">退款、掉订阅与售后</a></li>
+    <li><a href="/disclaimer/">第三方服务声明</a></li>
+  </ul>
+</LegalLayout>

@@ -812,6 +812,21 @@ footer {
   transition: color 160ms;
 }
 .footer-seo-links a:hover { color: var(--primary); }
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0 0 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}
+.footer-legal a {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 160ms;
+}
+.footer-legal a:hover { color: var(--primary); }
 .footer-bottom {
   display: flex;
   align-items: center;

@@ -1,0 +1,39 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LegalNav from '../components/LegalNav.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** 页面主标题（h1） */
+  heading: string;
+  /** 更新日期，默认 2026-07-22 */
+  updated?: string;
+}
+
+const {
+  title,
+  description,
+  heading,
+  updated = '2026-07-22',
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section-pad">
+    <div class="container" style="max-width:760px;">
+      <div class="page-head">
+        <h1 set:html={heading} />
+        <p>更新日期：{updated} · 露梦AI Store（jrjrz.com）</p>
+      </div>
+      <LegalNav />
+      <div class="prose">
+        <slot />
+      </div>
+      <div style="text-align:center;margin-top:40px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
+        <a class="pill secondary" href="/contact/">查看联系渠道</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
