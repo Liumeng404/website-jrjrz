@@ -26,10 +26,11 @@ export const GET: APIRoute = async ({ site }) => {
   const today = toDateStr(new Date());
 
   // 产品服务页（与 public/prices.json 同源，构建时写入价格）
+  // SuperGrok 业务暂时维护，不纳入 sitemap
   const productLanding: Entry[] = [
     { loc: `${origin}/chatgpt/`, lastmod: today },
+    { loc: `${origin}/chatgpt-pro/`, lastmod: today },
     { loc: `${origin}/claude/`, lastmod: today },
-    { loc: `${origin}/grok/`, lastmod: today },
   ];
 
   const legalPages: Entry[] = [

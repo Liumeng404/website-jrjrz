@@ -1,25 +1,29 @@
 ---
 /**
- * 产品服务页布局（ChatGPT / Claude / SuperGrok）
+ * 产品服务页布局（ChatGPT / Claude 等）
  * 价格、付款方式、售后规则统一来自 public/prices.json + site-config.json
+ * 注：SuperGrok 业务暂时维护，/grok 已改为维护页（不再走本布局）
  */
 import { loadSiteConfig } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 interface Props {
   page: 'chatgpt' | 'claude' | 'grok';
+  /** 复用产品页视觉主题时，可单独指定 TDK 配置与规范 URL。 */
+  tdkKey?: 'chatgpt' | 'chatgptPro' | 'claude' | 'grok';
+  canonicalPath?: string;
   /** 额外 JSON-LD（如 Product/Service offers），价格须由调用方从 loadPrices() 注入 */
   extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { page, extraJsonLd } = Astro.props;
+const { page, tdkKey = page, canonicalPath = page, extraJsonLd } = Astro.props;
 const site = loadSiteConfig();
 const prices = loadPrices();
-const tdk = site.tdk[page];
+const tdk = site.tdk[tdkKey];
 const footer = site.footer;
 const year = new Date().getFullYear();
 const siteUrl = 'https://www.jrjrz.com';
-const pageUrl = `${siteUrl}/${page}/`;
+const pageUrl = `${siteUrl}/${canonicalPath.replace(/^\/+|\/+$/g, '')}/`;
 
 const pageJsonLd = {
   '@context': 'https://schema.org',

@@ -23,6 +23,7 @@ export type SiteConfig = {
   tdk: {
     home: TdkBlock;
     chatgpt: TdkBlock;
+    chatgptPro: TdkBlock;
     claude: TdkBlock;
     grok: TdkBlock;
   };

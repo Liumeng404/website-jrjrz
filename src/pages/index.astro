@@ -39,19 +39,17 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
     <!-- ========== Hero ========== -->
     <section class="hero" id="home">
       <div class="hero-inner">
-        <div class="badge">露梦AI Store · ChatGPT Plus代充 · Claude代充 · SuperGrok · 在线支持</div>
+        <div class="badge">露梦AI Store · ChatGPT Plus代充 · Claude代充 · 在线支持</div>
         <h1>ChatGPT Plus / Claude<br /><span class="gradient-text">AI 会员代充值服务</span></h1>
         <div class="hero-brands">
           <span class="brand-chip">ChatGPT代充</span>
           <span class="brand-sep">/</span>
           <span class="brand-chip">Claude代充</span>
           <span class="brand-sep">/</span>
-          <span class="brand-chip">SuperGrok</span>
-          <span class="brand-sep">/</span>
           <span class="brand-tag">一站搞定</span>
         </div>
         <p class="hero-desc">
-          <span class="soft-gradient">ChatGPT Plus、Claude Pro、SuperGrok</span> 订阅服务。无需信用卡，支持{pay.label}，开通到您的原账号。
+          <span class="soft-gradient">ChatGPT Plus、Claude Pro</span> 订阅服务。无需信用卡，支持{pay.label}，开通到您的原账号。
         </p>
         <div class="hero-btns">
           <a href="#services" class="pill">查看服务</a>
@@ -124,26 +122,6 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             <div class="card-warning"><span class="card-warning-icon">!</span><span>Claude 风控较严格，使用时建议保持稳定网络环境。</span></div>
             <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.claude.pro}</span><span class="price-unit">/ 月</span></div>
             <a class="card-btn" href="/claude/">选择方案</a>
-          </article>
-
-          <!-- SuperGrok -->
-          <article class="service-card service-card-extra reveal" style="--delay: 280ms;">
-            <div class="platform-logo grok" aria-label="Grok">
-              <img src="/images/grok.svg" alt="Grok Logo" />
-            </div>
-            <div class="card-title">SuperGrok</div>
-            <p class="card-desc">适合关注实时信息、创意问答和日常研究的用户，直充您的自用账号，无需处理境外支付。</p>
-            <ul class="card-features">
-              <li>SuperGrok 会员权益</li>
-              <li>原账号直充，账号归属不变</li>
-              <li>支持{pay.label}</li>
-              <li>无需提供账号密码</li>
-              <li>双月方案更加划算</li>
-              <li>人工客服协助处理</li>
-            </ul>
-            <div class="card-warning"><span class="card-warning-icon">i</span><span>月付 ¥{prices.grok.monthly}，双月 ¥{prices.grok.bimonthly}；双月方案相比月付累计可节省 ¥{prices.grok.bimonthly_save}。</span></div>
-            <div class="card-price"><span class="price-from">起步价</span><span class="price-num">¥{prices.grok.monthly}</span><span class="price-unit">/ 月</span></div>
-            <a class="card-btn" href="/grok/">选择方案</a>
           </article>
         </div>
       </div>
@@ -243,8 +221,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
           <div class="faq-item"><div class="faq-q">Claude Pro 国内怎么订阅？大陆可以充值吗？<span class="faq-icon">+</span></div><div class="faq-a">Claude Pro 会根据账号状态、地区和使用环境确认是否适合开通。付款前建议先联系客服核对，避免因平台风控导致无法交付。</div></div>
           <div class="faq-item"><div class="faq-q">Claude 和 ChatGPT 哪个好？应该选哪个？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 更适合通用问答、搜索、图像生成和编程辅助；Claude Pro 更适合长文档、学术写作、代码审阅和复杂文本处理。</div></div>
           <div class="faq-item"><div class="faq-q">ChatGPT Plus 和 Claude Pro 一个月多少钱？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 当前月付价格为 ¥{prices.chatgpt.plus}，Claude Pro 当前月付价格为 ¥{prices.claude.pro}。您可以按主要使用场景选择更适合的方案。</div></div>
-          <div class="faq-item"><div class="faq-q">订阅失败怎么办？充值后多久到账？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 自助充值一般很快完成；Claude 与 SuperGrok 会根据账号状态确认交付时间。如因账号或平台限制无法完成，未成功部分按约定退款。</div></div>
-          <div class="faq-item"><div class="faq-q">SuperGrok 怎么买？双月是否更划算？<span class="faq-icon">+</span></div><div class="faq-a">SuperGrok 月付为 ¥{prices.grok.monthly}，双月为 ¥{prices.grok.bimonthly}；双月方案相比连续购买两个月月付可节省 ¥{prices.grok.bimonthly_save}，适合稳定使用的用户。</div></div>
+          <div class="faq-item"><div class="faq-q">订阅失败怎么办？充值后多久到账？<span class="faq-icon">+</span></div><div class="faq-a">ChatGPT Plus 自助充值一般很快完成；Claude 会根据账号状态确认交付时间。如因账号或平台限制无法完成，未成功部分按约定退款。</div></div>
           <div class="faq-item"><div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div><div class="faq-a">{pay.faq}</div></div>
         </div>
       </div>

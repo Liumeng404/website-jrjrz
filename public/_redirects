@@ -3,5 +3,9 @@
 /claude.html   /claude/   301
 /grok.html     /grok/     301
 /chatgpt       /chatgpt/  301
+/chatgpt-pro   /chatgpt-pro/  301
 /claude        /claude/   301
 /grok          /grok/     301
+# SuperGrok 业务暂时维护：旧博客外链改到博客列表（302 便于恢复）
+/blog/grok-supergrok-zenme-kaitong   /blog/  302
+/blog/grok-supergrok-zenme-kaitong/  /blog/  302

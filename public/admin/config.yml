@@ -82,6 +82,13 @@ collections:
                   - { name: "title", label: "Title 标题", widget: "string" }
                   - { name: "description", label: "Description 描述", widget: "text" }
                   - { name: "keywords", label: "Keywords 关键词", widget: "string", required: false }
+              - label: "ChatGPT Pro 子页"
+                name: "chatgptPro"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title 标题", widget: "string" }
+                  - { name: "description", label: "Description 描述", widget: "text" }
+                  - { name: "keywords", label: "Keywords 关键词", widget: "string", required: false }
               - label: "Claude 子页"
                 name: "claude"
                 widget: "object"

@@ -2,7 +2,7 @@
 title: SuperGrok 怎么开通？Grok 会员国内支付失败怎么办
 description: SuperGrok 怎么开通、Grok 会员国内怎么付、支付失败怎么办。区分 SuperGrok 与 X Premium+，对照官网、商店、虚拟卡与原账号代充，并说明本站月付/双月价格与流程。
 pubDate: 2026-07-16
-draft: false
+draft: true
 image: https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/grok-supergrok-zenme-kaitong/img-1.png
 tags:
   - SuperGrok

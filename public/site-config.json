@@ -1,14 +1,19 @@
 {
   "tdk": {
     "home": {
-      "title": "露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充",
-      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信支付，原账号开通，无需账号密码。",
-      "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,SuperGrok,AI订阅代充,露梦AI Store"
+      "title": "露梦AI Store | ChatGPT Plus / Claude 订阅代充",
+      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro 订阅代充服务。支持微信支付，原账号开通，无需账号密码。",
+      "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,AI订阅代充,露梦AI Store"
     },
     "chatgpt": {
       "title": "ChatGPT Plus/Pro 国内代充｜价格、购买流程与售后 - 露梦AI",
       "description": "ChatGPT Plus、Pro 5x、Pro 20x 国内充值服务，展示当前价格、套餐区别、购买流程和退款规则。支持微信人民币付款，开通到本人账号。",
       "keywords": "ChatGPT Plus代充,ChatGPT Pro代充,ChatGPT充值,ChatGPT Plus开通,ChatGPT代付,露梦AI"
+    },
+    "chatgptPro": {
+      "title": "ChatGPT Pro 国内代充｜5x/20x 价格、区别与购买 - 露梦AI",
+      "description": "ChatGPT Pro 5x、Pro 20x 国内充值与本人账号开通协助。对比当前价格、适用人群、购买流程和售后边界，支持微信人民币付款。",
+      "keywords": "ChatGPT Pro代充,ChatGPT Pro充值,ChatGPT Pro购买,ChatGPT Pro国内怎么开,ChatGPT Pro 5x,ChatGPT Pro 20x"
     },
     "claude": {
       "title": "Claude Pro代充值 | 露梦AI Store",
@@ -16,9 +21,9 @@
       "keywords": "Claude Pro代充,Claude充值,Claude开通,Anthropic"
     },
     "grok": {
-      "title": "SuperGrok代充值 | 露梦AI Store",
-      "description": "露梦AI Store 提供 SuperGrok 会员代充服务。支持月付与双月方案，微信支付，直充您的自用账号。",
-      "keywords": "SuperGrok代充,Grok充值,Grok会员,xAI"
+      "title": "SuperGrok 服务维护中 | 露梦AI Store",
+      "description": "SuperGrok 代充业务暂时维护，暂停接单。当前可开通 ChatGPT Plus / Pro、Claude Pro。",
+      "keywords": "SuperGrok维护,Grok充值"
     }
   },
   "footer": {
@@ -28,8 +33,8 @@
         "title": "服务",
         "links": [
           { "text": "ChatGPT Plus", "href": "/chatgpt/" },
-          { "text": "Claude Pro", "href": "/claude/" },
-          { "text": "SuperGrok", "href": "/grok/" }
+          { "text": "ChatGPT Pro", "href": "/chatgpt-pro/" },
+          { "text": "Claude Pro", "href": "/claude/" }
         ]
       },
       {
@@ -61,11 +66,11 @@
     "seoLinks": [
       { "text": "ChatGPT 代充", "href": "/chatgpt/" },
       { "text": "ChatGPT Plus 开通", "href": "/chatgpt/" },
+      { "text": "ChatGPT Pro 代充", "href": "/chatgpt-pro/" },
       { "text": "Claude Pro 代充", "href": "/claude/" },
-      { "text": "SuperGrok 充值", "href": "/grok/" },
       { "text": "AI 订阅代充", "href": "/" },
       { "text": "博客教程", "href": "/blog/" }
     ],
-    "copyright": "本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic / xAI 无官方关联。"
+    "copyright": "本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic 无官方关联。"
   }
 }

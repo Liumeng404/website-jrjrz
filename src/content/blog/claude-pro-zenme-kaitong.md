@@ -215,4 +215,4 @@ Claude 近期讨论较多的包括 **Fable 5** 等面向重任务的模型能力
 ---
 
 **服务入口：** [Claude Pro 充值](https://www.jrjrz.com/claude)
-**系列：** [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [SuperGrok 开通](https://www.jrjrz.com/blog/grok-supergrok-zenme-kaitong/)*
+**系列：** [ChatGPT Plus 开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/)

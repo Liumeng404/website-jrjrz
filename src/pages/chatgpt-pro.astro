@@ -1,0 +1,425 @@
+---
+/**
+ * ChatGPT Pro 专项承接页。
+ * 售价统一从 public/prices.json 读取；5x/20x 为本站档位标注，实际权益以账号页为准。
+ */
+import ProductLayout from '../layouts/ProductLayout.astro';
+import { loadPrices } from '../lib/prices';
+
+const prices = loadPrices();
+const p = prices.chatgpt;
+const pay = prices.payment;
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'ChatGPT Pro 国内订阅协助',
+  provider: {
+    '@type': 'Organization',
+    name: '露梦AI Store',
+    url: 'https://www.jrjrz.com/',
+  },
+  url: 'https://www.jrjrz.com/chatgpt-pro/',
+  description: 'ChatGPT Pro 5x、Pro 20x 本人账号订阅协助服务。',
+  areaServed: 'CN',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'ChatGPT Pro 5x 月付',
+      price: String(p.pro5x),
+      priceCurrency: 'CNY',
+    },
+    {
+      '@type': 'Offer',
+      name: 'ChatGPT Pro 20x 月付',
+      price: String(p.pro20x),
+      priceCurrency: 'CNY',
+    },
+  ],
+};
+---
+
+<ProductLayout
+  page="chatgpt"
+  tdkKey="chatgptPro"
+  canonicalPath="chatgpt-pro"
+  extraJsonLd={serviceJsonLd}
+>
+  <nav class="sub-nav" aria-label="ChatGPT Pro 页面导航">
+    <div class="nav-inner">
+      <div class="sub-title">ChatGPT Pro 国内充值</div>
+      <div class="sub-actions">
+        <a href="#plans">价格</a>
+        <a href="#choose">怎么选</a>
+        <a href="#how">购买流程</a>
+        <a class="pill small" href="#contact">咨询购买</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-logo openai">
+          <img src="/images/openai.svg" alt="ChatGPT 标志" />
+        </div>
+        <div class="product-eyebrow">ChatGPT Pro · {pay.eyebrow} · 本人账号开通</div>
+        <h1>
+          <span
+            class="typewriter-line"
+            aria-live="polite"
+            aria-label="ChatGPT 5x Pro、ChatGPT 20x Pro"
+          >
+            <span class="gradient-text typewriter-text" id="proTypewriterText">ChatGPT 5x Pro</span>
+            <span class="typewriter-caret" aria-hidden="true"></span>
+          </span>
+          <br />国内开通
+        </h1>
+        <p class="product-subtitle">5x、20x 两档。先看价格，再选方案。</p>
+        <div class="note-pill">5x ¥{p.pro5x}/月 · 20x ¥{p.pro20x}/月</div>
+        <div class="hero-actions">
+          <a class="pill" href="#plans">查看 Pro 价格</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">购买前咨询</button>
+        </div>
+
+        <div class="hero-proof" aria-label="服务要点">
+          <div class="proof-item"><strong>本人账号</strong><span>不做共享账号</span></div>
+          <div class="proof-item"><strong>{pay.label}</strong><span>人民币结算</span></div>
+          <div class="proof-item"><strong>先确认</strong><span>核对账号与档位</span></div>
+          <div class="proof-item"><strong>有售后</strong><span>规则公开可查</span></div>
+        </div>
+        <p class="disclosure">
+          露梦AI Store 为第三方订阅协助服务，与 OpenAI 无官方关联。5x、20x 为本站档位标注，实际权益以账号页面为准。详见
+          <a href="/disclaimer/">第三方服务声明</a>。
+        </p>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="plans">
+      <div class="container">
+        <div class="section-label reveal">价格与套餐</div>
+        <h2 class="section-title reveal">Pro 5x 与 Pro 20x</h2>
+        <p class="section-sub reveal">付款前确认账号、档位、库存与售后。</p>
+
+        <div class="plans-grid two-up">
+          <article class="plan-card recommended reveal" style="--delay: 80ms;">
+            <div class="plan-badge">重度使用</div>
+            <h3 class="plan-name">ChatGPT Pro 5x</h3>
+            <div class="plan-origin">下单前确认账号</div>
+            <div class="plan-price">
+              <span class="label">当前月付</span>
+              <span class="num">¥{p.pro5x}</span>
+              <span class="unit">/ 月</span>
+            </div>
+            <ul class="feature-list">
+              <li>Plus 经常受限时再升级</li>
+              <li>适合编程、研究与长任务</li>
+              <li>开通到本人账号</li>
+              <li>会员不包含 API 余额</li>
+              <li>实际权益以账号显示为准</li>
+            </ul>
+            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 5x</button>
+            <div class="plan-note">先说明当前套餐与主要任务</div>
+          </article>
+
+          <article class="plan-card reveal" style="--delay: 160ms;">
+            <div class="plan-badge">极重度使用</div>
+            <h3 class="plan-name">ChatGPT Pro 20x</h3>
+            <div class="plan-origin">先评估，后付款</div>
+            <div class="plan-price">
+              <span class="label">当前月付</span>
+              <span class="num">¥{p.pro20x}</span>
+              <span class="unit">/ 月</span>
+            </div>
+            <ul class="feature-list">
+              <li>适合持续运行的专业工作流</li>
+              <li>面向大型代码与密集任务</li>
+              <li>轻度使用不建议购买</li>
+              <li>开通前确认账号与库存</li>
+              <li>实际权益以账号显示为准</li>
+            </ul>
+            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 20x</button>
+            <div class="plan-note">确认 5x 不够用再选择</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="choose">
+      <div class="container">
+        <div class="section-label reveal">选购建议</div>
+        <h2 class="section-title reveal">你真的需要 Pro 吗？</h2>
+        <p class="section-sub reveal">Plus 经常影响工作时，再考虑升级。</p>
+
+        <div class="decision-grid">
+          <article class="decision-card reveal" style="--delay: 60ms;">
+            <span class="decision-kicker">继续 Plus</span>
+            <h3>偶尔受限</h3>
+            <p>等待恢复成本不高，暂时不用升级。</p>
+          </article>
+          <article class="decision-card reveal" style="--delay: 120ms;">
+            <span class="decision-kicker">选择 5x</span>
+            <h3>经常被打断</h3>
+            <p>适合高频编程、研究和文件处理。</p>
+          </article>
+          <article class="decision-card reveal" style="--delay: 180ms;">
+            <span class="decision-kicker">考虑 20x</span>
+            <h3>明确的极重度需求</h3>
+            <p>5x 仍不足以覆盖持续工作。</p>
+          </article>
+          <article class="decision-card reveal" style="--delay: 240ms;">
+            <span class="decision-kicker">先别购买</span>
+            <h3>只想买顶配</h3>
+            <p>说不清当前限制，就先继续用 Plus。</p>
+          </article>
+        </div>
+
+        <div class="advisor-box reveal">
+          <div>
+            <h3>拿不准？先从 Plus 开始</h3>
+            <p>记录一周的限额次数，再决定是否升级。</p>
+          </div>
+          <a class="pill" href="/chatgpt/">查看 Plus 套餐</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-dark" id="how">
+      <div class="container">
+        <div class="section-label reveal">购买与交付</div>
+        <h2 class="section-title reveal">三步完成开通</h2>
+        <p class="section-sub reveal">确认、付款、验收。</p>
+        <div class="steps-grid">
+          <article class="step-card reveal" style="--delay: 80ms;">
+            <div class="step-num">01</div>
+            <h3>确认账号</h3>
+            <p>说明当前套餐和目标档位。</p>
+          </article>
+          <article class="step-card reveal" style="--delay: 160ms;">
+            <div class="step-num">02</div>
+            <h3>完成付款</h3>
+            <p>确认价格与售后，再通过{pay.label}付款。</p>
+          </article>
+          <article class="step-card reveal" style="--delay: 240ms;">
+            <div class="step-num">03</div>
+            <h3>登录验收</h3>
+            <p>检查套餐名称、状态和有效期。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="trust">
+      <div class="container">
+        <div class="section-label reveal">安全与售后</div>
+        <h2 class="section-title reveal">高额套餐，规则先看清</h2>
+        <div class="trust-grid">
+          <article class="trust-card reveal">
+            <div class="trust-num">01</div>
+            <h3>只开到本人账号</h3>
+            <p>不提供共享号、合租位或临时账号。</p>
+          </article>
+          <article class="trust-card reveal">
+            <div class="trust-num">02</div>
+            <h3>不收密码与验证码</h3>
+            <p>无需提交密码、验证码或 Session。</p>
+          </article>
+          <article class="trust-card reveal">
+            <div class="trust-num">03</div>
+            <h3>售后规则公开</h3>
+            <p>异常处理以<a href="/refund/">退款与售后政策</a>为准。</p>
+          </article>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-card reveal">
+            <h3>不要只看低价</h3>
+            <p>异常低价可能伴随账号或支付风险。</p>
+          </article>
+          <article class="policy-card reveal">
+            <h3>不要重复下单</h3>
+            <p>已有订阅或扣款待处理时，先核验。</p>
+          </article>
+          <article class="policy-card reveal">
+            <h3>会员不等于 API</h3>
+            <p>API 属于独立产品，需要单独付费。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="faq">
+      <div class="container">
+        <div class="section-label reveal">常见问题</div>
+        <h2 class="section-title reveal">ChatGPT Pro 常见问题</h2>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-q" type="button" aria-expanded="true">
+              ChatGPT Pro 国内充值多少钱？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              Pro 5x 为 ¥{p.pro5x}/月，Pro 20x 为 ¥{p.pro20x}/月。以下单前确认为准。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Pro 5x 和 Pro 20x 怎么选？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              Plus 经常影响工作时选 5x；确认 5x 仍不够用，再考虑 20x。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Pro 回答一定比 Plus 更聪明吗？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              不一定。Pro 的核心价值是更高使用空间和连续性。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              国内没有海外信用卡能开通吗？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              可以。有官方支付条件时优先官网，否则可了解本人账号订阅协助。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              已有 Plus 能直接升级 Pro 吗？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              视账号状态而定。不要重复下单，付款前先确认。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              需要提交密码、验证码或 Session 吗？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              不需要。本页方案不收这些登录凭据。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              ChatGPT Pro 包含 API 额度吗？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              不包含。API 需要单独付费。
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              充值失败或交付异常怎么办？<span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              停止重复付款，保留记录联系客服，并按<a href="/refund/">售后政策</a>处理。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="guides">
+      <div class="container">
+        <div class="section-label reveal">相关指南</div>
+        <h2 class="section-title reveal">购买前再看一篇</h2>
+        <p class="section-sub reveal">还不确定，就从这四篇开始。</p>
+        <div class="related-grid related-grid-priority">
+          <a class="related-card reveal" href="/blog/chatgpt-pro-zhide-mai-ma/">
+            <h3>ChatGPT Pro 值得买吗</h3>
+            <p>判断升级是否真正值得。</p>
+            <span class="read-more">查看购买判断 →</span>
+          </a>
+          <a class="related-card reveal" href="/blog/chatgpt-pro-vs-plus/">
+            <h3>Pro 和 Plus 的区别</h3>
+            <p>快速看懂两档区别。</p>
+            <span class="read-more">查看套餐对比 →</span>
+          </a>
+          <a class="related-card reveal" href="/blog/chatgpt-pro-guonei-zenme-mai/">
+            <h3>国内怎么买 ChatGPT Pro</h3>
+            <p>对比三种开通路径。</p>
+            <span class="read-more">查看开通路径 →</span>
+          </a>
+          <a class="related-card reveal" href="/blog/chatgpt-daichong-kaopu-ma/">
+            <h3>代充安全指南</h3>
+            <p>付款前先看筛选标准。</p>
+            <span class="read-more">查看筛选标准 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" id="contact">
+      <div class="container">
+        <div class="section-label">下一步</div>
+        <h2 class="section-title">选好档位，再确认账号</h2>
+        <p class="section-sub">告诉客服当前套餐和目标档位，确认后再付款。</p>
+        <div class="hero-actions">
+          <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
+          <a class="pill secondary" href="#plans">返回 Pro 价格</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-sticky-cta" aria-label="移动端快捷操作">
+    <a class="pill secondary" href="#plans">查看价格</a>
+    <button class="pill" type="button" onclick="openQrModal()">咨询 Pro</button>
+  </div>
+
+  <script slot="scripts" is:inline>
+    (function () {
+      var target = document.getElementById('proTypewriterText');
+      if (!target) return;
+
+      var phrases = ['ChatGPT 5x Pro', 'ChatGPT 20x Pro'];
+      var prefersReducedMotion =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        target.textContent = phrases[0];
+        return;
+      }
+
+      var phraseIndex = 0;
+      var deleting = false;
+
+      function typeNext() {
+        var phrase = phrases[phraseIndex];
+        var current = target.textContent || '';
+        target.textContent = deleting
+          ? phrase.slice(0, Math.max(0, current.length - 1))
+          : phrase.slice(0, current.length + 1);
+
+        var delay = deleting ? 58 : 92;
+        if (!deleting && target.textContent === phrase) {
+          deleting = true;
+          delay = 1450;
+        } else if (deleting && target.textContent === '') {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          delay = 320;
+        }
+        window.setTimeout(typeNext, delay);
+      }
+
+      window.setTimeout(typeNext, 420);
+    })();
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var button = item.querySelector('.faq-q');
+      if (!button || button.tagName !== 'BUTTON') return;
+      button.addEventListener('click', function () {
+        window.setTimeout(function () {
+          button.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+        }, 0);
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && typeof closeQrModal === 'function') closeQrModal();
+    });
+  </script>
+</ProductLayout>
