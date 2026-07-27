@@ -302,6 +302,31 @@ h1 {
   text-align: center;
 }
 
+.section-sub-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 12px auto 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.section-sub-links a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.section-sub-links a:hover {
+  text-decoration: underline;
+}
+
+.section-sub-links .sep {
+  color: #ccc;
+}
+
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

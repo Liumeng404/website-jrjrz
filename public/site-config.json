@@ -2,9 +2,9 @@
   "shopUrl": "https://pay.ldxp.cn/shop/GJ8N9HL8",
   "tdk": {
     "home": {
-      "title": "露梦AI Store | ChatGPT Plus / Claude 订阅代充",
-      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro 订阅代充服务。支持微信支付，原账号开通，无需账号密码。",
-      "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,AI订阅代充,露梦AI Store"
+      "title": "露梦AI Store | ChatGPT Plus / Claude / SuperGrok 订阅代充",
+      "description": "露梦AI Store 提供 ChatGPT Plus、Claude Pro、SuperGrok 订阅代充服务。支持微信支付，原账号开通，无需账号密码。",
+      "keywords": "ChatGPT代充,ChatGPT Plus,Claude Pro,SuperGrok,AI订阅代充,露梦AI Store"
     },
     "chatgpt": {
       "title": "ChatGPT Plus/Pro 国内代充｜价格、购买流程与售后 - 露梦AI",
@@ -22,9 +22,9 @@
       "keywords": "Claude Pro代充,Claude充值,Claude开通,Anthropic"
     },
     "grok": {
-      "title": "SuperGrok 服务维护中 | 露梦AI Store",
-      "description": "SuperGrok 代充业务暂时维护，暂停接单。当前可开通 ChatGPT Plus / Pro、Claude Pro。",
-      "keywords": "SuperGrok维护,Grok充值"
+      "title": "SuperGrok代充值 | 露梦AI Store",
+      "description": "露梦AI Store 提供 SuperGrok 会员代充服务。支持月付与双月方案，微信支付，直充您的自用账号。",
+      "keywords": "SuperGrok代充,Grok充值,Grok会员,xAI"
     }
   },
   "footer": {
@@ -35,7 +35,8 @@
         "links": [
           { "text": "ChatGPT Plus", "href": "/chatgpt/" },
           { "text": "ChatGPT Pro", "href": "/chatgpt-pro/" },
-          { "text": "Claude Pro", "href": "/claude/" }
+          { "text": "Claude Pro", "href": "/claude/" },
+          { "text": "SuperGrok", "href": "/grok/" }
         ]
       },
       {
@@ -69,9 +70,10 @@
       { "text": "ChatGPT Plus 开通", "href": "/chatgpt/" },
       { "text": "ChatGPT Pro 代充", "href": "/chatgpt-pro/" },
       { "text": "Claude Pro 代充", "href": "/claude/" },
+      { "text": "SuperGrok 充值", "href": "/grok/" },
       { "text": "AI 订阅代充", "href": "/" },
       { "text": "博客教程", "href": "/blog/" }
     ],
-    "copyright": "本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic 无官方关联。"
+    "copyright": "本平台提供订阅代付与开通协助服务，与 OpenAI / Anthropic / xAI 无官方关联。"
   }
 }
