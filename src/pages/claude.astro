@@ -1,11 +1,13 @@
 ---
 import ProductLayout from '../layouts/ProductLayout.astro';
+import { getShopUrl } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 const prices = loadPrices();
 const p = prices.claude;
 const pay = prices.payment;
 const policy = prices.policy;
+const shopUrl = getShopUrl();
 ---
 
 <ProductLayout page="claude">
@@ -15,7 +17,7 @@ const policy = prices.policy;
       <div class="sub-actions">
         <a href="#plans">套餐</a>
         <a href="#how">怎么开通</a>
-        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
       </div>
     </div>
   </nav>
@@ -34,7 +36,7 @@ const policy = prices.policy;
         <div class="note-pill">Claude 使用环境要求更严格 · 下单前建议先确认账号状态 · 月付 ¥{p.pro}</div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看套餐</a>
-          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
+          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
         </div>
       </div>
     </section>
@@ -63,7 +65,7 @@ const policy = prices.policy;
               <li>开通到您的原账号，不需要账号密码</li>
               <li>下单前可先确认账号和使用环境</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">立即咨询</button>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">立即购买</a>
             <div class="plan-note">原账号订阅 · 账号状态先确认</div>
           </article>
 
@@ -217,7 +219,7 @@ const policy = prices.policy;
         <h2 class="section-title">确认账号状态，安排 Claude 开通</h2>
         <p class="section-sub">把账号状态和使用环境发给客服，确认可操作后再付款。</p>
         <div class="hero-actions">
-          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
+          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
           <a class="pill secondary" href="#plans">查看套餐</a>
         </div>
       </div>

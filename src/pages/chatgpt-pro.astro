@@ -4,11 +4,13 @@
  * 售价统一从 public/prices.json 读取；5x/20x 为本站档位标注，实际权益以账号页为准。
  */
 import ProductLayout from '../layouts/ProductLayout.astro';
+import { getShopUrl } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 const prices = loadPrices();
 const p = prices.chatgpt;
 const pay = prices.payment;
+const shopUrl = getShopUrl();
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
@@ -52,7 +54,7 @@ const serviceJsonLd = {
         <a href="#plans">价格</a>
         <a href="#choose">怎么选</a>
         <a href="#how">购买流程</a>
-        <a class="pill small" href="#contact">咨询购买</a>
+        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
       </div>
     </div>
   </nav>
@@ -79,7 +81,7 @@ const serviceJsonLd = {
         <div class="note-pill">5x ¥{p.pro5x}/月 · 20x ¥{p.pro20x}/月</div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看 Pro 价格</a>
-          <button class="pill secondary" type="button" onclick="openQrModal()">购买前咨询</button>
+          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
         </div>
 
         <div class="hero-proof" aria-label="服务要点">
@@ -118,7 +120,7 @@ const serviceJsonLd = {
               <li>会员不包含 API 余额</li>
               <li>实际权益以账号显示为准</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 5x</button>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 5x</a>
             <div class="plan-note">先说明当前套餐与主要任务</div>
           </article>
 
@@ -138,7 +140,7 @@ const serviceJsonLd = {
               <li>开通前确认账号与库存</li>
               <li>实际权益以账号显示为准</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 20x</button>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 20x</a>
             <div class="plan-note">确认 5x 不够用再选择</div>
           </article>
         </div>
@@ -357,7 +359,7 @@ const serviceJsonLd = {
         <h2 class="section-title">选好档位，再确认账号</h2>
         <p class="section-sub">告诉客服当前套餐和目标档位，确认后再付款。</p>
         <div class="hero-actions">
-          <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
+          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
           <a class="pill secondary" href="#plans">返回 Pro 价格</a>
         </div>
       </div>
@@ -366,7 +368,7 @@ const serviceJsonLd = {
 
   <div class="mobile-sticky-cta" aria-label="移动端快捷操作">
     <a class="pill secondary" href="#plans">查看价格</a>
-    <button class="pill" type="button" onclick="openQrModal()">咨询 Pro</button>
+    <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
   </div>
 
   <script slot="scripts" is:inline>

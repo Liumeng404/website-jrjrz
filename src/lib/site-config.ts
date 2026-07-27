@@ -20,6 +20,8 @@ export type FooterColumn = {
 };
 
 export type SiteConfig = {
+  /** 联动小铺 / 自助下单页（核心 CTA 跳转） */
+  shopUrl: string;
   tdk: {
     home: TdkBlock;
     chatgpt: TdkBlock;
@@ -36,7 +38,16 @@ export type SiteConfig = {
   };
 };
 
+/** 默认小铺地址；配置缺失时回退 */
+export const DEFAULT_SHOP_URL = 'https://pay.ldxp.cn/shop/GJ8N9HL8';
+
+export function getShopUrl(config?: SiteConfig): string {
+  return (config ?? loadSiteConfig()).shopUrl || DEFAULT_SHOP_URL;
+}
+
 export function loadSiteConfig(): SiteConfig {
   const raw = readFileSync(join(process.cwd(), 'public/site-config.json'), 'utf-8');
-  return JSON.parse(raw) as SiteConfig;
+  const parsed = JSON.parse(raw) as SiteConfig;
+  if (!parsed.shopUrl) parsed.shopUrl = DEFAULT_SHOP_URL;
+  return parsed;
 }

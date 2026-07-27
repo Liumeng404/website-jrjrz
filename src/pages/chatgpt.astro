@@ -4,11 +4,13 @@
  * 全部售价从 public/prices.json 读取，勿在页面写死价格数字。
  */
 import ProductLayout from '../layouts/ProductLayout.astro';
+import { getShopUrl } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 const prices = loadPrices();
 const p = prices.chatgpt;
 const pay = prices.payment;
+const shopUrl = getShopUrl();
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
@@ -52,8 +54,9 @@ const serviceJsonLd = {
       <div class="sub-actions">
         <a href="#plans">价格</a>
         <a href="#choose">怎么选</a>
+        <a href="/chatgpt-pro/">Pro 专页</a>
         <a href="#how">购买流程</a>
-        <a class="pill small" href="#contact">咨询购买</a>
+        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
       </div>
     </div>
   </nav>
@@ -84,7 +87,7 @@ const serviceJsonLd = {
         </div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看价格与套餐</a>
-          <button class="pill secondary" type="button" onclick="openQrModal()">购买前咨询</button>
+          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
         </div>
 
         <div class="hero-proof" aria-label="服务要点">
@@ -103,62 +106,30 @@ const serviceJsonLd = {
     <section class="section-pad section-soft" id="plans">
       <div class="container">
         <div class="section-label reveal">价格与套餐</div>
-        <h2 class="section-title reveal">先用一张表，选对档位</h2>
+        <h2 class="section-title reveal">三档套餐，按使用强度选</h2>
         <p class="section-sub reveal">
           轻度用户不必急着升级；需要持续处理文件、代码和研究任务时，再按使用强度选择 Plus 或 Pro。
           想先弄懂成本构成可读
           <a href="/blog/chatgpt-plus-duoshao-qian/">价格说明</a>；拿不准 Plus 还是 Pro 可读
-          <a href="/blog/chatgpt-pro-vs-plus/">Pro / Plus 对比</a>。
+          <a href="/blog/chatgpt-pro-vs-plus/">Pro / Plus 对比</a>；已经确定要买 Pro，可直接进入
+          <a href="/chatgpt-pro/">ChatGPT Pro 价格与购买专页</a>。
         </p>
-
-        <div class="price-table-wrap reveal">
-          <table class="price-table">
-            <thead>
-              <tr>
-                <th>套餐</th>
-                <th>本站价格</th>
-                <th>适合人群</th>
-                <th>典型场景</th>
-                <th>下一步</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>ChatGPT Plus</strong></td>
-                <td class="price">¥{p.plus}/月</td>
-                <td>大部分个人用户</td>
-                <td>写作、文件、图片、日常编程</td>
-                <td>
-                  <button class="table-action" type="button" onclick="openQrModal()">咨询购买</button>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>ChatGPT Pro 5x</strong></td>
-                <td class="price">¥{p.pro5x}/月</td>
-                <td>高频开发者、创作者</td>
-                <td>Codex、研究、连续长任务</td>
-                <td>
-                  <button class="table-action" type="button" onclick="openQrModal()">确认账号</button>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>ChatGPT Pro 20x</strong></td>
-                <td class="price">¥{p.pro20x}/月</td>
-                <td>极重度专业用户</td>
-                <td>大型代码库、高强度复杂任务</td>
-                <td>
-                  <button class="table-action" type="button" onclick="openQrModal()">确认需求</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
         <div class="plans-grid">
           <article class="plan-card recommended reveal" style="--delay: 80ms;">
             <div class="plan-badge">多数用户从这里开始</div>
             <h3 class="plan-name">ChatGPT Plus</h3>
             <div class="plan-origin">官方参考价 $20/月</div>
+            <div class="plan-meta">
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">适合人群</span>
+                <span class="plan-meta-value">大部分个人用户</span>
+              </div>
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">典型场景</span>
+                <span class="plan-meta-value">写作、文件、图片、日常编程</span>
+              </div>
+            </div>
             <div class="plan-price">
               <span class="label">当前月付</span>
               <span class="num">¥{p.plus}</span>
@@ -172,7 +143,7 @@ const serviceJsonLd = {
               <li>购买前确认账号当前订阅状态</li>
               <li>轻度聊天用户可以继续使用免费版</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Plus</button>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Plus</a>
             <div class="plan-note">日常高频首选 · 先确认账号状态</div>
           </article>
 
@@ -180,6 +151,16 @@ const serviceJsonLd = {
             <div class="plan-badge">效率之选</div>
             <h3 class="plan-name">ChatGPT Pro 5x</h3>
             <div class="plan-origin">官方参考价 $100/月</div>
+            <div class="plan-meta">
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">适合人群</span>
+                <span class="plan-meta-value">高频开发者、创作者</span>
+              </div>
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">典型场景</span>
+                <span class="plan-meta-value">Codex、研究、连续长任务</span>
+              </div>
+            </div>
             <div class="plan-price">
               <span class="label">当前月付</span>
               <span class="num">¥{p.pro5x}</span>
@@ -193,14 +174,24 @@ const serviceJsonLd = {
               <li>会员与 API 余额属于不同计费体系</li>
               <li>具体模型与额度以账号内展示为准</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 5x</button>
-            <div class="plan-note">重度工作流 · 建议先说明使用场景</div>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 5x</a>
+            <div class="plan-note"><a href="/chatgpt-pro/">查看 Pro 专页与选购建议 →</a></div>
           </article>
 
           <article class="plan-card reveal" style="--delay: 240ms;">
             <div class="plan-badge">极重度使用</div>
             <h3 class="plan-name">ChatGPT Pro 20x</h3>
             <div class="plan-origin">官方参考价 $200/月</div>
+            <div class="plan-meta">
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">适合人群</span>
+                <span class="plan-meta-value">极重度专业用户</span>
+              </div>
+              <div class="plan-meta-row">
+                <span class="plan-meta-label">典型场景</span>
+                <span class="plan-meta-value">大型代码库、高强度复杂任务</span>
+              </div>
+            </div>
             <div class="plan-price">
               <span class="label">当前月付</span>
               <span class="num">¥{p.pro20x}</span>
@@ -214,8 +205,8 @@ const serviceJsonLd = {
               <li>由客服按账号状态跟进处理</li>
               <li>具体可用能力以账号实际显示为准</li>
             </ul>
-            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 20x</button>
-            <div class="plan-note">高额方案 · 先评估，后付款</div>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 20x</a>
+            <div class="plan-note"><a href="/chatgpt-pro/">查看 Pro 专页与风险说明 →</a></div>
           </article>
         </div>
       </div>
@@ -257,7 +248,7 @@ const serviceJsonLd = {
               告诉我们你主要做写作、代码、研究还是文件处理，以及每天大概使用多久，先判断是否真的需要 Pro。
             </p>
           </div>
-          <button class="pill" type="button" onclick="openQrModal()">免费做一次套餐判断</button>
+          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺选购</a>
         </div>
       </div>
     </section>
@@ -543,8 +534,8 @@ const serviceJsonLd = {
           发送“当前账号是否已有会员、主要使用场景、计划购买的套餐”，客服先帮助核对。
         </p>
         <div class="hero-actions">
-          <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
-          <a class="pill secondary" href="#plans">返回价格表</a>
+          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <a class="pill secondary" href="#plans">返回套餐</a>
         </div>
       </div>
     </section>
@@ -552,7 +543,7 @@ const serviceJsonLd = {
 
   <div class="mobile-sticky-cta" aria-label="移动端快捷操作">
     <a class="pill secondary" href="#plans">查看价格</a>
-    <button class="pill" type="button" onclick="openQrModal()">咨询购买</button>
+    <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
   </div>
 
   <script slot="scripts" is:inline>

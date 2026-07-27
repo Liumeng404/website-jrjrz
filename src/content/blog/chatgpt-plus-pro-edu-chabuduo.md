@@ -86,7 +86,7 @@ OpenAI 对 Pro 的描述中会出现“无限访问”，但后面同时注明�
 
 ### 国内用户确定要升级 Pro，怎么付款？
 
-有可用海外支付方式，可以优先走官网；没有海外卡，可以了解应用商店或本人账号协助开通。具体可看：[国内怎么开通 ChatGPT Pro](https://www.jrjrz.com/blog/chatgpt-pro-guonei-zenme-mai/)。如果官网支付失败、又不想反复折腾，可进入 [ChatGPT Plus / Pro 套餐页](/chatgpt/) 核对当前价格、交付方式与售后规则（非 OpenAI 官方）。
+有可用海外支付方式，可以优先走官网；没有海外卡，可以了解应用商店或本人账号协助开通。具体可看：[国内怎么开通 ChatGPT Pro](https://www.jrjrz.com/blog/chatgpt-pro-guonei-zenme-mai/)。如果官网支付失败、又不想反复折腾，可进入 [ChatGPT Pro 价格与购买页](/chatgpt-pro/) 核对当前价格、交付方式与售后规则（非 OpenAI 官方）。
 
 ## 总结
 

@@ -339,10 +339,11 @@ h1 {
   flex: 0 0 auto;
 }
 
-/* ===== 服务卡片网格 ===== */
+/* ===== 服务卡片网格（Grok 下线后仅 ChatGPT / Claude 两卡，居中展示） ===== */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  justify-content: center;
   gap: 18px;
 }
 .service-card {

@@ -64,7 +64,7 @@ Plus 和 Pro 的核心差别，是 **「能用多少」和「重功能能不能�
 
 如果你读到这里觉得"对，我就是这批人"，但自己绑卡困难：
 
-→ [ChatGPT 服务页](https://www.jrjrz.com/chatgpt)（非官方；开到本人账号；以页面规则与质保说明为准）
+→ [ChatGPT Pro 价格与购买页](/chatgpt-pro/)（非官方；开到本人账号；以页面规则与质保说明为准）
 
 ## 谁不该先买 Pro
 
@@ -112,7 +112,7 @@ Plus 和 Pro 的核心差别，是 **「能用多少」和「重功能能不能�
 
 如果决定开通但官网付不通：
 
-→ [ChatGPT 服务页](https://www.jrjrz.com/chatgpt)
+→ [ChatGPT Pro 购买页面](/chatgpt-pro/)
 
 ## 常见问题 FAQ
 

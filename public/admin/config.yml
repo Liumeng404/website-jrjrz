@@ -64,6 +64,11 @@ collections:
         label: "TDK 与页脚"
         file: "public/site-config.json"
         fields:
+          - label: "联动小铺下单链接"
+            name: "shopUrl"
+            widget: "string"
+            default: "https://pay.ldxp.cn/shop/GJ8N9HL8"
+            hint: "首页与产品页购买/咨询按钮跳转地址"
           - label: "页面 TDK（博客除外）"
             name: "tdk"
             widget: "object"

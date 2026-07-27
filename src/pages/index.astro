@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
-import { loadSiteConfig } from '../lib/site-config';
+import { getShopUrl, loadSiteConfig } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 // 统一产品数据：public/prices.json（Decap「站点配置 → 套餐价格」可改）
@@ -10,7 +10,9 @@ const prices = loadPrices();
 const pay = prices.payment;
 const policy = prices.policy;
 
-const homeTdk = loadSiteConfig().tdk.home;
+const siteConfig = loadSiteConfig();
+const homeTdk = siteConfig.tdk.home;
+const shopUrl = getShopUrl(siteConfig);
 
 // 获取最新 3 篇文章用于首页展示
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -30,7 +32,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
       <div class="sub-actions">
         <a href="#services">套餐</a>
         <a href="#how">怎么开通</a>
-        <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
       </div>
     </div>
   </nav>
@@ -53,7 +55,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         </p>
         <div class="hero-btns">
           <a href="#services" class="pill">查看服务</a>
-          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
+          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
         </div>
       </div>
     </section>
@@ -263,7 +265,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         <h2 class="section-title">解锁你的 <span class="gradient-text">AI 全能助手</span></h2>
         <p class="section-sub">添加客服微信确认账号状态，也可以后续接入自助购买链接。</p>
         <div class="hero-btns" style="margin-top:38px;margin-bottom:0;">
-          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
+          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
           <a class="pill secondary" href="#services">查看套餐</a>
         </div>
         <div class="cta-points"><span>✓ 无需注册</span><span>✓ {pay.ctaPoint}</span><span>✓ {policy.refund}</span></div>

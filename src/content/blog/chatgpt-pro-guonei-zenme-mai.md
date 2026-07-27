@@ -61,7 +61,7 @@ Pro 分为 5x Pro 和 20x Pro，5x Pro 100美元每月，20x Pro 200美元每月
 
 甄别服务至少两条：**权益开到自己账号**；**开通时效、失败处理、补开/退款与售后**事先写清。
 
-代充不是 OpenAI 官方。不想折腾支付时，可先看：[ChatGPT 服务页](https://www.jrjrz.com/chatgpt)。甄别渠道见：[代充靠谱吗](https://www.jrjrz.com/blog/chatgpt-daichong-kaopu-ma/)。
+代充不是 OpenAI 官方。不想折腾支付时，可先看：[ChatGPT Pro 价格与购买页](/chatgpt-pro/)。甄别渠道见：[代充靠谱吗](https://www.jrjrz.com/blog/chatgpt-daichong-kaopu-ma/)。
 
 **虚拟卡**环节多、风控多，**不建议**当首选；勿用黑卡或他人支付凭证。
 
@@ -103,7 +103,7 @@ Pro 分为 5x Pro 和 20x Pro，5x Pro 100美元每月，20x Pro 200美元每月
 
 ### 没有海外信用卡，国内用户怎么办？
 
-主路是 **外区 App 内购**，或 **本人账号协助开通**。优先保证账号归属自己、支付与售后可追溯。已决定购买时，可进入 [ChatGPT Plus / Pro 套餐页](/chatgpt/) 核对当前价格、交付方式与售后规则。
+主路是 **外区 App 内购**，或 **本人账号协助开通**。优先保证账号归属自己、支付与售后可追溯。已决定购买时，可进入 [ChatGPT Pro 价格与购买页](/chatgpt-pro/) 核对当前价格、交付方式与售后规则。
 
 ### App Store 内购一定比官网稳定吗？
 
@@ -123,6 +123,6 @@ Pro 分为 5x Pro 和 20x Pro，5x Pro 100美元每月，20x Pro 200美元每月
 
 已决定开 Pro：按三条路径选型，付款后做「到账四项」验收。  
 还在 Plus 与 Pro 之间犹豫：读 [Pro 值得买吗](https://www.jrjrz.com/blog/chatgpt-pro-zhide-mai-ma/)。  
-付不通又不想继续折腾：了解 **本人账号协助开通**——[进入 ChatGPT Plus / Pro 购买页面](/chatgpt/)（非 OpenAI 官方）。
+付不通又不想继续折腾：了解 **本人账号协助开通**——[进入 ChatGPT Pro 购买页面](/chatgpt-pro/)（非 OpenAI 官方）。
 
 **相关阅读：** [Plus 怎么开通](https://www.jrjrz.com/blog/chatgpt-plus-zenme-kaitong/) · [付款失败](https://www.jrjrz.com/blog/chatgpt-plus-fukuan-shibai/) · [代充靠谱吗](https://www.jrjrz.com/blog/chatgpt-daichong-kaopu-ma/) · [合租风险](https://www.jrjrz.com/blog/chatgpt-hezhu-fengxian/) · [怎么注册](https://www.jrjrz.com/blog/chatgpt-zenme-zhuce/)

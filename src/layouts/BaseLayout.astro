@@ -8,6 +8,11 @@ interface Props {
   description?: string;
   keywords?: string;
   robots?: string;
+  /**
+   * 自指 canonical 完整 URL。默认按当前路径生成 https://www.jrjrz.com/.../
+   * 可索引页会输出；含 noindex 时不输出。
+   */
+  canonical?: string;
   /** ISO8601，头条时间因子 published */
   publishedTime?: string;
   /** ISO8601，头条时间因子 updated / lrDate */
@@ -19,17 +24,33 @@ interface Props {
 const site = loadSiteConfig();
 const prices = loadPrices();
 const homeTdk = site.tdk.home;
-const siteUrl = 'https://www.jrjrz.com';
+const siteUrl = (Astro.site?.origin || 'https://www.jrjrz.com').replace(/\/$/, '');
+
+/** 与 sitemap 一致：站内路径统一带尾斜杠（根路径为 /） */
+function toCanonical(pathname: string): string {
+  let path = pathname || '/';
+  if (!path.startsWith('/')) path = `/${path}`;
+  // 去掉查询串/哈希残留（pathname 通常已干净）
+  path = path.split('?')[0].split('#')[0];
+  if (path !== '/' && !path.endsWith('/')) path += '/';
+  return `${siteUrl}${path}`;
+}
 
 const {
   title = homeTdk.title,
   description = homeTdk.description,
   keywords = homeTdk.keywords || '',
   robots = 'index, follow',
+  canonical,
   publishedTime,
   updatedTime,
   jsonLd,
 } = Astro.props;
+
+const isIndexable = !/\bnoindex\b/i.test(robots);
+const canonicalHref = isIndexable
+  ? (canonical || toCanonical(Astro.url.pathname))
+  : '';
 
 const year = new Date().getFullYear();
 const footer = site.footer;
@@ -105,6 +126,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="robots" content={robots} />
+    {canonicalHref && <link rel="canonical" href={canonicalHref} />}
     {publishedTime && (
       <meta property="bytedance:published_time" content={publishedTime} />
     )}
