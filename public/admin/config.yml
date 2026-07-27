@@ -34,8 +34,6 @@ collections:
             widget: "object"
             fields:
               - { name: "monthly", label: "月付（元）", widget: "number", value_type: "int", min: 1 }
-              - { name: "bimonthly", label: "双月（元）", widget: "number", value_type: "int", min: 1 }
-              - { name: "bimonthly_save", label: "双月节省（元，可手填；站点会按 月付×2−双月 自动重算）", widget: "number", value_type: "int", min: 0, required: false }
           - label: "付款方式（全站统一）"
             name: "payment"
             widget: "object"

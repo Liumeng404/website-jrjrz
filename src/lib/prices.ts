@@ -13,9 +13,6 @@ export type PricesFile = {
   };
   grok: {
     monthly: number;
-    bimonthly: number;
-    /** 可手填；加载时一律按 monthly×2 − bimonthly 重算，避免口径错误 */
-    bimonthly_save?: number;
   };
   payment?: PaymentConfig;
   policy?: PolicyConfig;
@@ -49,8 +46,6 @@ export type Prices = {
   claude: PricesFile['claude'];
   grok: {
     monthly: number;
-    bimonthly: number;
-    bimonthly_save: number;
   };
   payment: PaymentConfig;
   policy: PolicyConfig;
@@ -73,10 +68,6 @@ const DEFAULT_POLICY: PolicyConfig = {
 };
 
 function normalize(raw: PricesFile): Prices {
-  const monthly = Number(raw.grok.monthly);
-  const bimonthly = Number(raw.grok.bimonthly);
-  const bimonthly_save = monthly * 2 - bimonthly;
-
   return {
     chatgpt: {
       plus: Number(raw.chatgpt.plus),
@@ -87,9 +78,7 @@ function normalize(raw: PricesFile): Prices {
       pro: Number(raw.claude.pro),
     },
     grok: {
-      monthly,
-      bimonthly,
-      bimonthly_save,
+      monthly: Number(raw.grok.monthly),
     },
     payment: { ...DEFAULT_PAYMENT, ...raw.payment },
     policy: { ...DEFAULT_POLICY, ...raw.policy },

@@ -2,6 +2,7 @@
 /**
  * SuperGrok 服务页
  * 售价从 public/prices.json 读取；购买 CTA 跳转联动小铺。
+ * 当前仅提供月付方案。
  */
 import ProductLayout from '../layouts/ProductLayout.astro';
 import { getShopUrl } from '../lib/site-config';
@@ -37,9 +38,7 @@ const shopUrl = getShopUrl();
         <p class="product-subtitle">
           开通到您的自用账号，无需处理境外支付与绑卡流程，全程无需提供账号密码。
         </p>
-        <div class="note-pill">
-          月付 ¥{g.monthly} · 双月 ¥{g.bimonthly} · 双月方案立省 ¥{g.bimonthly_save}
-        </div>
+        <div class="note-pill">当前月付 ¥{g.monthly}</div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看套餐</a>
           <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
@@ -50,14 +49,14 @@ const shopUrl = getShopUrl();
     <section class="section-pad section-soft" id="plans">
       <div class="container">
         <div class="section-label reveal">SuperGrok 订阅方案</div>
-        <h2 class="section-title reveal">月付灵活，双月更省心</h2>
-        <p class="section-sub reveal">均为直充自用账号，不提供共享账号。首次尝试可选择月付，稳定使用优先选择双月套餐。</p>
+        <h2 class="section-title reveal">月付开通，直充原账号</h2>
+        <p class="section-sub reveal">直充自用账号，不提供共享账号。当前仅提供月付方案，价格以本页与小铺实时展示为准。</p>
 
-        <div class="plans-grid two-up">
-          <article class="plan-card reveal" style="--delay: 80ms;">
-            <div class="plan-badge">灵活体验</div>
+        <div class="plans-grid one-up">
+          <article class="plan-card recommended reveal" style="--delay: 80ms;">
+            <div class="plan-badge">当前可购</div>
             <h3 class="plan-name">SuperGrok 月付</h3>
-            <div class="plan-origin">适合初次体验或短期使用</div>
+            <div class="plan-origin">原账号直充 · 按月开通</div>
             <div class="plan-price">
               <span class="label">1 个月</span>
               <span class="num">¥{g.monthly}</span>
@@ -71,29 +70,8 @@ const shopUrl = getShopUrl();
               <li>开通过程无需提交账号密码</li>
               <li>遇到异常可联系人工客服处理</li>
             </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买月付</a>
+            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">立即购买</a>
             <div class="plan-note">原账号直充 · 无需密码 · 人工支持</div>
-          </article>
-
-          <article class="plan-card recommended reveal" style="--delay: 160ms;">
-            <div class="plan-badge">推荐选择</div>
-            <h3 class="plan-name">SuperGrok 双月</h3>
-            <div class="plan-origin">连续两个月，相比月付节省 ¥{g.bimonthly_save}</div>
-            <div class="plan-price">
-              <span class="label">2 个月</span>
-              <span class="num">¥{g.bimonthly}</span>
-              <span class="unit">/ 双月</span>
-            </div>
-            <ul class="feature-list">
-              <li>一次开通两个月，减少续费操作</li>
-              <li>相比连续两次月付节省 ¥{g.bimonthly_save}</li>
-              <li>直充自己的账号，使用更安心</li>
-              <li>无需处理绑卡或付款失败问题</li>
-              <li>支持{pay.label}便捷下单</li>
-              <li>异常情况由人工客服协助跟进</li>
-            </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买双月方案</a>
-            <div class="plan-note">推荐方案 · 更省心 · 更划算</div>
           </article>
         </div>
       </div>
@@ -103,12 +81,12 @@ const shopUrl = getShopUrl();
       <div class="container">
         <div class="section-label reveal">开通流程</div>
         <h2 class="section-title reveal">三步安排 SuperGrok 开通</h2>
-        <p class="section-sub reveal">先确认套餐与账号情况，再进行付款和开通；流程无需提交登录密码。</p>
+        <p class="section-sub reveal">先确认账号情况，再付款和开通；流程无需提交登录密码。</p>
         <div class="steps-grid">
           <article class="step-card reveal" style="--delay: 80ms;">
             <div class="step-num">01</div>
-            <h3>选择套餐</h3>
-            <p>选择月付或双月方案，在小铺下单或联系客服说明开通需求，确认可操作后再付款。</p>
+            <h3>确认需求</h3>
+            <p>在小铺下单月付方案，或联系客服说明开通需求，确认可操作后再付款。</p>
           </article>
           <article class="step-card reveal" style="--delay: 160ms;">
             <div class="step-num">02</div>
@@ -156,14 +134,18 @@ const shopUrl = getShopUrl();
           <div class="faq-item active">
             <div class="faq-q">国内怎么开通 SuperGrok？<span class="faq-icon">+</span></div>
             <div class="faq-a">
-              您可以选择月付或双月方案，通过{pay.label}付款，由露梦AI Store 协助将会员开通到您的自用账号，无需境外支付方式。
+              可通过本站月付方案，用{pay.label}付款，由露梦AI Store 协助将会员开通到您的自用账号，无需境外支付方式。
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">Grok 一个月和两个月分别多少钱？<span class="faq-icon">+</span></div>
+            <div class="faq-q">SuperGrok 一个月多少钱？<span class="faq-icon">+</span></div>
             <div class="faq-a">
-              当前月付价格为 ¥{g.monthly}，双月方案为 ¥{g.bimonthly}。选择双月相比连续购买两个月月付可节省 ¥{g.bimonthly_save}。
+              当前月付价格为 ¥{g.monthly}。价格、库存与可操作状态以本页及小铺实时展示为准。
             </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">还有双月方案吗？<span class="faq-icon">+</span></div>
+            <div class="faq-a">当前仅提供月付方案，暂不支持双月套餐。</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">开通时需要提供账号密码吗？<span class="faq-icon">+</span></div>
@@ -172,12 +154,6 @@ const shopUrl = getShopUrl();
           <div class="faq-item">
             <div class="faq-q">是共享账号还是自己的账号？<span class="faq-icon">+</span></div>
             <div class="faq-a">为您的自用账号开通对应会员周期，不提供多人共享账号，账号归属不变。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">为什么推荐双月方案？<span class="faq-icon">+</span></div>
-            <div class="faq-a">
-              双月方案一次开通两个月，更适合计划稳定使用的用户；同时相比月付可省 ¥{g.bimonthly_save}，续费更少更省心。
-            </div>
           </div>
           <div class="faq-item">
             <div class="faq-q">支持哪些付款方式？<span class="faq-icon">+</span></div>
@@ -194,8 +170,8 @@ const shopUrl = getShopUrl();
     <section class="cta-banner" id="contact">
       <div class="container">
         <div class="section-label">立即开始</div>
-        <h2 class="section-title">选择套餐，安排 SuperGrok 开通</h2>
-        <p class="section-sub">在小铺选择月付或双月方案下单；如有账号状态疑问，也可先联系客服确认。</p>
+        <h2 class="section-title">安排 SuperGrok 月付开通</h2>
+        <p class="section-sub">在小铺下单月付方案；如有账号状态疑问，也可先联系客服确认。</p>
         <div class="hero-actions">
           <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
           <a class="pill secondary" href="#plans">查看套餐</a>

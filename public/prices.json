@@ -8,9 +8,7 @@
     "pro": 158
   },
   "grok": {
-    "monthly": 140,
-    "bimonthly": 204,
-    "bimonthly_save": 76
+    "monthly": 140
   },
   "payment": {
     "methods": ["wechat"],
