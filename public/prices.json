@@ -8,10 +8,12 @@
     "pro": 158
   },
   "grok": {
-    "monthly": 140
+    "monthly": 166
   },
   "payment": {
-    "methods": ["wechat"],
+    "methods": [
+      "wechat"
+    ],
     "label": "微信支付",
     "labelWithRmb": "微信支付，人民币结算",
     "eyebrow": "微信支付",
