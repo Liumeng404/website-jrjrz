@@ -34,3 +34,7 @@ CF token.txt
 *token*.txt
 站长平台验证文件.txt
 
+
+# local secrets (do not commit)
+.baidu-push-secret.local
+
