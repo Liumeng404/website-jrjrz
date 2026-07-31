@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>百度 URL 推送 · 后台</title>
+    <style>
+      :root {
+        --bg: #0f1419;
+        --card: #1a2332;
+        --border: #2d3a4d;
+        --text: #e7ecf3;
+        --muted: #8b9bb4;
+        --accent: #3b82f6;
+        --accent-hover: #2563eb;
+        --ok: #22c55e;
+        --warn: #f59e0b;
+        --err: #ef4444;
+        --input: #0d1219;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          'PingFang SC',
+          'Microsoft YaHei',
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 28px 18px 48px;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 650;
+      }
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .nav a:hover {
+        color: var(--accent);
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 18px 16px;
+        margin-bottom: 16px;
+      }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: none;
+        letter-spacing: 0.02em;
+      }
+      p.hint {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      input[type='password'],
+      input[type='text'],
+      textarea {
+        width: 100%;
+        background: var(--input);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        padding: 10px 12px;
+        font-size: 0.95rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      textarea {
+        min-height: 220px;
+        resize: vertical;
+        line-height: 1.45;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-top: 10px;
+      }
+      button,
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: #243044;
+        color: var(--text);
+        border-radius: 8px;
+        padding: 9px 14px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      button:hover:not(:disabled),
+      .btn:hover {
+        border-color: #3d4f6a;
+        background: #2a3850;
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+        font-weight: 600;
+      }
+      button.primary:hover:not(:disabled) {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+      }
+      button.danger {
+        background: transparent;
+        border-color: #5b2b2b;
+        color: #fca5a5;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--muted);
+      }
+      .dot.ok {
+        background: var(--ok);
+      }
+      .dot.warn {
+        background: var(--warn);
+      }
+      .dot.err {
+        background: var(--err);
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+      .meta strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      pre.result {
+        margin: 0;
+        padding: 12px;
+        background: var(--input);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        overflow: auto;
+        font-size: 0.82rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 320px;
+      }
+      .banner {
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+      .banner.info {
+        background: #1e3a5f;
+        color: #bfdbfe;
+      }
+      .banner.ok {
+        background: #14532d;
+        color: #bbf7d0;
+      }
+      .banner.err {
+        background: #7f1d1d;
+        color: #fecaca;
+      }
+      .count {
+        margin-left: auto;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .count.over {
+        color: var(--warn);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>百度 URL 主动推送</h1>
+        <nav class="nav">
+          <a href="/admin/">← 返回内容管理</a>
+        </nav>
+      </header>
+
+      <div class="card">
+        <h2>说明</h2>
+        <p class="hint">
+          推送改为<strong>手动触发</strong>，部署/发文时不再自动提交。免费额度约每日
+          <strong>10</strong> 条。请只推新发或重要更新的页面，优先博客文章。
+        </p>
+        <p class="hint">
+          请在 Cloudflare Pages 环境变量中配置
+          <code>BAIDU_PUSH_SECRET</code>（后台密钥，必填）。
+          可选 <code>BAIDU_PUSH_TOKEN</code> 覆盖百度站长 token。
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>管理密钥</h2>
+        <label for="secret">管理密钥（不会提交到仓库）</label>
+        <input
+          id="secret"
+          type="password"
+          autocomplete="current-password"
+          placeholder="与 Cloudflare 中 BAIDU_PUSH_SECRET 一致"
+        />
+        <div class="row">
+          <button type="button" id="btn-save-secret">保存到本机</button>
+          <button type="button" class="danger" id="btn-clear-secret">清除</button>
+          <button type="button" id="btn-check">检测配置</button>
+          <span class="status" id="status-line">
+            <span class="dot" id="status-dot"></span>
+            <span id="status-text">未检测</span>
+          </span>
+        </div>
+        <div class="meta" id="meta" hidden>
+          <span>站点 <strong id="meta-site">—</strong></span>
+          <span>日上限 <strong id="meta-limit">—</strong></span>
+          <span>Token <strong id="meta-token">—</strong></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>待推送 URL</h2>
+        <p class="hint">每行一个完整 URL，仅允许 www.jrjrz.com。单次最多提交 10 条。</p>
+        <div id="msg" hidden class="banner"></div>
+        <label for="urls">URL 列表</label>
+        <textarea
+          id="urls"
+          placeholder="https://www.jrjrz.com/blog/your-post/&#10;https://www.jrjrz.com/chatgpt/"
+        ></textarea>
+        <div class="row">
+          <button type="button" id="btn-load-all">从 sitemap 加载全部</button>
+          <button type="button" id="btn-load-blog">仅加载博客</button>
+          <button type="button" id="btn-load-static">仅加载固定页</button>
+          <button type="button" class="danger" id="btn-clear-urls">清空</button>
+          <span class="count" id="url-count">0 条</span>
+        </div>
+        <div class="row" style="margin-top: 14px">
+          <button type="button" class="primary" id="btn-push">推送到百度</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>推送结果</h2>
+        <pre class="result" id="result">尚未推送</pre>
+      </div>
+    </div>
+
+    <script>
+      const STORAGE_KEY = 'jrjrz_baidu_push_secret';
+      const $ = (id) => document.getElementById(id);
+
+      const secretEl = $('secret');
+      const urlsEl = $('urls');
+      const resultEl = $('result');
+      const msgEl = $('msg');
+      const statusDot = $('status-dot');
+      const statusText = $('status-text');
+      const urlCount = $('url-count');
+      const meta = $('meta');
+
+      secretEl.value = sessionStorage.getItem(STORAGE_KEY) || '';
+
+      function showMsg(type, text) {
+        msgEl.hidden = !text;
+        msgEl.className = 'banner ' + (type || 'info');
+        msgEl.textContent = text || '';
+      }
+
+      function setStatus(kind, text) {
+        statusDot.className = 'dot' + (kind ? ' ' + kind : '');
+        statusText.textContent = text;
+      }
+
+      function parseUrls(text) {
+        return text
+          .split(/\r?\n/)
+          .map((s) => s.trim())
+          .filter(Boolean);
+      }
+
+      function updateCount() {
+        const n = parseUrls(urlsEl.value).length;
+        urlCount.textContent = n + ' 条';
+        urlCount.classList.toggle('over', n > 10);
+      }
+
+      urlsEl.addEventListener('input', updateCount);
+      updateCount();
+
+      $('btn-save-secret').onclick = () => {
+        sessionStorage.setItem(STORAGE_KEY, secretEl.value.trim());
+        showMsg('ok', '密钥已保存到本浏览器 sessionStorage（关闭标签页后可能清除）。');
+      };
+
+      $('btn-clear-secret').onclick = () => {
+        secretEl.value = '';
+        sessionStorage.removeItem(STORAGE_KEY);
+        setStatus('', '未检测');
+        meta.hidden = true;
+        showMsg('info', '已清除本机密钥。');
+      };
+
+      function getSecret() {
+        return secretEl.value.trim();
+      }
+
+      async function api(method, body) {
+        const secret = getSecret();
+        if (!secret) {
+          throw new Error('请先填写管理密钥');
+        }
+        const headers = {
+          Authorization: 'Bearer ' + secret,
+        };
+        const opts = { method, headers };
+        if (body !== undefined) {
+          headers['Content-Type'] = 'application/json';
+          opts.body = JSON.stringify({ ...body, secret });
+        }
+        const res = await fetch('/api/baidu-push', opts);
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok && !data.error) {
+          data.error = 'HTTP ' + res.status;
+          data.ok = false;
+        }
+        return data;
+      }
+
+      $('btn-check').onclick = async () => {
+        showMsg('', '');
+        setStatus('warn', '检测中…');
+        try {
+          const data = await api('GET');
+          if (!data.ok) {
+            setStatus('err', data.error || '失败');
+            showMsg('err', data.error || '检测失败');
+            return;
+          }
+          setStatus(data.tokenConfigured ? 'ok' : 'warn', data.tokenConfigured ? '配置正常' : '缺 Token');
+          meta.hidden = false;
+          $('meta-site').textContent = data.site || '—';
+          $('meta-limit').textContent = String(data.dailyLimit ?? '—');
+          $('meta-token').textContent = data.tokenConfigured ? '已配置' : '未配置';
+          showMsg('ok', '连接成功。密钥有效。');
+          resultEl.textContent = JSON.stringify(data, null, 2);
+        } catch (e) {
+          setStatus('err', '失败');
+          showMsg('err', e.message || String(e));
+        }
+      };
+
+      async function loadSitemap(filter) {
+        showMsg('info', '正在读取 sitemap…');
+        const res = await fetch('/sitemap.xml', { cache: 'no-store' });
+        if (!res.ok) throw new Error('无法读取 /sitemap.xml（HTTP ' + res.status + '）');
+        const xml = await res.text();
+        const locs = [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi)].map((m) =>
+          m[1].trim()
+        );
+        let urls = locs;
+        if (filter === 'blog') {
+          urls = locs.filter((u) => /\/blog\/.+/.test(u));
+        } else if (filter === 'static') {
+          urls = locs.filter((u) => !/\/blog\/.+/.test(u));
+        }
+        urlsEl.value = urls.join('\n');
+        updateCount();
+        showMsg('ok', '已加载 ' + urls.length + ' 条 URL。推送前请删减到 ≤10 条。');
+      }
+
+      $('btn-load-all').onclick = async () => {
+        try {
+          await loadSitemap('all');
+        } catch (e) {
+          showMsg('err', e.message || String(e));
+        }
+      };
+      $('btn-load-blog').onclick = async () => {
+        try {
+          await loadSitemap('blog');
+        } catch (e) {
+          showMsg('err', e.message || String(e));
+        }
+      };
+      $('btn-load-static').onclick = async () => {
+        try {
+          await loadSitemap('static');
+        } catch (e) {
+          showMsg('err', e.message || String(e));
+        }
+      };
+      $('btn-clear-urls').onclick = () => {
+        urlsEl.value = '';
+        updateCount();
+        showMsg('', '');
+      };
+
+      $('btn-push').onclick = async () => {
+        const urls = parseUrls(urlsEl.value);
+        if (!urls.length) {
+          showMsg('err', '请先填写或加载 URL。');
+          return;
+        }
+        if (urls.length > 10) {
+          const ok = confirm(
+            '当前 ' +
+              urls.length +
+              ' 条，超过日上限 10 条。将只推送前 10 条，是否继续？'
+          );
+          if (!ok) return;
+        }
+        const btn = $('btn-push');
+        btn.disabled = true;
+        showMsg('info', '正在推送…');
+        resultEl.textContent = '请求中…';
+        try {
+          const data = await api('POST', { urls });
+          resultEl.textContent = JSON.stringify(data, null, 2);
+          if (data.ok) {
+            const remain =
+              data.baidu && data.baidu.remain != null
+                ? '，今日剩余 ' + data.baidu.remain
+                : '';
+            const success =
+              data.baidu && data.baidu.success != null
+                ? '成功 ' + data.baidu.success + ' 条'
+                : '已提交 ' + (data.sent || []).length + ' 条';
+            showMsg('ok', success + remain + '。');
+            setStatus('ok', '推送完成');
+          } else {
+            showMsg('err', data.error || '推送失败');
+            setStatus('err', '推送失败');
+          }
+        } catch (e) {
+          showMsg('err', e.message || String(e));
+          resultEl.textContent = String(e);
+          setStatus('err', '推送失败');
+        } finally {
+          btn.disabled = false;
+        }
+      };
+
+      // 若本机已有密钥，进入页面时静默检测一次
+      if (getSecret()) {
+        $('btn-check').click();
+      }
+    </script>
+  </body>
+</html>

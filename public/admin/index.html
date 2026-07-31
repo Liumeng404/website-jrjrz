@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
     <title>内容管理</title>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // 侧栏入口：百度主动推送（手动触发，不随发文自动推）
+      if (window.CMS && typeof CMS.registerAdditionalLink === 'function') {
+        CMS.registerAdditionalLink({
+          id: 'baidu-url-push',
+          title: '百度 URL 推送',
+          data: '/admin/baidu.html',
+          options: {
+            icon: 'upload',
+          },
+        });
+      }
+    </script>
   </body>
 </html>

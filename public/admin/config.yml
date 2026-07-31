@@ -8,6 +8,9 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
+# 百度主动推送：侧栏「百度 URL 推送」→ /admin/baidu.html（手动触发，发文不自动推）
+# Cloudflare 环境变量：BAIDU_PUSH_SECRET（必填）、BAIDU_PUSH_TOKEN（可选）
+
 collections:
   # 手机/电脑均可改配置 → 提交后自动部署
   - name: "settings"

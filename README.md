@@ -98,6 +98,8 @@ Settings → Environment variables，添加：
 | `NODE_VERSION` | `22` | 必须设，默认 18 跑不动新版 Astro |
 | `GITHUB_CLIENT_ID` | OAuth App Client ID | 普通变量即可 |
 | `GITHUB_CLIENT_SECRET` | OAuth App Client Secret | **类型必须选 Secret（加密）** |
+| `BAIDU_PUSH_SECRET` | 自设强密码 | 百度推送后台鉴权（Secret）；发文不自动推 |
+| `BAIDU_PUSH_TOKEN` | 百度站长 token | 可选；覆盖默认 token |
 
 点 Save and Deploy。
 
@@ -124,6 +126,22 @@ Pages 项目 → Custom domains → 添加你的域名，按提示完成 DNS 验
 本地开发：`npm run dev` → http://localhost:4321
 
 `/admin/` 在本地默认走线上的 OAuth（Pages Functions 部署在 Cloudflare 上），无需另起 `decap-server`。
+
+## 百度 URL 主动推送（手动）
+
+部署与发文**不会**自动推百度。额度约每日 10 条，请手动提交重要页面。
+
+1. Cloudflare Pages 配置环境变量 `BAIDU_PUSH_SECRET`（必填）后重新部署
+2. 打开 `https://www.jrjrz.com/admin/`，侧栏点 **百度 URL 推送**（或直接访问 `/admin/baidu.html`）
+3. 填入与环境变量一致的管理密钥 → 检测配置
+4. 从 sitemap 加载 URL，或粘贴新文章链接（≤10 条）→ **推送到百度**
+
+本地 CLI（同样手动）：
+
+```bash
+npm run baidu:push -- --urls https://www.jrjrz.com/blog/your-post/
+npm run baidu:push -- --diff HEAD~1 HEAD
+```
 
 ## 已知坑
 
