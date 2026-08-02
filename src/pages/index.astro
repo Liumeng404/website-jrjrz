@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
-import { getShopUrl, loadSiteConfig } from '../lib/site-config';
+import { loadSiteConfig } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 // 统一产品数据：public/prices.json（Decap「站点配置 → 套餐价格」可改）
@@ -12,7 +12,6 @@ const policy = prices.policy;
 
 const siteConfig = loadSiteConfig();
 const homeTdk = siteConfig.tdk.home;
-const shopUrl = getShopUrl(siteConfig);
 
 // 获取最新 3 篇文章用于首页展示
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -32,7 +31,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
       <div class="sub-actions">
         <a href="#services">套餐</a>
         <a href="#how">怎么开通</a>
-        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
+        <button class="pill small" type="button" onclick="openQrModal()">联系客服</button>
       </div>
     </div>
   </nav>
@@ -57,7 +56,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         </p>
         <div class="hero-btns">
           <a href="#services" class="pill">查看服务</a>
-          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
         </div>
       </div>
     </section>
@@ -151,69 +150,102 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
       </div>
     </section>
 
-    <!-- ========== 充值流程 ========== -->
+    <!-- ========== 充值流程（与二维码弹窗左侧购买流程一致） ========== -->
     <section class="section-pad section-dark" id="how">
       <div class="container">
         <div class="how-grid">
           <div class="reveal">
-            <div class="section-label" style="text-align:left;">充值流程 | GPT 为例</div>
-            <h2 class="section-title" style="text-align:left;">三步完成<span class="gradient-text">充值</span></h2>
-            <p class="section-sub" style="text-align:left;margin:0;">全程按步骤操作，无需提供账号密码，ChatGPT Plus 最快 30 秒到账。</p>
+            <div class="section-label" style="text-align:left;">购买须知</div>
+            <h2 class="section-title" style="text-align:left;">怎么<span class="gradient-text">购买</span></h2>
+            <p class="section-sub" style="text-align:left;margin:0;">
+              本站展示价格与套餐，<strong style="color:#fff;">下单在微信完成</strong>。先确认再付款，避免付错套餐。
+            </p>
             <div class="steps">
               <article class="step reveal" style="--delay: 80ms;">
                 <div class="step-num">01</div>
                 <div class="step-content">
-                  <div class="step-title">下单 · 获取卡密</div>
-                  <p class="step-desc">选择所需套餐，{pay.flow}。付款后获取充值所需的卡密，请复制或截图保存。</p>
-                  <a class="step-code" href="#contact">前往下单 · 获取卡密</a>
-                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>正规代充不会索要您的账号密码。</span></div></div>
+                  <div class="step-title">添加客服微信</div>
+                  <p class="step-desc">用手机微信扫描下方二维码，备注想开的套餐。</p>
+                  <div class="how-qr">
+                    <img
+                      class="how-qr-image"
+                      src="/images/qrcode.png"
+                      alt="客服微信二维码"
+                      width="168"
+                      height="168"
+                    />
+                    <p class="how-qr-hint">微信扫一扫 · 备注套餐更快处理</p>
+                  </div>
+                  <div class="step-tips">
+                    <div class="step-tip"><span class="tip-dot"></span><span>正规代充不会索要您的账号密码。</span></div>
+                  </div>
                 </div>
               </article>
               <article class="step reveal" style="--delay: 160ms;">
                 <div class="step-num">02</div>
                 <div class="step-content">
-                  <div class="step-title">获取 Session · 复制页面内容</div>
-                  <p class="step-desc">登录 ChatGPT 后，在浏览器访问指定地址，复制页面返回的 JSON 文本。</p>
-                  <button class="step-code" type="button" onclick="copySessionUrl(this)">chatgpt.com/api/auth/session</button>
-                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>如返回为空，请先登录 ChatGPT 后再访问。</span></div></div>
+                  <div class="step-title">说明你的需求</div>
+                  <p class="step-desc">告诉客服：套餐名称、账号是否已有会员。我们先确认能否开通。</p>
+                  <div class="step-tips">
+                    <div class="step-tip"><span class="tip-dot"></span><span>先确认再付款，减少充错套餐和重复订阅。</span></div>
+                  </div>
                 </div>
               </article>
               <article class="step reveal" style="--delay: 240ms;">
                 <div class="step-num">03</div>
                 <div class="step-content">
-                  <div class="step-title">粘贴充值 · 等待到账</div>
-                  <p class="step-desc">在自助充值页面提交卡密与 Session 内容，等待处理后刷新 ChatGPT，看到 Plus 标志即表示成功。</p>
-                  <div class="step-tips"><div class="step-tip"><span class="tip-dot"></span><span>当前订阅未到期时通常无法叠加充值，请到期后再操作。</span></div></div>
+                  <div class="step-title">确认后微信支付</div>
+                  <p class="step-desc">价格与网站一致。确认无误后再付款，开通到你本人账号。</p>
+                  <div class="step-tips">
+                    <div class="step-tip"><span class="tip-dot"></span><span>付款后保留沟通记录，便于核验与售后。</span></div>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
 
           <aside class="how-visual reveal" style="--delay: 220ms;">
-            <div class="timeline-title">充值进度示意</div>
+            <div class="timeline-title">购买进度示意</div>
             <div class="how-timeline">
               <div class="how-tl-item">
-                <div class="tl-icon">✓</div>
-                <div><div class="tl-label">下单完成</div><div class="tl-sub">付款完成，卡密已生成</div><span class="tl-badge">已获取卡密</span></div>
+                <div class="tl-icon">1</div>
+                <div>
+                  <div class="tl-label">添加客服微信</div>
+                  <div class="tl-sub">扫码添加，备注想开的套餐</div>
+                  <span class="tl-badge">微信扫码</span>
+                </div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">2</div>
+                <div>
+                  <div class="tl-label">说明你的需求</div>
+                  <div class="tl-sub">套餐名称、账号是否已有会员</div>
+                  <span class="tl-badge">先确认</span>
+                </div>
+              </div>
+              <div class="how-tl-item">
+                <div class="tl-icon">3</div>
+                <div>
+                  <div class="tl-label">确认后微信支付</div>
+                  <div class="tl-sub">价格与网站一致，确认无误再付款</div>
+                  <span class="tl-badge">{pay.label}</span>
+                </div>
               </div>
               <div class="how-tl-item">
                 <div class="tl-icon">✓</div>
-                <div><div class="tl-label">获取 Session</div><div class="tl-sub">访问指定地址，全选复制返回内容</div><span class="tl-badge">无需账号密码</span></div>
-              </div>
-              <div class="how-tl-item">
-                <div class="tl-icon">·</div>
-                <div><div class="tl-label">提交处理中</div><div class="tl-sub">卡密与 Session 已提交，等待开通</div><span class="tl-badge">约 30 秒完成</span></div>
-              </div>
-              <div class="how-tl-item">
-                <div class="tl-icon">!</div>
-                <div><div class="tl-label">注意事项</div><div class="tl-sub">订阅未到期无法叠加，刷新页面查看 Plus 标志</div><span class="tl-badge">到期后再操作</span></div>
-              </div>
-              <div class="how-tl-item">
-                <div class="tl-icon">◎</div>
-                <div><div class="tl-label">充值完成</div><div class="tl-sub">原账号出现 Plus 标志，会员权益生效</div></div>
+                <div>
+                  <div class="tl-label">开通完成</div>
+                  <div class="tl-sub">权益开到你本人账号，登录验收即可</div>
+                  <span class="tl-badge">本人账号</span>
+                </div>
               </div>
             </div>
-            <div class="timeline-chips"><span>无需密码</span><span>最快 30 秒</span><span>全程自助</span></div>
+            <div class="timeline-chips">
+              <span>1 对 1 跟进</span>
+              <span>无需密码</span>
+              <span>本人账号开通</span>
+              <span>失败按规则退</span>
+            </div>
           </aside>
         </div>
       </div>
@@ -286,9 +318,9 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
       <div class="container">
         <div class="section-label">立即开始</div>
         <h2 class="section-title">解锁你的 <span class="gradient-text">AI 全能助手</span></h2>
-        <p class="section-sub">添加客服微信确认账号状态，也可以后续接入自助购买链接。</p>
+        <p class="section-sub">添加客服微信确认账号状态与套餐，确认后再付款开通。</p>
         <div class="hero-btns" style="margin-top:38px;margin-bottom:0;">
-          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
           <a class="pill secondary" href="#services">查看套餐</a>
         </div>
         <div class="cta-points"><span>✓ 无需注册</span><span>✓ {pay.ctaPoint}</span><span>✓ {policy.refund}</span></div>

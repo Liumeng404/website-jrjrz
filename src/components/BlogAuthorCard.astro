@@ -1,0 +1,24 @@
+---
+/**
+ * 博客侧栏 · 作者介绍（Semrush 右侧作者卡）
+ * 展示统一：露梦 + 站点 LOGO
+ */
+const authorName = '露梦';
+const authorBio =
+  '露梦专注 AI 订阅代充与开通协助，分享 ChatGPT、Claude、Grok 等实用教程与避坑经验，帮国内用户更稳妥地用上 AI 工具。';
+const avatarSrc = '/images/logo.jpg';
+---
+
+<section class="blog-author-card blog-author-card--sidebar" aria-label="作者简介">
+  <div class="blog-author-head">
+    <img
+      class="blog-author-avatar"
+      src={avatarSrc}
+      alt={`${authorName} 头像`}
+      width="56"
+      height="56"
+    />
+    <h3 class="blog-author-name">{authorName}</h3>
+  </div>
+  <p class="blog-author-bio">{authorBio}</p>
+</section>

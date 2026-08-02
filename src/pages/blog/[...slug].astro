@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../layouts/BlogPost.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import BlogSubNav from '../../components/BlogSubNav.astro';
+import BlogPromoCard from '../../components/BlogPromoCard.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -18,6 +19,20 @@ const { Content, headings } = await render(post);
 
 const siteUrl = 'https://www.jrjrz.com';
 const pageUrl = `${siteUrl}/blog/${post.id}/`;
+
+/** 按 slug / 标签 / 标题推断侧栏广告业务线 */
+function resolveAdProduct(
+  id: string,
+  tags: string[] = [],
+  title = ''
+): 'chatgpt' | 'claude' | 'grok' {
+  const hay = `${id} ${tags.join(' ')} ${title}`.toLowerCase();
+  if (/claude|anthropic/.test(hay)) return 'claude';
+  if (/grok|supergrok|\bxai\b/.test(hay)) return 'grok';
+  return 'chatgpt';
+}
+
+const adProduct = resolveAdProduct(post.id, post.data.tags, post.data.title);
 
 /** 转为 ISO8601（头条时间因子） */
 function toIso(d: Date): string {
@@ -93,8 +108,11 @@ const blogJsonLd = {
             <Content />
           </BlogPost>
         </div>
-        <Sidebar headings={headings} />
+        <Sidebar headings={headings} adProduct={adProduct} />
       </div>
     </div>
   </section>
+
+  <!-- 组件1：延迟出现的业务认知浮层（非侧栏常驻） -->
+  <BlogPromoCard />
 </BaseLayout>

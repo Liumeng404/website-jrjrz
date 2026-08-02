@@ -1,0 +1,42 @@
+---
+/**
+ * 博客侧栏 · 广告位（Semrush Try 结构）
+ * 按业务线切换标题：chatgpt | claude | grok
+ */
+interface Props {
+  product?: 'chatgpt' | 'claude' | 'grok';
+}
+
+const { product = 'chatgpt' } = Astro.props;
+
+const copy = {
+  chatgpt: {
+    title: '需要开通 ChatGPT Plus / Pro？',
+    desc: '原账号开通 · 微信支付',
+    href: '/chatgpt/',
+  },
+  claude: {
+    title: '需要开通 Claude Pro？',
+    desc: '原账号开通 · 微信支付',
+    href: '/claude/',
+  },
+  grok: {
+    title: '需要开通 SuperGrok？',
+    desc: '原账号开通 · 微信支付',
+    href: '/grok/',
+  },
+} as const;
+
+const c = copy[product];
+---
+
+<section class="blog-ad-card" aria-label={c.title}>
+  <h3 class="blog-ad-title">{c.title}</h3>
+  <p class="blog-ad-desc">{c.desc}</p>
+  <button class="blog-ad-cta" type="button" onclick="openQrModal()">
+    联系客服购买
+  </button>
+  <p class="blog-ad-foot">
+    <a href={c.href}>查看套餐与价格 →</a>
+  </p>
+</section>

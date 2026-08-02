@@ -4,13 +4,11 @@
  * 全部售价从 public/prices.json 读取，勿在页面写死价格数字。
  */
 import ProductLayout from '../layouts/ProductLayout.astro';
-import { getShopUrl } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 const prices = loadPrices();
 const p = prices.chatgpt;
 const pay = prices.payment;
-const shopUrl = getShopUrl();
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
@@ -56,7 +54,7 @@ const serviceJsonLd = {
         <a href="#choose">怎么选</a>
         <a href="/chatgpt-pro/">Pro 专页</a>
         <a href="#how">购买流程</a>
-        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
+        <button class="pill small" type="button" onclick="openQrModal()">联系客服购买</button>
       </div>
     </div>
   </nav>
@@ -87,7 +85,7 @@ const serviceJsonLd = {
         </div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看价格与套餐</a>
-          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">购买前咨询</button>
         </div>
 
         <div class="hero-proof" aria-label="服务要点">
@@ -146,7 +144,7 @@ const serviceJsonLd = {
               <li>购买前确认账号当前订阅状态</li>
               <li>轻度聊天用户可以继续使用免费版</li>
             </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Plus</a>
+            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Plus</button>
             <div class="plan-note">日常高频首选 · 先确认账号状态</div>
           </article>
 
@@ -177,7 +175,7 @@ const serviceJsonLd = {
               <li>会员与 API 余额属于不同计费体系</li>
               <li>具体模型与额度以账号内展示为准</li>
             </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 5x</a>
+            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 5x</button>
             <div class="plan-note"><a href="/chatgpt-pro/">查看 Pro 专页与选购建议 →</a></div>
           </article>
 
@@ -208,7 +206,7 @@ const serviceJsonLd = {
               <li>由客服按账号状态跟进处理</li>
               <li>具体可用能力以账号实际显示为准</li>
             </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">购买 Pro 20x</a>
+            <button class="plan-cta" type="button" onclick="openQrModal()">咨询 Pro 20x</button>
             <div class="plan-note"><a href="/chatgpt-pro/">查看 Pro 专页与风险说明 →</a></div>
           </article>
         </div>
@@ -251,7 +249,7 @@ const serviceJsonLd = {
               告诉我们你主要做写作、代码、研究还是文件处理，以及每天大概使用多久，先判断是否真的需要 Pro。
             </p>
           </div>
-          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺选购</a>
+          <button class="pill" type="button" onclick="openQrModal()">联系客服判断</button>
         </div>
       </div>
     </section>
@@ -537,7 +535,7 @@ const serviceJsonLd = {
           发送“当前账号是否已有会员、主要使用场景、计划购买的套餐”，客服先帮助核对。
         </p>
         <div class="hero-actions">
-          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill" type="button" onclick="openQrModal()">添加客服微信</button>
           <a class="pill secondary" href="#plans">返回套餐</a>
         </div>
       </div>
@@ -546,7 +544,7 @@ const serviceJsonLd = {
 
   <div class="mobile-sticky-cta" aria-label="移动端快捷操作">
     <a class="pill secondary" href="#plans">查看价格</a>
-    <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
+    <button class="pill" type="button" onclick="openQrModal()">联系客服购买</button>
   </div>
 
   <script slot="scripts" is:inline>

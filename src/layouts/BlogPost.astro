@@ -20,7 +20,9 @@ const dateFmt = new Intl.DateTimeFormat('zh-CN', {
 const pubStr = dateFmt.format(frontmatter.pubDate);
 const updStr = frontmatter.updatedDate ? dateFmt.format(frontmatter.updatedDate) : '';
 const tags = frontmatter.tags || [];
-const author = frontmatter.author || '露梦';
+/** 展示层统一为露梦 */
+const author = '露梦';
+const avatarSrc = '/images/logo.jpg';
 ---
 
 <article>
@@ -33,7 +35,7 @@ const author = frontmatter.author || '露梦';
     <h1 class="article-title">{frontmatter.title}</h1>
     <div class="article-meta">
       <div class="article-author-info">
-        <span>👤</span>
+        <img class="article-author-avatar" src={avatarSrc} alt={`${author} 头像`} width="28" height="28" />
         <span>{author}</span>
       </div>
       <span>📅 {pubStr}</span>

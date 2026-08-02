@@ -13,7 +13,10 @@ interface Props {
   author?: string;
 }
 
-const { title, description, href, pubDate, image, tags = [], author = '露梦' } = Astro.props;
+const { title, description, href, pubDate, image, tags = [] } = Astro.props;
+/** 展示层统一作者 */
+const author = '露梦';
+const avatarSrc = '/images/logo.jpg';
 
 const dateFmt = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
@@ -48,7 +51,7 @@ const readMin = '2 分钟';
         <span class="blog-card-read">· {readMin}</span>
       </div>
       <div class="blog-card-author">
-        <span class="blog-card-avatar">👤</span>
+        <img class="blog-card-avatar" src={avatarSrc} alt="" width="22" height="22" />
         <span>{author}</span>
       </div>
     </div>

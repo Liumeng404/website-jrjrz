@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import QrModal from '../components/QrModal.astro';
 import { loadSiteConfig } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
@@ -226,13 +227,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
       </div>
     </footer>
 
-    <div class="qr-modal" id="qrModal" aria-hidden="true">
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
-        <div class="section-label" id="modalTitle" style="text-align:center;">添加客服微信</div>
-        <img class="qr-image" src="/images/qrcode.png" alt="客服微信二维码" />
-      </div>
-    </div>
+    <QrModal />
 
     <!-- 博客等页面可在正文使用 data-price / data-price-text，与服务页同一 prices.json -->
     <script is:inline src="/js/apply-prices.js"></script>
@@ -254,16 +249,23 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
 
       function openQrModal() {
         var modal = document.getElementById('qrModal');
+        if (!modal) return;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('qr-modal-open');
       }
       function closeQrModal() {
         var modal = document.getElementById('qrModal');
+        if (!modal) return;
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('qr-modal-open');
       }
-      document.getElementById('qrModal').addEventListener('click', function (event) {
+      document.getElementById('qrModal')?.addEventListener('click', function (event) {
         if (event.target === event.currentTarget) closeQrModal();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeQrModal();
       });
 
       document.querySelectorAll('.faq-item').forEach(function (item) {

@@ -32,7 +32,11 @@ const products = [
       ) : (
         <a href="/">首页</a>
       )}
-      <a class="pill small" href="javascript:void(0)" onclick="openQrModal()">联系客服</a>
+      {showAllPosts ? (
+        <button class="pill small" type="button" data-blog-promo-trigger>联系客服</button>
+      ) : (
+        <button class="pill small" type="button" onclick="openQrModal()">联系客服</button>
+      )}
     </div>
   </div>
 </nav>

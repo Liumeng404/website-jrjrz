@@ -1,0 +1,189 @@
+---
+/**
+ * 博客详情 · 业务认知浮层（Semrush 顶栏下拉风格）
+ * 进页约 2s 自动出现；内容左→右浮现；可关闭
+ */
+const benefits = [
+  'ChatGPT / Claude / Grok 都能办',
+  '开到你自己的账号，非共享',
+  '微信人民币付款，不用外卡',
+  '站上价格透明，先看再决定',
+  '先确认账号再付款，少踩坑',
+  '1 对 1 跟进到开通验收',
+];
+---
+
+<div
+  class="blog-promo-float"
+  id="blogPromoFloat"
+  aria-hidden="true"
+  data-state="closed"
+>
+  <div
+    class="blog-promo-float-panel"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="blogPromoTitle"
+    aria-describedby="blogPromoDesc"
+  >
+    <button
+      class="blog-promo-float-close"
+      type="button"
+      aria-label="关闭"
+      data-blog-promo-close
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+
+    <div class="blog-promo-float-inner">
+      <p class="blog-promo-float-kicker blog-promo-anim" style="--i: 0">露梦AI Store</p>
+      <h3 class="blog-promo-float-title blog-promo-anim" id="blogPromoTitle" style="--i: 1">
+        没有海外卡，也能开通 AI 会员
+      </h3>
+      <p class="blog-promo-float-lead blog-promo-anim" id="blogPromoDesc" style="--i: 2">
+        我们帮国内用户办理 <strong>ChatGPT、Claude、Grok</strong> 订阅开通。看完这篇需要开通的话，可以直接找我们。
+      </p>
+
+      <ul class="blog-promo-float-list">
+        {benefits.map((text, i) => (
+          <li class="blog-promo-anim" style={`--i: ${3 + i}`}>
+            <span class="blog-promo-float-check" aria-hidden="true">✓</span>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p class="blog-promo-float-note blog-promo-anim" style="--i: 9">
+        站上先看懂教程和价格；需要办理时加微信说明需求即可。
+      </p>
+
+      <div class="blog-promo-float-actions blog-promo-anim" style="--i: 10">
+        <button class="blog-promo-float-cta" type="button" data-blog-promo-cta>
+          添加客服微信，确认开通
+        </button>
+        <p class="blog-promo-float-foot">备注想开的套餐，处理更快</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('blogPromoFloat');
+    if (!root) return;
+
+    var STORAGE_KEY = 'jrjrz_blog_promo_dismissed_v2';
+    var DELAY_MS = 2000;
+
+    function isDismissed() {
+      try {
+        return sessionStorage.getItem(STORAGE_KEY) === '1';
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function setDismissed() {
+      try {
+        sessionStorage.setItem(STORAGE_KEY, '1');
+      } catch (e) {}
+    }
+
+    function finishAnims(el) {
+      try {
+        if (el && el.getAnimations) {
+          el.getAnimations({ subtree: true }).forEach(function (a) {
+            try {
+              a.finish();
+            } catch (e) {}
+          });
+        }
+      } catch (e) {}
+    }
+
+    function openPromo() {
+      if (isDismissed()) return;
+      if (root.classList.contains('is-visible')) return;
+
+      root.dataset.state = 'open';
+      root.setAttribute('aria-hidden', 'false');
+      // 同时加上 visible + open：外层 display，内层动画类
+      root.classList.add('is-visible', 'is-open');
+    }
+
+    function closePromo(persist) {
+      root.classList.remove('is-open');
+      root.setAttribute('aria-hidden', 'true');
+      if (persist !== false) setDismissed();
+
+      var done = function () {
+        root.classList.remove('is-visible');
+        root.dataset.state = 'closed';
+        root.removeEventListener('transitionend', onEnd);
+      };
+      var onEnd = function (e) {
+        if (e.target === root.querySelector('.blog-promo-float-panel')) done();
+      };
+      root.addEventListener('transitionend', onEnd);
+      // 兜底：无 transition 时也能收起
+      window.setTimeout(done, 400);
+    }
+
+    root.querySelectorAll('[data-blog-promo-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closePromo(true);
+      });
+    });
+
+    var cta = root.querySelector('[data-blog-promo-cta]');
+    if (cta) {
+      cta.addEventListener('click', function () {
+        setDismissed();
+        closePromo(true);
+        if (typeof openQrModal === 'function') openQrModal();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && root.classList.contains('is-open')) closePromo(true);
+    });
+
+    document.querySelectorAll('[data-blog-promo-trigger]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        try {
+          sessionStorage.removeItem(STORAGE_KEY);
+        } catch (err) {}
+        // 手动打开：先清动画状态
+        root.classList.remove('is-open', 'is-visible');
+        finishAnims(root);
+        openPromo();
+      });
+    });
+
+    // 暴露给调试 / 外部：控制台可执行 openBlogPromo()
+    window.openBlogPromo = function () {
+      try {
+        sessionStorage.removeItem(STORAGE_KEY);
+      } catch (e) {}
+      root.classList.remove('is-visible', 'is-open');
+      openPromo();
+    };
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      DELAY_MS = 500;
+    }
+
+    // 直接定时弹出（不依赖 load/rAF，避免漏触发）
+    window.setTimeout(function () {
+      openPromo();
+    }, DELAY_MS);
+
+    // 兜底再试一次（防首次被其它脚本打断）
+    window.setTimeout(function () {
+      if (!root.classList.contains('is-visible') && !isDismissed()) {
+        openPromo();
+      }
+    }, DELAY_MS + 800);
+  })();
+</script>

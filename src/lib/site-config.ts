@@ -20,7 +20,7 @@ export type FooterColumn = {
 };
 
 export type SiteConfig = {
-  /** 联动小铺 / 自助下单页（核心 CTA 跳转） */
+  /** 联动小铺链接（备用，当前主 CTA 已改回微信） */
   shopUrl: string;
   tdk: {
     home: TdkBlock;

@@ -1,0 +1,79 @@
+---
+/**
+ * 全站客服微信弹窗（横向）
+ * 左：购买流程（提前告知）· 右：二维码
+ */
+---
+
+<div class="qr-modal" id="qrModal" aria-hidden="true">
+  <div
+    class="modal-card modal-card--split"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    aria-describedby="modalDesc"
+  >
+    <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">
+      <span aria-hidden="true">×</span>
+    </button>
+
+    <div class="qr-modal-body">
+      <!-- 左：购买流程 -->
+      <div class="qr-modal-panel qr-modal-panel--flow">
+        <div class="qr-modal-badge">购买须知</div>
+        <h2 class="qr-modal-title" id="modalTitle">怎么购买</h2>
+        <p class="qr-modal-lead" id="modalDesc">
+          本站展示价格与套餐，<strong>下单在微信完成</strong>。先确认再付款，避免付错套餐。
+        </p>
+
+        <ol class="qr-steps">
+          <li class="qr-step">
+            <span class="qr-step-num" aria-hidden="true">1</span>
+            <div class="qr-step-body">
+              <strong>添加客服微信</strong>
+              <p>用手机微信扫右侧二维码，备注想开的套餐。</p>
+            </div>
+          </li>
+          <li class="qr-step">
+            <span class="qr-step-num" aria-hidden="true">2</span>
+            <div class="qr-step-body">
+              <strong>说明你的需求</strong>
+              <p>告诉客服：套餐名称、账号是否已有会员。我们先确认能否开通。</p>
+            </div>
+          </li>
+          <li class="qr-step">
+            <span class="qr-step-num" aria-hidden="true">3</span>
+            <div class="qr-step-body">
+              <strong>确认后微信支付</strong>
+              <p>价格与网站一致。确认无误后再付款，开通到你本人账号。</p>
+            </div>
+          </li>
+        </ol>
+
+        <ul class="qr-trust-row" aria-label="服务保障">
+          <li>1 对 1 跟进</li>
+          <li>无需密码</li>
+          <li>本人账号开通</li>
+          <li>失败按规则退</li>
+        </ul>
+      </div>
+
+      <!-- 右：二维码 -->
+      <div class="qr-modal-panel qr-modal-panel--qr">
+        <p class="qr-panel-kicker">扫码添加客服</p>
+        <div class="qr-frame" aria-hidden="true">
+          <span class="qr-scan-line"></span>
+          <img
+            class="qr-image"
+            src="/images/qrcode.png"
+            alt="客服微信二维码"
+            width="200"
+            height="200"
+          />
+        </div>
+        <p class="qr-hint">微信扫一扫 · 备注套餐更快处理</p>
+        <p class="qr-reassure">仅用于订单沟通，不推销无关内容</p>
+      </div>
+    </div>
+  </div>
+</div>

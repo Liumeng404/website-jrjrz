@@ -3,6 +3,7 @@
  * 产品服务页布局（ChatGPT / Claude / SuperGrok）
  * 价格、付款方式、售后规则统一来自 public/prices.json + site-config.json
  */
+import QrModal from '../components/QrModal.astro';
 import { loadSiteConfig } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
@@ -151,14 +152,7 @@ const allJsonLd = [
       </div>
     </footer>
 
-    <div class="qr-modal" id="qrModal" aria-hidden="true">
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="modal-close" type="button" onclick="closeQrModal()" aria-label="关闭">×</button>
-        <div class="section-label" id="modalTitle">添加客服微信</div>
-        <img class="qr-image" src="/images/qrcode.png" alt="客服微信二维码" />
-        <p class="qr-hint">购买前请备注目标套餐，先确认账号状态。</p>
-      </div>
-    </div>
+    <QrModal />
 
     <script is:inline src="/js/product-page.js"></script>
     <slot name="scripts" />

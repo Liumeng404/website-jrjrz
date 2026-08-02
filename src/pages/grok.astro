@@ -1,18 +1,16 @@
 ---
 /**
  * SuperGrok 服务页
- * 售价从 public/prices.json 读取；购买 CTA 跳转联动小铺。
+ * 售价从 public/prices.json 读取；购买 CTA 打开客服微信。
  * 当前仅提供月付方案。
  */
 import ProductLayout from '../layouts/ProductLayout.astro';
-import { getShopUrl } from '../lib/site-config';
 import { loadPrices } from '../lib/prices';
 
 const prices = loadPrices();
 const g = prices.grok;
 const pay = prices.payment;
 const policy = prices.policy;
-const shopUrl = getShopUrl();
 ---
 
 <ProductLayout page="grok">
@@ -22,7 +20,7 @@ const shopUrl = getShopUrl();
       <div class="sub-actions">
         <a href="#plans">套餐</a>
         <a href="#how">怎么开通</a>
-        <a class="pill small" href={shopUrl} target="_blank" rel="noopener noreferrer">去购买</a>
+        <button class="pill small" type="button" onclick="openQrModal()">联系客服</button>
       </div>
     </div>
   </nav>
@@ -41,7 +39,7 @@ const shopUrl = getShopUrl();
         <div class="note-pill">当前月付 ¥{g.monthly}</div>
         <div class="hero-actions">
           <a class="pill" href="#plans">查看套餐</a>
-          <a class="pill secondary" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill secondary" type="button" onclick="openQrModal()">联系客服</button>
         </div>
       </div>
     </section>
@@ -50,7 +48,7 @@ const shopUrl = getShopUrl();
       <div class="container">
         <div class="section-label reveal">SuperGrok 订阅方案</div>
         <h2 class="section-title reveal">月付开通，直充原账号</h2>
-        <p class="section-sub reveal">直充自用账号，不提供共享账号。当前仅提供月付方案，价格以本页与小铺实时展示为准。</p>
+        <p class="section-sub reveal">直充自用账号，不提供共享账号。当前仅提供月付方案，价格以本页及客服确认为准。</p>
 
         <div class="plans-grid one-up">
           <article class="plan-card recommended reveal" style="--delay: 80ms;">
@@ -70,7 +68,7 @@ const shopUrl = getShopUrl();
               <li>开通过程无需提交账号密码</li>
               <li>遇到异常可联系人工客服处理</li>
             </ul>
-            <a class="plan-cta" href={shopUrl} target="_blank" rel="noopener noreferrer">立即购买</a>
+            <button class="plan-cta" type="button" onclick="openQrModal()">联系客服购买</button>
             <div class="plan-note">原账号直充 · 无需密码 · 人工支持</div>
           </article>
         </div>
@@ -86,7 +84,7 @@ const shopUrl = getShopUrl();
           <article class="step-card reveal" style="--delay: 80ms;">
             <div class="step-num">01</div>
             <h3>确认需求</h3>
-            <p>在小铺下单月付方案，或联系客服说明开通需求，确认可操作后再付款。</p>
+            <p>联系客服说明开通需求与账号情况，确认可操作后再付款。</p>
           </article>
           <article class="step-card reveal" style="--delay: 160ms;">
             <div class="step-num">02</div>
@@ -140,7 +138,7 @@ const shopUrl = getShopUrl();
           <div class="faq-item">
             <div class="faq-q">SuperGrok 一个月多少钱？<span class="faq-icon">+</span></div>
             <div class="faq-a">
-              当前月付价格为 ¥{g.monthly}。价格、库存与可操作状态以本页及小铺实时展示为准。
+              当前月付价格为 ¥{g.monthly}。价格、库存与可操作状态以本页及客服确认为准。
             </div>
           </div>
           <div class="faq-item">
@@ -171,9 +169,9 @@ const shopUrl = getShopUrl();
       <div class="container">
         <div class="section-label">立即开始</div>
         <h2 class="section-title">安排 SuperGrok 月付开通</h2>
-        <p class="section-sub">在小铺下单月付方案；如有账号状态疑问，也可先联系客服确认。</p>
+        <p class="section-sub">添加客服微信说明月付需求；如有账号状态疑问，可先确认再付款。</p>
         <div class="hero-actions">
-          <a class="pill" href={shopUrl} target="_blank" rel="noopener noreferrer">去小铺购买</a>
+          <button class="pill" type="button" onclick="openQrModal()">添加微信</button>
           <a class="pill secondary" href="#plans">查看套餐</a>
         </div>
       </div>

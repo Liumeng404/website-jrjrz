@@ -31,6 +31,7 @@
     if (!modal) return;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('qr-modal-open');
   };
 
   window.closeQrModal = function closeQrModal() {
@@ -38,6 +39,7 @@
     if (!modal) return;
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('qr-modal-open');
   };
 
   window.copyText = function copyText(target, text) {
@@ -64,4 +66,8 @@
       if (event.target === event.currentTarget) window.closeQrModal();
     });
   }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') window.closeQrModal();
+  });
 })();
