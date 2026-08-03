@@ -5,21 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
     <title>内容管理</title>
+    <style>
+      /* 顶部工具条：Decap 3.x 无 registerAdditionalLink，入口放这里 */
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      #admin-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 99999;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 16px;
+        padding: 10px 16px;
+        background: #0f172a;
+        color: #e2e8f0;
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          'PingFang SC',
+          'Microsoft YaHei',
+          sans-serif;
+        font-size: 14px;
+        border-bottom: 1px solid #1e293b;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+      }
+      #admin-topbar .brand {
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        color: #f8fafc;
+      }
+      #admin-topbar .sep {
+        width: 1px;
+        height: 16px;
+        background: #334155;
+      }
+      #admin-topbar a {
+        color: #93c5fd;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: #1e3a5f;
+        border: 1px solid #2563eb55;
+      }
+      #admin-topbar a:hover {
+        background: #1d4ed8;
+        color: #fff;
+      }
+      #admin-topbar .hint {
+        color: #94a3b8;
+        font-size: 12px;
+      }
+      /* Decap 挂到剩余高度，避免顶栏被盖住 */
+      #nc-root {
+        height: calc(100% - 48px);
+        min-height: calc(100vh - 48px);
+      }
+      #nc-root > div {
+        min-height: inherit;
+      }
+    </style>
   </head>
   <body>
+    <div id="admin-topbar">
+      <span class="brand">露梦内容后台</span>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="/admin/baidu.html">百度 URL 推送</a>
+      <span class="hint">手动触发 · 发文不自动推 · 每日约 10 条</span>
+    </div>
+    <!-- Decap 挂载点：见 https://decapcms.org/docs/custom-mounting/ -->
+    <div id="nc-root"></div>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      // 侧栏入口：百度主动推送（手动触发，不随发文自动推）
-      if (window.CMS && typeof CMS.registerAdditionalLink === 'function') {
-        CMS.registerAdditionalLink({
-          id: 'baidu-url-push',
-          title: '百度 URL 推送',
-          data: '/admin/baidu.html',
-          options: {
-            icon: 'upload',
-          },
-        });
-      }
-    </script>
   </body>
 </html>
