@@ -8,7 +8,7 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# 百度主动推送：侧栏「百度 URL 推送」→ /admin/baidu.html（手动触发，发文不自动推）
+# 百度主动推送：站点配置 →「百度 URL 推送」
 # Cloudflare 环境变量：BAIDU_PUSH_SECRET（必填）、BAIDU_PUSH_TOKEN（可选）
 
 collections:
@@ -16,6 +16,19 @@ collections:
   - name: "settings"
     label: "站点配置"
     files:
+      - name: "baidu_push"
+        label: "百度 URL 推送"
+        file: "public/baidu-push.json"
+        fields:
+          - label: "推送页地址"
+            name: "url"
+            widget: "string"
+            default: "https://www.jrjrz.com/admin/baidu.html"
+            hint: "复制此地址到新标签页打开。发文/部署不会自动推百度。"
+          - label: "使用说明"
+            name: "note"
+            widget: "text"
+            default: "1. 打开推送页地址 2. 填入 Cloudflare 环境变量 BAIDU_PUSH_SECRET 3. 粘贴或从 sitemap 加载 URL（每日约 10 条）4. 点推送到百度"
       - name: "prices"
         label: "套餐价格与规则"
         file: "public/prices.json"

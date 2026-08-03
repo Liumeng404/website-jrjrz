@@ -1,0 +1,4 @@
+{
+  "url": "https://www.jrjrz.com/admin/baidu.html",
+  "note": "1. 打开推送页地址 https://www.jrjrz.com/admin/baidu.html\n2. 填入 Cloudflare 环境变量 BAIDU_PUSH_SECRET（管理密钥）\n3. 粘贴 URL，或从 sitemap 加载（每日约 10 条）\n4. 点「推送到百度」\n\n说明：发文/部署不会自动推送，需在此手动触发。"
+}
