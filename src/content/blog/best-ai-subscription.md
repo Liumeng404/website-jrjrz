@@ -130,8 +130,8 @@ OpenAI 的 GPT-5.6 Sol 作为前沿主力模型，在面对真正复杂的系统
 官方定价为 $20/月（另加税费）。由于 OpenAI 对国内银行卡及网络环境有严格风控，许多国内用户常遇到银行卡被拒或账号问题。
 
 > 延伸阅读：
-> - [ChatGPT Plus 值得开通吗？详细功能拆解](/blog/is-chatgpt-plus-worth-it/)
-> - [ChatGPT Plus 额度规则与用尽应对方案](/blog/chatgpt-plus-limits/)
+> - [ChatGPT Plus 值得开通吗？详细功能拆解](/blog/chatgpt-plus-zhide-kaitong-ma/)
+> - [ChatGPT Plus 额度规则与用尽应对方案](/blog/chatgpt-plus-edu-bugou-yong/)
 
 > **已经决定选择 ChatGPT Plus？**  
 > 如果你具备海外信用卡与合规支付环境，建议直接在官网订阅。  
@@ -344,8 +344,8 @@ Claude 3.7 Sonnet 系列在细腻文本质感、复杂逻辑推导与 Claude Cod
 - **使用建议：** 国内订阅前务必做好固定网络环境配置，避免频繁切换节点导致账号异常。
 
 > 延伸阅读：
-> - [Claude Pro 值得买吗？深度能力分析](/blog/is-claude-pro-worth-it/)
-> - [Claude Pro vs ChatGPT Plus 场景横向对比](/blog/claude-vs-chatgpt/)
+> - [Claude Pro 值得买吗？深度能力分析](/blog/claude-pro-zhide-mai-ma/)
+> - [Claude Pro vs ChatGPT Plus 场景横向对比](/blog/claude-pro-chatgpt-plus-zenme-xuan/)
 
 > **依然决定使用 Claude Pro？**  
 > 如果你的工作流极其依赖 Claude 的文字与代码能力，露梦AI 提供 Claude Pro 国内开通支持。建议在开通前仔细了解使用网络规范与风控注意事项。  
@@ -367,7 +367,7 @@ Claude 3.7 Sonnet 系列在细腻文本质感、复杂逻辑推导与 Claude Cod
 
 > 💡 **相关对比阅读：**  
 > 如果你已经排除了 SuperGrok，只想在 $20 档的三家老牌产品中做精细横评，请参考我们专门的三方评测：  
-> 👉 [《ChatGPT Plus、Claude Pro、Gemini Pro 怎么选？2026价格与使用场景对比》](/blog/chatgpt-vs-claude-vs-gemini/)
+> 👉 [《ChatGPT Plus、Claude Pro、Gemini Pro 怎么选？2026价格与使用场景对比》](/blog/chatgpt-plus-claude-pro-gemini-pro-zenme-xuan/)
 
 ---
 
