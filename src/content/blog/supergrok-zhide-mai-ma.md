@@ -1,11 +1,17 @@
 ---
-title: "SuperGrok 值得买吗？Grok 4.5 + Grok Build 实测、优缺点和适合人群"
-description: "SuperGrok 值得买吗？本文结合一个月实际使用体验，分析 SuperGrok 价格、Grok 4.5、Grok Build、X 搜索、优缺点以及适合人群，并告诉你 SuperGrok 和 ChatGPT 应该怎么选。"
+title: SuperGrok 值得买吗？Grok 4.6 + Grok Build 实测、优缺点和适合人群
+description: SuperGrok 值得买吗？本文结合一个月实际使用体验，分析 SuperGrok 价格、Grok 4.5、Grok Build、X
+  搜索、优缺点以及适合人群，并告诉你 SuperGrok 和 ChatGPT 应该怎么选。
 pubDate: 2026-08-17
 draft: false
-tags: ["SuperGrok", "Grok", "Grok Build", "订阅", "值得买"]
-author: "露梦"
-image: "https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/supergrok-zhide-mai-ma/img-1.png"
+image: https://pub-f83f8ab72bd843c1aa01040a49d20ad8.r2.dev/blog/supergrok-zhide-mai-ma/img-1.png
+tags:
+  - SuperGrok
+  - Grok
+  - Grok Build
+  - 订阅
+  - 值得买
+author: 露梦
 ---
 SuperGrok 值得买吗？
 
