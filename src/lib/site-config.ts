@@ -20,7 +20,7 @@ export type FooterColumn = {
 };
 
 export type SiteConfig = {
-  /** 联动小铺链接（备用，当前主 CTA 已改回微信） */
+  /** 首页进店选购链接 */
   shopUrl: string;
   tdk: {
     home: TdkBlock;
@@ -39,7 +39,7 @@ export type SiteConfig = {
 };
 
 /** 默认小铺地址；配置缺失时回退 */
-export const DEFAULT_SHOP_URL = 'https://pay.ldxp.cn/shop/GJ8N9HL8';
+export const DEFAULT_SHOP_URL = 'https://www.16688.com.cn/shop/S696428';
 
 export function getShopUrl(config?: SiteConfig): string {
   return (config ?? loadSiteConfig()).shopUrl || DEFAULT_SHOP_URL;

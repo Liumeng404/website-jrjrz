@@ -154,6 +154,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <slot name="navigation">
     <nav class="top-nav">
       <div class="nav-inner">
         <a class="logo" href="/">
@@ -168,6 +169,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
         </div>
       </div>
     </nav>
+    </slot>
 
     <slot />
 

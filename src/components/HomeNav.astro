@@ -1,0 +1,107 @@
+---
+interface Props { shopUrl: string; }
+const { shopUrl } = Astro.props;
+---
+
+<header class="home-header">
+  <nav class="home-nav" aria-label="首页主导航">
+    <a class="home-brand" href="/" aria-label="露梦AI Store 首页">
+      <img src="/images/logo.jpg" width="34" height="34" alt="" />
+      <span><strong>露梦<span class="brand-accent">AI Store</span></strong><small>AI 订阅充值服务</small></span>
+    </a>
+    <div class="home-nav-links" id="home-nav-links">
+      <a href="/chatgpt/"><img class="nav-openai-logo" src="/images/openai.svg" width="20" height="20" alt="" />ChatGPT / Codex</a>
+      <a href="/claude/"><img src="/images/claude-color.svg" width="20" height="20" alt="" />Claude</a>
+      <a href="/grok/"><img class="nav-grok-logo" src="/images/grok.svg" width="20" height="20" alt="" />Grok</a>
+      <a href="#benefits">为什么选我们</a>
+      <details class="home-guide-menu">
+        <summary>充值教程 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary>
+        <div class="home-guide-links">
+          <a href="#how"><strong>充值流程</strong><span>了解如何购买与开通</span></a>
+          <a href="#faq"><strong>常见问题</strong><span>套餐、付款与售后说明</span></a>
+          <a href="/blog/chatgpt-plus-zenme-kaitong/"><strong>新手开通指南</strong><span>国内开通 ChatGPT Plus</span></a>
+        </div>
+      </details>
+      <a href="/blog/">攻略</a>
+    </div>
+    <a href={shopUrl} class="home-nav-buy">立即购买</a>
+    <button class="home-menu-toggle" type="button" aria-label="打开导航菜单" aria-controls="home-nav-links" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+    </button>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.home-menu-toggle');
+  const links = document.querySelector<HTMLElement>('.home-nav-links');
+  const guide = document.querySelector<HTMLDetailsElement>('.home-guide-menu');
+  function closeMenu() {
+    links?.classList.remove('is-open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', '打开导航菜单');
+    if (guide) guide.open = false;
+  }
+  toggle?.addEventListener('click', () => {
+    const open = links?.classList.toggle('is-open') ?? false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+  });
+  links?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) closeMenu();
+  });
+  document.addEventListener('click', (event) => {
+    if (!(event.target as HTMLElement).closest('.home-header')) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      const wasOpen = links?.classList.contains('is-open') || guide?.open;
+      closeMenu();
+      if (wasOpen) toggle?.focus();
+    }
+  });
+</script>
+
+<style>
+  .home-header { position: sticky; top: 0; z-index: 70; background: var(--black); color: #fff; }
+  .home-nav { position: relative; display: flex; align-items: center; gap: 24px; max-width: 1180px; height: 68px; padding: 0 24px; margin: auto; }
+  .home-brand { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+  .home-brand img { border-radius: 50%; }
+  .home-brand strong { display: block; font-size: 17px; font-weight: 600; letter-spacing: -.3px; }
+  .brand-accent { color: inherit; }
+  .home-brand small { display: block; margin-top: 2px; color: rgba(255,255,255,.65); font-size: 10px; letter-spacing: .2px; }
+  .home-nav-links { display: flex; align-items: center; justify-content: center; flex: 1; gap: 18px; }
+  .home-nav-links > a, summary { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.82); font-size: 13px; font-weight: 500; white-space: nowrap; }
+  .home-nav-links > a:hover, summary:hover { color: #fff; }
+  .home-nav-links img { object-fit: contain; }
+  .nav-openai-logo, .nav-grok-logo { filter: brightness(0) invert(1); }
+  .home-guide-menu { position: relative; }
+  summary { list-style: none; cursor: pointer; padding: 12px 0; }
+  summary::-webkit-details-marker { display: none; }
+  .home-guide-menu[open] summary { color: #fff; }
+  .home-guide-links { position: absolute; top: calc(100% + 12px); right: -30px; width: 230px; padding: 8px; border-radius: var(--radius-card); background: var(--canvas); box-shadow: var(--shadow-hover); }
+  .home-guide-links a { display: block; padding: 12px; border-radius: 8px; }
+  .home-guide-links a:hover { background: var(--parchment); }
+  .home-guide-links strong { display: block; font-size: 14px; color: var(--ink); }
+  .home-guide-links span { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .home-nav-buy { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 40px; padding: 9px 20px; border-radius: var(--radius-pill); color: #fff; background: var(--primary); font-size: 13px; font-weight: 500; transition: background-color 160ms; }
+  .home-nav-buy:hover { background: #004f9f; }
+  .home-menu-toggle { display: none; }
+  a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px solid var(--primary-on-dark); outline-offset: 4px; border-radius: 6px; }
+  @media (max-width: 1120px) { .home-nav { gap: 18px; padding: 0 22px; } .home-nav-links { gap: 14px; } .home-nav-links > a, summary { font-size: 13px; } .home-brand strong { font-size: 16px; } .home-nav-buy { padding: 10px 20px; } }
+  @media (max-width: 940px) {
+    .home-nav { height: 60px; gap: 12px; padding: 0 18px; }
+    .home-brand { margin-right: auto; }
+    .home-menu-toggle { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 40px; border: 0; border-radius: 8px; background: transparent; color: #fff; cursor: pointer; }
+    .home-menu-toggle:hover { background: var(--tile); }
+    .home-nav-buy { min-height: 40px; padding: 8px 18px; font-size: 13px; }
+    .home-nav-links { display: none; position: absolute; top: calc(100% + 8px); left: 14px; right: 14px; padding: 16px; border-radius: var(--radius-card); background: var(--black); box-shadow: var(--shadow-hover); }
+    .home-nav-links.is-open { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .home-nav-links > a, summary { min-height: 44px; padding: 10px 12px; font-size: 14px; }
+    .home-guide-links { position: static; width: auto; padding: 0 12px; box-shadow: none; background: var(--tile); }
+    .home-guide-links strong { color: #fff; }
+    .home-guide-links span { color: var(--muted-dark); }
+    .home-guide-links a:hover { background: var(--tile-2); }
+  }
+  @media (max-width: 380px) { .home-nav { padding: 0 12px; gap: 8px; } .home-brand { gap: 6px; } .home-brand img { width: 28px; height: 28px; } .home-brand strong { font-size: 14px; } .home-nav-buy { padding: 8px 14px; font-size: 12px; } .home-menu-toggle { width: 32px; } }
+  @media (prefers-reduced-motion: reduce) { .home-nav-buy { transition: none; } .home-nav-buy:hover { transform: none; } }
+</style>
