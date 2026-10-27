@@ -56,6 +56,11 @@ const canonicalHref = isIndexable
 const year = new Date().getFullYear();
 const footer = site.footer;
 
+/** Official CodeHype embed. Injected raw so the served homepage HTML matches it. */
+const codehypeBadge = `<a href="https://www.codehype.ai/product/lumeng-ai-store?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
+  <img src="https://www.codehype.ai/badges/lumeng-ai-store.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="65" loading="lazy" decoding="async" style="display:inline-block;border:0;width:100%;max-width:180px;height:auto;max-height:65px;" />
+</a>`;
+
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -224,6 +229,7 @@ const allJsonLd = [orgJsonLd, websiteJsonLd, ...extraLd];
           <div class="footer-badges">
             <div class="fbadge">{prices.payment.label}</div>
             <div class="fbadge">SSL 加密</div>
+            <Fragment set:html={codehypeBadge} />
           </div>
         </div>
       </div>
