@@ -699,6 +699,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
   padding-top: 22px;
   border-top: 1px solid var(--hairline);
@@ -710,7 +711,9 @@ footer {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
 }
+.footer-badges > a { flex: 0 0 auto; line-height: 0; }
 
 .fbadge {
   padding: 6px 10px;
